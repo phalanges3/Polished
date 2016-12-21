@@ -19,9 +19,6 @@
 
   - ***IMPORTANT***: Never ever work on the master or dev branch! ***IMPORTANT***
 
-
-
-
 ## Process for Working on a New Feature ##
 1. Develop on your new feature branch!
 2. **Commit often.**
@@ -47,10 +44,10 @@
   - git push origin dev
   - git checkout feat/"FEATURENAME"
   - on personal github, submit a PR from dev to dev
-10. You have two choices here: create a new feature branch or return to your previous branch to continue working.
-  1a. Create a new branch:
+10. You have two choices here: create a new feature branch or return to your previous branch to continue working:
+11. Create a NEW branch:
    - git checkout -b feat/"FEATURENAME"
-  1b. Return to previous branch
+12. Return to PREVIOUS branch:
   - git checkout feat/"FEATURENAME"
   - git merge dev
   
