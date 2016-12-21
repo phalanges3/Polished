@@ -5,7 +5,7 @@
 2. Go to our project repository: https://github.com/phalanges3/indulge
 3. Fork the indulge repository to your own Github account.
 4. Clone the indulge repository from your Github account to your local machine.
-  - git clone https://github.com/GITHUBHANDLE/indulge
+  - git clone https://github.com/YOURGITHUBHANDLE/indulge
 5. cd into cloned repo.
 6. Add a remote upstream. 
   - git remote add central https://github.com/phalanges3/indulge
