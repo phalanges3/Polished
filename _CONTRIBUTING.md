@@ -5,7 +5,7 @@
 2. Go to our project repository: https://github.com/phalanges3/indulge
 3. Fork the indulge repository to your own Github account.
 4. Clone the indulge repository from your Github account to your local machine.
-  - git clone https://github.com/<your-github-username>/indulge
+  - git clone https://github.com/YOURGITHUBHANDLE/indulge
 5. cd into cloned repo.
 6. Add a remote upstream. 
   - git remote add central https://github.com/phalanges3/indulge
@@ -34,7 +34,7 @@
   - git pull --rebase central dev
   - git status
 6. Merge current feature branch to origin dev
-  - git merge feat/<feature-name>
+  - git merge feat/"FEATURENAME"
 7. If conflicts, handle them
   - git status
 8. If prompted, follow prompts in git
@@ -45,13 +45,13 @@
   - git status
 ## If you wish to submit a PR
   - git push origin dev
-  - git checkout feat/<feature-name>
+  - git checkout feat/"FEATURENAME"
   - on personal github, submit a PR from dev to dev
 10. You have two choices here: create a new feature branch or return to your previous branch to continue working.
   1a. Create a new branch:
-   - git checkout -b feat/<feature-name>
+   - git checkout -b feat/"FEATURENAME"
   1b. Return to previous branch
-  - git checkout feat/<feature-name>
+  - git checkout feat/"FEATURENAME"
   - git merge dev
   
 ## Commit Messages Format ##
