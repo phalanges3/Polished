@@ -18,7 +18,6 @@ module.exports = {
     User
       .findOne({where: {email: req.query.email}})
       .then((user) => {
-        console.log("found USER: ", user)
         res.send(user)
       })
       .catch((err) => {
@@ -28,7 +27,6 @@ module.exports = {
       })
   },
   updateProfile: (req, res) => {
-    console.log('within update')
     User
       .findOne({where: {email: req.body.email}})
       .then((user) => {
