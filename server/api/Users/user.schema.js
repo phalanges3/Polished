@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
-const db = require('../config/db.config.js') //check filepath
+const db = require('../../config/db.config.js')
+const Review = require('../Reviews/review.schema')
 
 const User = db.define('user', {
   isVendor: {
@@ -50,7 +51,17 @@ const User = db.define('user', {
   },
   zipCode: {
     type: Sequelize.INTEGER
+  },
+  password: {
+    type: Sequelize.STRING
   }
+})
+// relationships
+Review.belongsTo(User)
+User.hasMany(Review)
+
+User.sync().then(() => {
+  console.log('USER table successfully created.')
 })
 
 module.exports = User

@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize')
-const db = require('../config/db.config.js') // check filepath
+const db = require('../../config/db.config.js')
+//const User = require('../Users/user.schema.js')
+// console.log('USER WITHIN REVIEW: ', User)
 
 const Review = db.define('review', {
   rating: {
@@ -15,6 +17,10 @@ const Review = db.define('review', {
     type: Sequelize.STRING
   }
 
+})
+
+Review.sync().then(() => {
+  console.log('Review table successfully created.')
 })
 
 module.exports = Review
