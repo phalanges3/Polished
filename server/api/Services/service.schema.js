@@ -1,35 +1,20 @@
 const Sequelize = require('sequelize')
 const db = require('../../config/db.config.js')
+const User = require('../Users/user.schema')
 
 const Service = db.define('service', {
-  manicure: {
-    type: Sequelize.INTEGER,
-    defaultValue: 1
-  },
-  pedicure: {
-    type: Sequelize.INTEGER,
-    defaultValue: 1
-  },
-  reflexology: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
-  },
-  acrylics: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
-  },
-  gel_polish: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
-  },
-  nail_art: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
-  },
-  sea_salt: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
+  name: {
+    type: Sequelize.STRING,
+    defaultValue: 'sea salt scrub'
   }
+})
+
+// relationships
+Service.belongsToMany(User, {through: 'UsersServices', foreignKey: 'userId'})
+User.belongsToMany(Service, {through: 'UsersServices',  foreignKey: 'serviceId'})
+
+Service.sync().then(() => {
+  console.log('SERVICE table successfully created.')
 })
 
 module.exports = Service

@@ -31,5 +31,6 @@ module.exports = {
           appointment
             .updateAttributes({}) // fill this in
         }
-  }
+  })
+}
 }

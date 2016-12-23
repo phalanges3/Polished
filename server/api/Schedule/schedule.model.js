@@ -2,7 +2,7 @@ const Schedule = require('./schedule.schema')
 
 module.exports = {
 
-  addAppointment: (req, res) => {
+  addAvailability: (req, res) => {
     res.send("works in addApointment")
   }
   
