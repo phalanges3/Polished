@@ -5,11 +5,11 @@ const Sequelize = require('sequelize')
 const creds = require('./credentials')
 
 const DBurl = `postgres://${creds.username}:${creds.password}@elmer.db.elephantsql.com:5432/dbgocjhk`
+
 // Database connection
 const DBConnection = new Sequelize(DBurl)
 
 // Connection testing
-
 DBConnection
     .authenticate()
     .then(() => {
