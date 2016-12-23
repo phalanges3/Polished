@@ -15,4 +15,4 @@ app.listen(PORT, () => {
 
 module.exports = app
 
-//Do I need to serve static files from front-end or ionic does this auto?
+// Do I need to serve static files from front-end or ionic does this auto?
