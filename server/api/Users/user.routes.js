@@ -10,5 +10,9 @@ router.get('/login', (req, res) => {
     console.log("within USER GET login")
     userModel.login(req, res)
 })
+router.put('/update', (req, res) => {
+    console.log("within USER PUT update")
+    userModel.updateProfile(req, res)
+})
 
 module.exports = router

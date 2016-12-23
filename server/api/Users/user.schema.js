@@ -7,9 +7,6 @@ const User = db.define('user', {
     type: Sequelize.INTEGER,
     defaultValue: 0
   },
-  name: {
-    type: Sequelize.STRING
-  },
   profile_image_url: {
     type: Sequelize.STRING
   },
@@ -20,6 +17,9 @@ const User = db.define('user', {
     type: Sequelize.STRING
   },
   email: {
+    type: Sequelize.STRING
+  },
+  password: {
     type: Sequelize.STRING
   },
   phoneNumber: {
@@ -51,9 +51,6 @@ const User = db.define('user', {
   },
   zipCode: {
     type: Sequelize.INTEGER
-  },
-  password: {
-    type: Sequelize.STRING
   }
 })
 // relationships

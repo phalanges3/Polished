@@ -7,3 +7,4 @@ module.exports = {
   userRoute: userRoute,
   userModel: userModel
 }
+// this file is used to export all variations of User from a central location.
