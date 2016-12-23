@@ -8,6 +8,6 @@ router.use('/image', mainRouter.image.imageRoute)
 router.use('/review', mainRouter.review.reviewRoute)
 router.use('/schedule', mainRouter.schedule.scheduleRoute)
 router.use('/service', mainRouter.service.serviceRoute)
-router.use('/user', mainRouter.user.userRoute
+router.use('/user', mainRouter.user.userRoute)
 
 module.exports = router
