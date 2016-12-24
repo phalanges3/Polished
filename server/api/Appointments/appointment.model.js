@@ -53,9 +53,10 @@ module.exports = {
         services_selected: req.body.servicesSelected
       }) //fill this in
       .then((appointment) => {
-        if (appointment)
+        if (appointment) {
           res.send(appointment)
-        })
+        }
+      })
   },
   getAppointments: (req, res) => {
     Appointment
@@ -67,7 +68,6 @@ module.exports = {
       .then((appointment) => {
         res.send(appointment)
       })
-
   },
   updateAppointment: (req, res) => {
     console.log('within update')
@@ -78,6 +78,7 @@ module.exports = {
           appointment
             .updateAttributes({}) // fill this in
         }
-  })
-}
+
+      })
+  }
 }

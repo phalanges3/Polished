@@ -13,10 +13,15 @@ const Review = db.define('review', {
   reviewer_name: {
     type: Sequelize.STRING
   },
+  reviewed_name: {
+    type: Sequelize.STRING
+  },
   review_content: {
     type: Sequelize.STRING
+  },
+  firstName: {
+    type: Sequelize.STRING
   }
-
 })
 
 Review.sync().then(() => {
