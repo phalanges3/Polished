@@ -6,6 +6,10 @@ router.post('/addappointment', (req, res) => {
     console.log("within appointment POST")
     appointmentModel.addAppointment(req, res)
 })
+router.post('/findartists', (req,res) => {
+	console.log("withing get artist")
+	appointmentModel.findAvailableArtists(req, res)
+})
 router.get('/getimage', (req, res) => {
     console.log("within appointment GET")
     appointmentModel.getAppointments(req, res)
