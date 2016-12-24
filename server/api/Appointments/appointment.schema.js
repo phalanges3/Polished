@@ -2,8 +2,8 @@ const Sequelize = require('sequelize')
 const db = require('../../config/db.config.js')
 
 const Appointment = db.define('appointment', {
-  userID : {
-    type:  Sequelize.INTEGER
+  userID: {
+    type: Sequelize.INTEGER
   },
   date: {
     type: Sequelize.DATE
@@ -12,7 +12,7 @@ const Appointment = db.define('appointment', {
     type: Sequelize.TIME
   },
   end: {
-  	 type: Sequelize.TIME
+  	type: Sequelize.TIME
   },
   houseNumber: {
     type: Sequelize.INTEGER
@@ -37,7 +37,7 @@ const Appointment = db.define('appointment', {
   },
   nail_artist_id: Sequelize.INTEGER,
   nail_artist_first: Sequelize.STRING,
-  nail_artist_second:  Sequelize.STRING,
+  nail_artist_second: Sequelize.STRING,
   services_selected: Sequelize.STRING
 })
 

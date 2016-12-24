@@ -1,10 +1,10 @@
 const Appointment = require('./appointment.schema')
 const User = require('../users/user.schema')
-const Schedule =  require('../Schedule/schedule.schema')
+const Schedule = require('../Schedule/schedule.schema')
 
 module.exports = {
   findAvailableArtists: (req, res) => {
-    var results =  []
+    var results = []
     User.findAll({
       // include: [{
       //   model: Schedule
@@ -14,7 +14,7 @@ module.exports = {
       }
     })
     .then((artist) => {
-      //result is artists in zip
+      // result is artists in zip
       // for(var i = 0; i <  artist.length; i++){
       //   console.log("artist line 16",artist[i].dataValues.id)
       //   Schedule.findAll({
@@ -37,7 +37,7 @@ module.exports = {
   addAppointment: (req, res) => {
     Appointment
       .create({
-        userID : req.body.userID,
+        userID: req.body.userID,
         date: req.body.date,
         start: req.body.start,
         end: req.body.end,
@@ -49,9 +49,9 @@ module.exports = {
         zipCode: req.body.zipCode,
         nail_artist_id: req.body.artistID,
         nail_artist_first: req.body.artistFirst,
-        nail_artist_second:  req.body.artistLast,
+        nail_artist_second: req.body.artistLast,
         services_selected: req.body.servicesSelected
-      }) //fill this in
+      })
       .then((appointment) => {
         if (appointment) {
           res.send(appointment)
@@ -78,7 +78,6 @@ module.exports = {
           appointment
             .updateAttributes({}) // fill this in
         }
-
       })
   }
 }
