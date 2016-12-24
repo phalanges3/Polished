@@ -7,8 +7,6 @@ const creds = require('./credentials')
 // Database connection
 const DBConnection = new Sequelize(creds.DBurl)
 
-console.log('in db file')
-
 // Connection testing
 DBConnection
     .authenticate()
