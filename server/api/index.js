@@ -1,3 +1,4 @@
+const db = require('../config/db.config')
 const express = require('express')
 const router = express.Router()
 const user = require('./Users/index')
@@ -6,6 +7,27 @@ const service = require('./Services/index')
 const review = require('./Reviews/index')
 const image = require('./Image/index')
 const schedule = require('./Schedule/index')
+const mainRoutesΩ = require('./routes.main')
+
+const UsersServices = db.define('UsersServices', {
+  
+})
+
+UsersServices.sync().then(() => {
+  console.log('USERSSERVICES table successfully created.')
+})
+
+user.userSchema.create({
+  firstName: "Ryan",
+  lastName: "Gosling"
+})
+
+service.serviceSchema.create({
+  name: "manicure"
+})
+service.serviceSchema.create({
+  name: "pedicure"
+})
 
 module.exports = {
   user: user,

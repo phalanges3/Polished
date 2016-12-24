@@ -4,10 +4,10 @@ const Sequelize = require('sequelize')
 // Refer to sampleCredentials.json
 const creds = require('./credentials')
 
-const DBurl = `postgres://${creds.username}:${creds.password}@elmer.db.elephantsql.com:5432/dbgocjhk`
-
 // Database connection
-const DBConnection = new Sequelize(DBurl)
+const DBConnection = new Sequelize(creds.DBurl)
+
+console.log('in db file')
 
 // Connection testing
 DBConnection

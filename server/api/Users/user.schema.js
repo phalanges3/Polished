@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize')
 const db = require('../../config/db.config.js')
 const Review = require('../Reviews/review.schema')
+const Appointment = require('../Appointments/appointment.schema')
+const Schedule = require('../Schedule/schedule.schema')
 
 const User = db.define('user', {
   isVendor: {
@@ -56,6 +58,10 @@ const User = db.define('user', {
 // relationships
 Review.belongsTo(User)
 User.hasMany(Review)
+Appointment.belongsTo(User)
+User.hasMany(Appointment)
+Schedule.belongsTo(User)
+User.hasMany(Schedule)
 
 User.sync().then(() => {
   console.log('USER table successfully created.')
