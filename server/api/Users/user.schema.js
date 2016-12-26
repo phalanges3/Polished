@@ -60,7 +60,7 @@ Review.belongsTo(User)
 User.hasMany(Review)
 Appointment.belongsTo(User)
 User.hasMany(Appointment)
-Schedule.belongsTo(User)
+Schedule.belongsTo(User,  {foreignKey: 'userID'})
 User.hasMany(Schedule)
 
 User.sync().then(() => {

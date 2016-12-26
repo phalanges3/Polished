@@ -17,17 +17,17 @@ UsersServices.sync().then(() => {
   console.log('USERSSERVICES table successfully created.')
 })
 
-user.userSchema.create({
-  firstName: "Ryan",
-  lastName: "Gosling"
-})
+// user.userSchema.create({
+//   firstName: "Ryan",
+//   lastName: "Gosling"
+// })
 
-service.serviceSchema.create({
-  name: "manicure"
-})
-service.serviceSchema.create({
-  name: "pedicure"
-})
+// service.serviceSchema.create({
+//   name: "manicure"
+// })
+// service.serviceSchema.create({
+//   name: "pedicure"
+// })
 
 module.exports = {
   user: user,
