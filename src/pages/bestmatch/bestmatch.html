@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Bestmatch
+    </ion-title> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="{{ bestmatch.pic }}" id="bestMatchPic">
+      </ion-thumbnail>
+      <h2> <b>{{ bestmatch.firstName }} {{ bestmatch.lastName }}</b> </h2>
+      <h2> {{ bestmatch.insta }} </h2>
+    </ion-item>
+  </ion-card>
+
+  <ion-card #map id="map">
+    <!--<div #map id="map"></div> -->
+  </ion-card>
+   
+  <br>
+  <ion-card>
+    <ion-card-header>
+      <b>Book Or Search More</b>
+    </ion-card-header>
+    <ion-card-content>
+      Book {{ bestmatch.firstName }} {{ bestmatch.lastName }} now by clicking on the booking button, or try searching more nail artists around your area.
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button full small>Book Now</button>
+  <button ion-button full small (click)="searchMore()">Search more</button>
+  <!--<button ion-button outline>Book Now</button>
+  <button ion-button outline>Search more</button>-->
+  
+</ion-content>
