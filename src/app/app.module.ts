@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BestmatchPage } from '../pages/bestmatch/bestmatch';
 import { SearchmorePage } from '../pages/searchmore/searchmore';
+import {  SelectservicePage } from '../pages/selectservice/selectservice';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchmorePage } from '../pages/searchmore/searchmore';
     HomePage,
     TabsPage,
     BestmatchPage,
-    SearchmorePage
+    SearchmorePage,
+    SelectservicePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,7 +31,8 @@ import { SearchmorePage } from '../pages/searchmore/searchmore';
     HomePage,
     TabsPage,
     BestmatchPage,
-    SearchmorePage
+    SearchmorePage,
+    SelectservicePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
