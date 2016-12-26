@@ -10,20 +10,62 @@ import { NavController, NavParams } from 'ionic-angular';
 
 declare var google;
 
+const markers = [
+  {
+    firstName: 'George',
+    lastName: 'Cantstanya',
+    insta: '@georgy-castans',
+    pic: 'http://vignette1.wikia.nocookie.net/seinfeld/images/7/76/George-costanza.jpg/revision/latest?cb=20110406222711',
+    lat: 34.004433544879845,
+    lng: -118.26428236523441
+  },
+  {
+    firstName: 'Elaine',
+    lastName: 'Benes',
+    insta: '@lainy-benes',
+    pic: 'https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg',
+    lat: 34.031751959497065,
+    lng: -118.22857679882816
+  },
+  {
+    firstName: 'Jerry',
+    lastName: 'Seinfeld',
+    insta: '@jerry-feld',
+    pic: 'http://www.watch-id.com/sites/default/files/upload/sighting/Breitling-watch-Jerry-Seinfeld-2.jpg',
+    lat: 33.963724192230046,
+    lng: -118.20660414257816
+  },
+  {
+    firstName: 'Cosmo',
+    lastName: 'Kraimer',
+    insta: '@cosmo-kraimer',
+    pic: 'https://s-media-cache-ak0.pinimg.com/originals/5e/ec/e4/5eece4dbe2ba07b0bbb70812680cdc54.jpg',
+    lat: 34.03630417378081,
+    lng: -118.27801527539066
+  }
+]
+
 @Component({
   selector: 'page-bestmatch',
   templateUrl: 'bestmatch.html'
 })
+
 export class BestmatchPage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  bestmatch: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.bestmatch = markers[0];
+  }
 
   ionViewDidLoad(){
-    console.log('just loaded')
+    console.log('about to load page and markers')
     this.loadMap();
+    this.addMarkers(markers);
+    console.log('just finished loading markers')
   }
  
   loadMap(){
@@ -32,7 +74,7 @@ export class BestmatchPage {
  
     let mapOptions = {
       center: latLng,
-      zoom: 9,
+      zoom: 10,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
  
@@ -40,17 +82,19 @@ export class BestmatchPage {
  
   }
 
-  addMarker(){
+  addMarkers(nailArtist){
+    for (var i = 0; i < nailArtist.length; i++) {
+      let marker = new google.maps.Marker({
+        map: this.map,
+        animation: google.maps.Animation.DROP,
+        position: {lat: nailArtist[i].lat, lng: nailArtist[i].lng}
+      });
+      console.log('heres position ', marker.position)
  
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: this.map.getCenter()
-    });
+      let content = `<h4> ${ nailArtist[i].firstName} ${nailArtist[i].lastName } </h4>`;          
  
-    let content = "<h4>Information!</h4>";          
- 
-    this.addInfoWindow(marker, content);
+      this.addInfoWindow(marker, content);
+    }
  
   }
 
@@ -61,7 +105,19 @@ export class BestmatchPage {
     });
  
     google.maps.event.addListener(marker, 'click', () => {
-      infoWindow.open(this.map, marker);
+      if (!marker.open) {
+        infoWindow.open(this.map, marker);
+        marker.open = true;
+      }
+      else {
+        infoWindow.close();
+        marker.open = false;
+      }
+
+      google.maps.event.addListener(this.map, 'click', () => {
+        infoWindow.close();
+        marker.open = false;
+      });
     });
 
   }
