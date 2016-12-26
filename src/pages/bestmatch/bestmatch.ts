@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { SearchmorePage } from '../searchmore/searchmore';
 
 /*
   Generated class for the Bestmatch page.
@@ -64,7 +65,7 @@ export class BestmatchPage {
   ionViewDidLoad(){
     console.log('about to load page and markers')
     this.loadMap();
-    this.addMarkers(markers);
+    this.addMarker(markers);
     console.log('just finished loading markers')
   }
  
@@ -82,19 +83,17 @@ export class BestmatchPage {
  
   }
 
-  addMarkers(nailArtist){
-    for (var i = 0; i < nailArtist.length; i++) {
+  addMarker(nailArtist){
       let marker = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
-        position: {lat: nailArtist[i].lat, lng: nailArtist[i].lng}
+        position: {lat: nailArtist[0].lat, lng: nailArtist[0].lng}
       });
       console.log('heres position ', marker.position)
  
-      let content = `<h4> ${ nailArtist[i].firstName} ${nailArtist[i].lastName } </h4>`;          
+      let content = `<h4> ${ nailArtist[0].firstName} ${nailArtist[0].lastName } </h4>`;          
  
       this.addInfoWindow(marker, content);
-    }
  
   }
 
@@ -119,7 +118,10 @@ export class BestmatchPage {
         marker.open = false;
       });
     });
+  }
 
+  searchMore(){
+    this.navCtrl.push(SearchmorePage, {data: markers});
   }
 
 }
