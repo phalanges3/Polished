@@ -1,37 +1,26 @@
 const Appointment = require('./appointment.schema')
 const User = require('../users/user.schema')
-const Schedule = require('../Schedule/schedule.schema')
+const Schedule = require('../schedule/schedule.schema')
 
 module.exports = {
   findAvailableArtists: (req, res) => {
     var results = []
     User.findAll({
+      include: [{
+        model: Schedule,
+        where: { date: req.body.date }
+      }],
       // include: [{
-      //   model: Schedule
+      //   model: Appointment,
+      //   where: { date: req.body.date }
       // }],
       where: {
-        zipCode: req.body.zipCode
+        zipCode: req.body.zipCode,
+        isVendor: 1
       }
     })
-    .then((artist) => {
-      // result is artists in zip
-      // for(var i = 0; i <  artist.length; i++){
-      //   console.log("artist line 16",artist[i].dataValues.id)
-      //   Schedule.findAll({
-      //     where: {
-      //       userID: artist[i].dataValues.id,
-      //       date: req.body.date
-      //     }
-      //   })
-      //   .then((result) =>  {
-      //     //result is one artist's availability start/end for date of appointment
-      //       // if(result[0].start < req.body.time && result[0].end > req.body.time){
-      //       //   results.push(result.userID)
-      //       // }
-      //       console.log('made it to artist scchedule')
-      //   })
-      // }
-      res.send(artist)
+    .then((artists) => {
+      res.send(artists) 
     })
   },
   addAppointment: (req, res) => {
@@ -47,10 +36,10 @@ module.exports = {
         city: req.body.city,
         state: req.body.state,
         zipCode: req.body.zipCode,
-        nail_artist_id: req.body.artistID,
-        nail_artist_first: req.body.artistFirst,
-        nail_artist_second: req.body.artistLast,
-        services_selected: req.body.servicesSelected
+        nail_artist_id: req.body.nail_artist_id,
+        nail_artist_first: req.body.nail_artist_first,
+        nail_artist_second: req.body.nail_artist_second,
+        services_selected: req.body.services_selected
       })
       .then((appointment) => {
         if (appointment) {
