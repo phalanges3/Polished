@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { BestmatchPage } from '../bestmatch/bestmatch';
 
 /*
   Generated class for the Selectservice page.
@@ -12,9 +13,14 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'selectservice.html'
 })
 export class SelectservicePage {
-
+  bookInfo =  {}
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
+  navigate(){
+    this.navCtrl.push(BestmatchPage, {
+       firstPassed: "value 1",
+       secondPassed: "value 2"
+    })
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectservicePage');
   }

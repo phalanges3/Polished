@@ -25,12 +25,12 @@
    </form>
    <h4>Check any additional services: </h4>
    <form class="service-check" action="">
-       <input class="firstradio" type="radio" name="addon" value="scrub"> Sea Salt Scrub
-       <input type="radio" name="addon" value="nailart"> Nail Art <br>
-       <input type="radio" name="addon" value="reflexology"> Reflexology Massage
-       <input type="radio" name="addon" value="gel"> Gel Polish <br>
-       <input type="radio" name="addon" value="acrylic"> Acrylics
-       <input type="radio" name="addon" value="parrafin"> Lavender Parrafin     
+       <input class="firstcheckbox" type="checkbox" name="addon" value="scrub"> Sea Salt Scrub
+       <input type="checkbox" name="addon" value="nailart"> Nail Art <br>
+       <input type="checkbox" name="addon" value="reflexology"> Reflexology Massage
+       <input type="checkbox" name="addon" value="gel"> Gel Polish <br>
+       <input type="checkbox" name="addon" value="acrylic"> Acrylics
+       <input type="checkbox" name="addon" value="parrafin"> Lavender Parrafin     
    </form>
    <h4>Pick the most convenient date & time: </h4>
    <form>
@@ -140,5 +140,5 @@
       	<option>pm</option>
       </select>
    </form>
-   <button class="findavailable">Find Next Available</button>
+   <button ion-button full (click) = "navigate()">Find Next Available</button>
 </ion-content>

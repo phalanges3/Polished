@@ -8,6 +8,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { BestmatchPage } from '../pages/bestmatch/bestmatch';
 import { SearchmorePage } from '../pages/searchmore/searchmore';
 import {  SelectservicePage } from '../pages/selectservice/selectservice';
+import { NailtechdashboardPage} from '../pages/nailtechdashboard/nailtechdashboard';
+import { AvailabilityPage} from '../pages/availability/availability';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {  SelectservicePage } from '../pages/selectservice/selectservice';
     TabsPage,
     BestmatchPage,
     SearchmorePage,
-    SelectservicePage
+    SelectservicePage,
+    NailtechdashboardPage,
+    AvailabilityPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -32,7 +36,9 @@ import {  SelectservicePage } from '../pages/selectservice/selectservice';
     TabsPage,
     BestmatchPage,
     SearchmorePage,
-    SelectservicePage
+    SelectservicePage,
+    NailtechdashboardPage,
+    AvailabilityPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
