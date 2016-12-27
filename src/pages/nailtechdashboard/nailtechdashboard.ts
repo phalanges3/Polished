@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { AvailabilityPage} from '../availability/availability'
 
 /*
   Generated class for the Nailtechdashboard page.
@@ -12,11 +15,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'nailtechdashboard.html'
 })
 export class NailtechdashboardPage {
+  appointments: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+    /* this.http.get('http://localhost:3000/api/getappointment').map(res => res.json()).subscribe(data => {  
+        this.appointments  =  data.data.children
+     }) */
+  }
+  goToAvailability(){
+    this.navCtrl.push(AvailabilityPage, {
+       firstPassed: "value 1",
+       secondPassed: "value 2"
+    })
+  }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NailtechdashboardPage');
+    console.log('ionViewDidLoad NailtechdashboardPage')
   }
 
 }
