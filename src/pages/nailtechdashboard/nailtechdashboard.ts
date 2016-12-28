@@ -18,9 +18,9 @@ export class NailtechdashboardPage {
   appointments: any
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-    /* this.http.get('http://localhost:3000/api/getappointment').map(res => res.json()).subscribe(data => {  
+    this.http.get('http://localhost:3000/api/appointment/getappointment').map(res => res.json()).subscribe(data => {  
         this.appointments  =  data.data.children
-     }) */
+     })
   }
   goToAvailability(){
     this.navCtrl.push(AvailabilityPage, {

@@ -59,7 +59,7 @@ const User = db.define('user', {
 Review.belongsTo(User)
 User.hasMany(Review)
 Appointment.belongsTo(User)
-User.hasMany(Appointment, {foreignKey: 'nail_artist_id'})
+User.hasMany(Appointment, {foreignKey: 'userID'})
 Schedule.belongsTo(User)
 User.hasMany(Schedule, {foreignKey: 'userID'})
 

@@ -6,7 +6,10 @@ const Schedule = db.define('schedule', {
     userID : {
       type:  Sequelize.INTEGER
     },
-    date: {
+    day: {
+      type: Sequelize.STRING
+    },
+    date:{
       type: Sequelize.DATE
     },
     start: {
