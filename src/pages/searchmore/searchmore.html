@@ -19,7 +19,16 @@
         <img src="{{ item.pic }}" id="itemPic">
       </ion-thumbnail>
       <h2> <b>{{ item.firstName }} {{ item.lastName }}</b> </h2>
-      <h2> {{ item.insta }} </h2>
+      <!--<h3> {{ item.insta }} </h3>-->
+      <button ion-button small outline item-bottom icon-left (click)="seeProfile(item)">
+        <ion-icon name="person"></ion-icon>
+        Profile
+      </button>
+      <button ion-button small outline item-bottom icon-left (click)="bookNailArtist(item)">
+        <ion-icon name="book"></ion-icon>
+        Book
+      </button>
+      <rating [(ngModel)]="rate" id="rating" readOnly="true"></rating>
     </ion-item>
   </ion-card>
   

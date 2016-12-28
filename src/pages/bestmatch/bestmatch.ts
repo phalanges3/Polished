@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SearchmorePage } from '../searchmore/searchmore';
+import { Ionic2RatingModule } from 'ionic2-rating';
+
 
 /*
   Generated class for the Bestmatch page.
@@ -91,7 +93,7 @@ export class BestmatchPage {
       });
       console.log('heres position ', marker.position)
  
-      let content = `<h4> ${ nailArtist[0].firstName} ${nailArtist[0].lastName } </h4>`;          
+      let content = `<h2> <b>${ nailArtist[0].firstName} ${nailArtist[0].lastName }</b> </h2>`;          
  
       this.addInfoWindow(marker, content);
  
@@ -122,6 +124,16 @@ export class BestmatchPage {
 
   searchMore(){
     this.navCtrl.push(SearchmorePage, {data: markers});
+  }
+
+  seeProfile(profile){
+    console.log('profile button works!, ', profile)
+    // Josh, the code below should redirect you to the profilePage...just change the 'profilePage' reference to your component page
+    // this.navCtrl.push(profilePage, {data: profile});
+  }
+
+  bookNailArtist(nailArtist){
+    console.log('just booked ', nailArtist);
   }
 
 }
