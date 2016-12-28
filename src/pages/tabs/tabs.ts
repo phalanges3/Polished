@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
-import { BestmatchPage } from '../bestmatch/bestmatch';
 import { SelectservicePage } from  '../selectservice/selectservice';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard'
 
@@ -16,9 +15,8 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = AboutPage;
   tab3Root: any = ContactPage;
-  tab4Root: any = BestmatchPage;
-  tab5Root: any = SelectservicePage;
-  tab6Root: any = NailtechdashboardPage;
+  tab4Root: any = SelectservicePage;
+  tab5Root: any = NailtechdashboardPage;
   constructor() {
 
   }

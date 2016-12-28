@@ -54,7 +54,7 @@ export class SearchmorePage {
       });
       console.log('heres position ', marker.position)
  
-      let content = `<h4> ${ nailArtist[i].firstName} ${nailArtist[i].lastName } </h4>`;          
+      let content = `<h4> <b>${ nailArtist[i].firstName} ${nailArtist[i].lastName }</b> </h4>`;          
  
       this.addInfoWindow(marker, content);
     }
@@ -82,6 +82,16 @@ export class SearchmorePage {
         marker.open = false;
       });
     });
+  }
+
+  seeProfile(profile){
+    console.log('profile button works!, ', profile)
+    // Josh, the code below should redirect you to the profilePage...just change the 'profilePage' reference to your component page
+    // this.navCtrl.push(profilePage, {data: profile});
+  }
+
+  bookNailArtist(nailArtist){
+    console.log('booking button works! ', nailArtist);
   }
 
 }

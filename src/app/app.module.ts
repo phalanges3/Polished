@@ -10,6 +10,7 @@ import { SearchmorePage } from '../pages/searchmore/searchmore';
 import {  SelectservicePage } from '../pages/selectservice/selectservice';
 import { NailtechdashboardPage} from '../pages/nailtechdashboard/nailtechdashboard';
 import { AvailabilityPage} from '../pages/availability/availability';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AvailabilityPage} from '../pages/availability/availability';
     AvailabilityPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
