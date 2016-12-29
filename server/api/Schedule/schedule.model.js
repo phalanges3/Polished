@@ -6,6 +6,7 @@ module.exports = {
   	console.log('within schedule route',  req)
     Schedule.create({
       userID : req.body.userID,
+      day: req.body.day,
       date: req.body.date,
       start: req.body.start,
       end: req.body.end

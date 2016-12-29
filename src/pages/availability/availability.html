@@ -14,5 +14,103 @@
 
 
 <ion-content padding>
-
+   <form [formGroup]="hours" (ngSubmit)="logForm()">
+    <!--   <ion-item>
+        <ion-label>Start Time</ion-label>
+        <ion-input type="text" formControlName="start"></ion-input>
+      </ion-item> -->
+      <h4>Sunday</h4>
+      <ion-item> 
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startSun"></ion-datetime>
+      </ion-item>
+        <ion-item>
+        <ion-label>End Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endSun"></ion-datetime>
+      </ion-item>
+      <h4>Monday</h4>
+      <ion-item> 
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startMon"></ion-datetime>
+      </ion-item>
+        <ion-item>
+        <ion-label>End Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endMon"></ion-datetime>
+      </ion-item>
+      <h4>Tuesday</h4>
+      <ion-item> 
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startTue"></ion-datetime>
+      </ion-item>
+        <ion-item>
+        <ion-label>End Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endTue"></ion-datetime>
+      </ion-item>
+      <h4>Wednesday</h4>
+      <ion-item> 
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startWed"></ion-datetime>
+      </ion-item>
+        <ion-item>
+        <ion-label>End Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endWed"></ion-datetime>
+      </ion-item>
+      <h4>Thursday</h4>
+      <ion-item> 
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startThu"></ion-datetime>
+      </ion-item>
+        <ion-item>
+        <ion-label>End Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endThu"></ion-datetime>
+      </ion-item>
+      <h4>Friday</h4>
+      <ion-item> 
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startFri"></ion-datetime>
+      </ion-item>
+        <ion-item>
+        <ion-label>End Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endFri"></ion-datetime>
+      </ion-item>
+      <h4>Saturday</h4>
+      <ion-item> 
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startSat"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>End Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endSat"></ion-datetime>
+      </ion-item>
+      <button ion-button type="submit" [disabled]="!hours.valid">Submit</button>
+      <!-- <ion-item>
+        <ion-label>Sun</ion-label>
+        <ion-checkbox color="dark" checked="true"  formControlName="sun"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Mon</ion-label>
+        <ion-checkbox color="dark" checked="true"  formControlName="mon"></ion-checkbox>
+      </ion-item>
+        <ion-item>
+        <ion-label>Tue</ion-label>
+        <ion-checkbox color="dark" checked="true"  formControlName="tue"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Wed</ion-label>
+        <ion-checkbox color="dark" checked="true"  formControlName="wed"></ion-checkbox>
+      </ion-item>
+       <ion-item>
+        <ion-label>Thu</ion-label>
+        <ion-checkbox color="dark" checked="true"  formControlName="thu"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fri</ion-label>
+        <ion-checkbox color="dark" checked="true"  formControlName="fri"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sat</ion-label>
+        <ion-checkbox color="dark" checked="true"  formControlName="sat"></ion-checkbox>
+      </ion-item> -->
+      
+    </form>
 </ion-content>

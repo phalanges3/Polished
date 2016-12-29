@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SearchmorePage } from '../searchmore/searchmore';
-import { Ionic2RatingModule } from 'ionic2-rating';
+/*import { Ionic2RatingModule } from 'ionic2-rating';*/
 
 
 /*

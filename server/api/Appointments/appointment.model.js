@@ -49,11 +49,7 @@ module.exports = {
   },
   getAppointments: (req, res) => {
     Appointment
-      .findAll({
-        where: {
-          userID: 96
-        }
-      })
+      .findAll({where:{userID: req.body.userID}})
       .then((appointment) => {
         res.send(appointment)
       })
