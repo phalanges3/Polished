@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Bookartist } from '../../providers/bookartist';
 
 /*
   Generated class for the Searchmore page.
@@ -20,7 +21,7 @@ export class SearchmorePage {
   
   data: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist) {
     this.data = this.navParams.get("data");
   }
 
@@ -91,7 +92,8 @@ export class SearchmorePage {
   }
 
   bookNailArtist(nailArtist){
-    console.log('booking button works! ', nailArtist);
+    //console.log('booking button works! ', nailArtist);
+    this.bookArtist.setBooking(nailArtist);
   }
 
 }

@@ -1,7 +1,7 @@
 page-bestmatch {
 }
 #map {
-    width: 95%;
+    width: 100%;
     height: 60%;
     margin: auto;
 }
@@ -9,6 +9,7 @@ page-bestmatch {
 #bestMatchPic {
     border-radius: 100%;
 }
+
 
 ul {
   padding: 0px;
@@ -28,6 +29,13 @@ ul {
 
 #rating li{
     padding: 5px;
+}
+
+#card {
+  margin-left: 0px;
+  // margin-right: -10px;
+  width: 100%;
+  // border-radius: 2%;
 }
 
 
