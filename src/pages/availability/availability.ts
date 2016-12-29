@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Http } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -43,11 +43,12 @@ export class AvailabilityPage {
       sat: false,
       sun: false
     });
-    this.http.post('localhost:3000/api/schedule/').map(res => res.json()).subscribe(data => {  
-        
-     })
+    
   }
 
+  public headers = new Headers({ 'Content-Type': 'application/json' })
+  public options = new RequestOptions({ headers: this.headers })
+  
   logForm(){
     console.log(this.hours)
     for(var key in this.hours.value){
@@ -55,5 +56,10 @@ export class AvailabilityPage {
     		console.log(this.hours.value[key])
     	}
     }
+   
+    this.http.post('http://localhost:3000/api/schedule/', ({"userID": 1, "day": "Sun", "start": this.hours.value.startSun, "end": this.hours.value.startSun}), this.headers)
+    .subscribe(data => {
+       console.log(data)
+    })
   }
 }

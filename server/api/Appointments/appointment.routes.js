@@ -14,7 +14,7 @@ router.get('/getimage', (req, res) => {
   console.log('within appointment GET')
   appointmentModel.getAppointments(req, res)
 })
-router.get('/getappointment', (req, res) =>  {
+router.post('/getappointment', (req, res) =>  {
 	console.log('within appointment GET')
 	appointmentModel.getAppointments(req, res)
 })
