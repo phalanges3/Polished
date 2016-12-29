@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SearchmorePage } from '../searchmore/searchmore';
-import { Ionic2RatingModule } from 'ionic2-rating';
+import { Bookartist } from '../../providers/bookartist';
 
 
 /*
@@ -60,7 +60,7 @@ export class BestmatchPage {
 
   bestmatch: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist) {
     this.bestmatch = markers[0];
   }
 
@@ -133,7 +133,8 @@ export class BestmatchPage {
   }
 
   bookNailArtist(nailArtist){
-    console.log('just booked ', nailArtist);
+    //console.log('just booked ', nailArtist);
+    this.bookArtist.setBooking(nailArtist);
   }
 
 }

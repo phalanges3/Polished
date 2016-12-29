@@ -11,6 +11,7 @@ import {  SelectservicePage } from '../pages/selectservice/selectservice';
 import { NailtechdashboardPage} from '../pages/nailtechdashboard/nailtechdashboard';
 import { AvailabilityPage} from '../pages/availability/availability';
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { Bookartist } from '../providers/bookartist';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,6 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     NailtechdashboardPage,
     AvailabilityPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
