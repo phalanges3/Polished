@@ -57,11 +57,11 @@ const User = db.define('user', {
 })
 // relationships
 Review.belongsTo(User)
-User.hasMany(Review)
+User.hasMany(Review, {foreignKey: 'userId'})
 Appointment.belongsTo(User)
-User.hasMany(Appointment, {foreignKey: 'userID'})
+User.hasMany(Appointment, {foreignKey: 'userId'})
 Schedule.belongsTo(User)
-User.hasMany(Schedule, {foreignKey: 'userID'})
+User.hasMany(Schedule, {foreignKey: 'userId'})
 
 User.sync().then(() => {
   console.log('USER table successfully created.')

@@ -26,7 +26,7 @@ module.exports = {
   addAppointment: (req, res) => {
     Appointment
       .create({
-        userID: req.body.userID,
+        userId: req.body.userId,
         date: req.body.date,
         start: req.body.start,
         end: req.body.end,
@@ -48,8 +48,9 @@ module.exports = {
       })
   },
   getAppointments: (req, res) => {
+    console.log("line 51 appt model", req.body)
     Appointment
-      .findAll({where:{userID: req.body.userID}})
+      .findAll({where:{userId: req.body.userId}})
       .then((appointment) => {
         res.send(appointment)
       })

@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../../config/db.config.js')
 
 const Appointment = db.define('appointment', {
-  userID: {
+  userId: {
     type: Sequelize.INTEGER
   },
   date: {

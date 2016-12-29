@@ -15,6 +15,7 @@ import { BestmatchPage } from '../bestmatch/bestmatch';
 export class SelectservicePage {
   bookInfo =  {}
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  //get request
   navigate(){
     this.navCtrl.push(BestmatchPage, {
        firstPassed: "value 1",
