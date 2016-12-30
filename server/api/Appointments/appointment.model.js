@@ -7,13 +7,12 @@ module.exports = {
     var results = []
     User.findAll({
       include: [{
-        model: Schedule,
-        where: { day: req.body.day }
-      }],
-      // include: [{
-      //   model: Appointment,
-      //   where: { date: req.body.date }
-      // }],
+          model: Schedule,
+          where: { day: req.body.day }
+        },
+        {
+          model: Appointment
+        }],
       where: {
         zipCode: req.body.zipCode,
         isVendor: 1
