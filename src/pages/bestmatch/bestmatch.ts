@@ -57,11 +57,13 @@ export class BestmatchPage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
+  data: any;
 
   bestmatch: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.bestmatch = markers[0];
+    this.data = this.navParams.get("data")
   }
 
   ionViewDidLoad(){
@@ -69,6 +71,7 @@ export class BestmatchPage {
     this.loadMap();
     this.addMarker(markers);
     console.log('just finished loading markers')
+    console.log('this  is params data', this.data)
   }
  
   loadMap(){
