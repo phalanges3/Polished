@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BestmatchPage } from '../bestmatch/bestmatch';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the Selectservice page.
@@ -13,17 +16,40 @@ import { BestmatchPage } from '../bestmatch/bestmatch';
   templateUrl: 'selectservice.html'
 })
 export class SelectservicePage {
-  bookInfo =  {}
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  result = {
+    response: '',
+    bookInfo: ''
+  }
+  bookInfo : FormGroup
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public http: Http) {
+    this.bookInfo = formBuilder.group({
+       service: '',
+       addOns: '',
+       date: '',
+       time: ''
+    })
+  }
   //get request
   navigate(){
-    this.navCtrl.push(BestmatchPage, {
-       firstPassed: "value 1",
-       secondPassed: "value 2"
-    })
+    console.log(this.bookInfo)
+    this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": 90010, "date":this.bookInfo.value.date + "T00:00:00.000Z", "time":this.bookInfo.value.time}))
+      .subscribe(artist => {
+        console.log("in get", artist)
+        this.result.response =  artist.json()
+        this.result.bookInfo = this.bookInfo.value
+        console.log("result", this.result) 
+        this.navCtrl.push(BestmatchPage, {
+          data: this.result
+        })
+      })
+   
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectservicePage');
   }
 
 }
+ // this.navCtrl.push(BestmatchPage, {
+    //    firstPassed: "value 1",
+    //    secondPassed: "value 2"
+    // })
