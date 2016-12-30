@@ -7,32 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title></ion-title>
+    <ion-title>Mani, Pedi, or Both?</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-   <h4>Manicure, Pedicure, or Both?</h4>
-   <form class="service-drop">
-   	  <select class="service-select">
-   	  	<option value="default">Select</option>
-   	  	<option value="manicure">Manicure</option>
-   	  	<option value="pedicure">Pedicure</option>
-   	  	<option value="manipedi">ManiPedi</option>
-   	  </select>
-   </form>
-   <h4>Check any additional services: </h4>
-   <form class="service-check" action="">
-       <input class="firstcheckbox" type="checkbox" name="addon" value="scrub"> Sea Salt Scrub
-       <input type="checkbox" name="addon" value="  nailart"> Nail Art <br>
-       <input type="checkbox" name="addon" value="reflexology"> Reflexology Massage
-       <input type="checkbox" name="addon" value="gel"> Gel Polish <br>
-       <input type="checkbox" name="addon" value="acrylic"> Acrylics
-       <input type="checkbox" name="addon" value="parrafin"> Lavender Parrafin     
-   </form>
-   <h4>Pick the most convenient date & time: </h4>
+   <form [formGroup]="bookInfo" (ngSubmit)="navigate()">
+   <ion-item>
+   	  <ion-select placeholder="Select Services" formControlName="service"> Select
+   	  	<ion-option value="manicure">Manicure</ion-option>
+   	  	<ion-option value="pedicure">Pedicure</ion-option>
+   	  	<ion-option value="manipedi">ManiPedi</ion-option>
+   	  </ion-select>
+   </ion-item>
+   <ion-item class="service-check">
+      <ion-select placeholder="Add Ons" formControlName="addOns" multiple="true">
+        <ion-option name="addon" value="scrub"> Sea Salt Scrub</ion-option>
+        <ion-option name="addon" value="nailart"> Nail Art </ion-option>
+        <ion-option name="addon" value="reflexology"> Reflexology Massage </ion-option>
+        <ion-option name="addon" value="gel"> Gel Polish </ion-option>
+        <ion-option name="addon" value="acrylic"> Acrylics </ion-option>
+        <ion-option name="addon" value="parrafin"> Lavender Parrafin </ion-option>
+      </ion-select>
+   </ion-item>
+   <ion-item>
+      <ion-label> <ion-icon name="calendar"></ion-icon>  Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
+   </ion-item>
+   <ion-item>
+      <ion-label>  <ion-icon name="time"></ion-icon>  Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="time"></ion-datetime>
+   </ion-item>
+   <!-- <h4>Pick the most convenient date & time: </h4>
    <form>
       <select class="month-select">
         <option value="month">January</option>
@@ -86,8 +94,8 @@
       	<option value="year">2017</option>
       	<option value="year">2018</option>
       </select>
-   </form>
-   <form>
+   </form> -->
+   <!-- <form>
    	<select class="time">
    		<option value="hour">1</option>
    		<option value="hour">2</option>
@@ -139,6 +147,7 @@
       	<option>am</option>
       	<option>pm</option>
       </select>
+   </form> -->
    </form>
    <button ion-button full (click) = "navigate()">Find Next Available</button>
 </ion-content>
