@@ -1,9 +1,9 @@
 const Schedule = require('./schedule.schema')
 const User = require('../Users/user.schema')
 
-module.exports = { 
+module.exports = {
   addAvailability: (req, res) => {
-  	console.log('within schedule route',  req)
+    console.log('within schedule route', req)
     Schedule.create({
       userId: req.body.userId,
       day: req.body.day,
@@ -12,14 +12,14 @@ module.exports = {
       end: req.body.end
     })
     .then(schedule => {
-    	res.send(schedule)
+      res.send(schedule)
     })
   },
-  getSchedule:  (req, res) =>  {
-    Schedule.findAll({where: {userId:req.body.userId}})
-    .then(results =>{
+  getSchedule: (req, res) => {
+    Schedule.findAll({where: {userId: req.body.userId}})
+    .then(results => {
       res.send(results)
     })
   }
-  
+
 }

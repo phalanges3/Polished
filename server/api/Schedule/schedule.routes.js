@@ -7,6 +7,6 @@ router.post('/', (req, res) => {
   scheduleModel.addAvailability(req, res)
 })
 router.post('/getschedule', (req, res) => {
-  scheduleModel.getSchedule(req,res)
+  scheduleModel.getSchedule(req, res)
 })
 module.exports = router
