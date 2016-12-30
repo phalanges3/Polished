@@ -20,7 +20,7 @@ module.exports = {
       }
     })
     .then((artists) => {
-      res.send(artists) 
+      res.send(artists)
     })
   },
   addAppointment: (req, res) => {
@@ -48,9 +48,9 @@ module.exports = {
       })
   },
   getAppointments: (req, res) => {
-    console.log("line 51 appt model", req.body)
+    console.log('line 51 appt model', req.body)
     Appointment
-      .findAll({where:{userId: req.body.userId}})
+      .findAll({where: {userId: req.body.userId}})
       .then((appointment) => {
         res.send(appointment)
       })
