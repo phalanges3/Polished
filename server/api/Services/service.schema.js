@@ -11,7 +11,7 @@ const Service = db.define('service', {
 
 // relationships
 Service.belongsToMany(User, {through: 'UsersServices', foreignKey: 'userId'})
-User.belongsToMany(Service, {through: 'UsersServices',  foreignKey: 'serviceId'})
+User.belongsToMany(Service, {through: 'UsersServices', foreignKey: 'serviceId'})
 
 Service.sync().then(() => {
   console.log('SERVICE table successfully created.')
