@@ -26,13 +26,19 @@ export class SelectservicePage {
        service: '',
        addOns: '',
        date: '',
-       time: ''
+       time: '',
+       houseNumber: '',
+       unitNumber: '',
+       street: '',
+       city: '',
+       state: '',
+       zipCode: ''
     })
   }
   //get request
   navigate(){
     console.log(this.bookInfo)
-    this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": 90010, "date":this.bookInfo.value.date + "T00:00:00.000Z", "time":this.bookInfo.value.time}))
+    this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": this.bookInfo.value.zipCode, "date":this.bookInfo.value.date + "T00:00:00.000Z", "time":this.bookInfo.value.time}))
       .subscribe(artist => {
         console.log("in get", artist)
         this.result.response =  artist.json()
