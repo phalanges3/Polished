@@ -19,16 +19,27 @@
         <ion-label>Start Time</ion-label>
         <ion-input type="text" formControlName="start"></ion-input>
       </ion-item> -->
-      <h4>Sunday</h4>
+      <ion-item> 
+        <ion-label>Select Days</ion-label>
+        <ion-select placeholder="" formControlName="day" multiple="true">
+          <ion-option name="day" value="Sunday"> Sunday</ion-option>
+          <ion-option name="day" value="Monday"> Monday</ion-option>
+          <ion-option name="day" value="Tuesday"> Tuesday</ion-option>
+          <ion-option name="day" value="Wednesday"> Wednesday</ion-option>
+          <ion-option name="day" value="Thursday"> Thursday</ion-option>
+          <ion-option name="day" value="Friday"> Friday</ion-option>
+          <ion-option name="day" value="Saturday"> Saturday</ion-option>
+      </ion-select>
+      </ion-item>
       <ion-item> 
         <ion-label>Start Time</ion-label>
-        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startSun"></ion-datetime>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="start"></ion-datetime>
       </ion-item>
-        <ion-item>
+      <ion-item>
         <ion-label>End Time</ion-label>
-        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endSun"></ion-datetime>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="end"></ion-datetime>
       </ion-item>
-      <h4>Monday</h4>
+     <!--  <h4>Monday</h4>
       <ion-item> 
         <ion-label>Start Time</ion-label>
         <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="startMon"></ion-datetime>
@@ -81,7 +92,7 @@
       <ion-item>
         <ion-label>End Time</ion-label>
         <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="endSat"></ion-datetime>
-      </ion-item>
+      </ion-item> -->
       <button ion-button type="submit" [disabled]="!hours.valid">Submit</button>
       <!-- <ion-item>
         <ion-label>Sun</ion-label>

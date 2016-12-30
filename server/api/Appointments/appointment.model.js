@@ -8,7 +8,7 @@ module.exports = {
     User.findAll({
       include: [{
         model: Schedule,
-        where: { date: req.body.date }
+        where: { day: req.body.day }
       }],
       // include: [{
       //   model: Appointment,
@@ -50,7 +50,7 @@ module.exports = {
   getAppointments: (req, res) => {
     console.log("line 51 appt model", req.body)
     Appointment
-      .findAll({where:{userId: req.body.userId}})
+      .findAll({where:{nail_artist_id: req.body.nail_artist_id}})
       .then((appointment) => {
         res.send(appointment)
       })

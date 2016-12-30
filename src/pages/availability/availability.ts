@@ -19,29 +19,30 @@ export class AvailabilityPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public http: Http) {
     this.hours = formBuilder.group({
-      startSun: '',
-      endSun: '',
-      startMon: '',
-      endMon: '',
-      startTue: '',
-      endTue: '',
-      startWed: '',
-      endWed: '',
-      startThu: '',
-      endThu: '',
-      startFri: '',
-      endFri: '',
-      startSat: '',
-      endSat: '',
+      // startSun: '',
+      // endSun: '',
+      // startMon: '',
+      // endMon: '',
+      // startTue: '',
+      // endTue: '',
+      // startWed: '',
+      // endWed: '',
+      // startThu: '',
+      // endThu: '',
+      // startFri: '',
+      // endFri: '',
+      // startSat: '',
+      // endSat: '',
       start: '',
       end: '',
-      mon: false,
-      tue: false,
-      wed: false,
-      thu: false,
-      fri: false,
-      sat: false,
-      sun: false
+      day: '',
+      // mon: false,
+      // tue: false,
+      // wed: false,
+      // thu: false,
+      // fri: false,
+      // sat: false,
+      // sun: false
     });
     
   }
@@ -56,10 +57,12 @@ export class AvailabilityPage {
     		console.log(this.hours.value[key])
     	}
     }
+    for(var  i = 0; i < this.hours.value.day.length; i++){
+       this.http.post('http://localhost:3000/api/schedule/', ({"userID": 1, "day": this.hours.value.day[i], "start": this.hours.value.start, "end": this.hours.value.end}), this.headers)
+       .subscribe(data => {
+          console.log(data)
+       })
+    }
    
-    this.http.post('http://localhost:3000/api/schedule/', ({"userID": 1, "day": "Sun", "start": this.hours.value.startSun, "end": this.hours.value.startSun}), this.headers)
-    .subscribe(data => {
-       console.log(data)
-    })
   }
 }
