@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Welcome Sophia</ion-title>
+    <ion-title>Welcome George</ion-title>
   </ion-navbar>
  
 </ion-header>
@@ -16,12 +16,21 @@
 <ion-content padding>
   <div>
   	<h4>Next Appointment</h4>
+      <ion-row>
+        <ion-item>Time: {{this.appointments.start}} </ion-item> 
+        <ion-item> Date: {{this.appointments.date}} </ion-item> 
+        <<!-- ion-item> Service: {{this.appointments.services_selected}} </ion-item> -->
+        <ion-item> Location: {{this.appointments.houseNumber}} {{this.appointments.streetName}} {{this.appointments.city}}, {{this.appointments.state}} {{this.appointments.zipCode}} </ion-item> 
+      </ion-row>
   </div>
   <div>
   	<h4>Weekly Earnings</h4>
   </div>
    <div>
-  	<h4>Rating Moving Average</h4>
+  	<h4>Rating Analytics</h4>
   </div>
-  <button ion-button (click) = "goToAvailability()">Adjust Hours</button>
+  <ion-row>
+    <button ion-button (click) = "goToAvailability()">Adjust Hours</button>
+    <button ion-button>Update Account</button>
+  </ion-row>
 </ion-content>

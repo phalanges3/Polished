@@ -4,42 +4,77 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
-    <ion-title>Mani, Pedi, or Both?</ion-title>
+    <ion-title>Booking</ion-title>
   </ion-navbar>
 
 </ion-header>
-
+ -->
 
 <ion-content padding>
    <form [formGroup]="bookInfo" (ngSubmit)="navigate()">
-   <ion-item>
-   	  <ion-select placeholder="Select Services" formControlName="service"> Select
-   	  	<ion-option value="manicure">Manicure</ion-option>
-   	  	<ion-option value="pedicure">Pedicure</ion-option>
-   	  	<ion-option value="manipedi">ManiPedi</ion-option>
-   	  </ion-select>
-   </ion-item>
-   <ion-item class="service-check">
-      <ion-select placeholder="Add Ons" formControlName="addOns" multiple="true">
-        <ion-option name="addon" value="scrub"> Sea Salt Scrub</ion-option>
-        <ion-option name="addon" value="nailart"> Nail Art </ion-option>
-        <ion-option name="addon" value="reflexology"> Reflexology Massage </ion-option>
-        <ion-option name="addon" value="gel"> Gel Polish </ion-option>
-        <ion-option name="addon" value="acrylic"> Acrylics </ion-option>
-        <ion-option name="addon" value="parrafin"> Lavender Parrafin </ion-option>
-      </ion-select>
-   </ion-item>
-   <ion-item>
-      <ion-label> <ion-icon name="calendar"></ion-icon>  Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
-   </ion-item>
-   <ion-item>
-      <ion-label>  <ion-icon name="time"></ion-icon>  Time</ion-label>
-      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="time"></ion-datetime>
-   </ion-item>
+   <h4>Manicure, Pedicure, or Both?</h4>
+   <ion-row>
+     <ion-item>
+     	  <ion-select placeholder="Select Services" formControlName="service"> Select
+     	  	<ion-option value="manicure">Manicure</ion-option>
+     	  	<ion-option value="pedicure">Pedicure</ion-option>
+     	  	<ion-option value="manipedi">ManiPedi</ion-option>
+     	  </ion-select>
+     </ion-item>
+     <ion-item class="service-check">
+        <ion-select placeholder="Add Ons" formControlName="addOns" multiple="true">
+          <ion-option name="addon" value="scrub"> Sea Salt Scrub</ion-option>
+          <ion-option name="addon" value="nailart"> Nail Art </ion-option>
+          <ion-option name="addon" value="reflexology"> Reflexology Massage </ion-option>
+          <ion-option name="addon" value="gel"> Gel Polish </ion-option>
+          <ion-option name="addon" value="acrylic"> Acrylics </ion-option>
+          <ion-option name="addon" value="parrafin"> Lavender Parrafin </ion-option>
+        </ion-select>
+     </ion-item>
+   </ion-row>
+   <h4>Where is most convenient for you?</h4>
+   <ion-row>
+     <ion-col>
+       <ion-item>
+        <ion-input placeholder="House Number" formControlName="houseNumber"></ion-input>
+       </ion-item>
+     </ion-col>
+     <ion-col>
+       <ion-item>
+         <ion-input placeholder="Unit Number" formControlName="unitNumber"></ion-input>
+       </ion-item>
+     </ion-col>
+     <ion-col>
+       <ion-item>
+         <ion-input  placeholder="Street Name"  formControlName="street"></ion-input>
+       </ion-item>
+     </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-item>
+      <ion-input placeholder= "City" formControlName="city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder= "State" formControlName="state"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder= "Zip Code" formControlName="zipCode"></ion-input>
+    </ion-item>
+  </ion-row>
+  <h4>When would you like your nails done?</h4>
+  <ion-row>
+     <ion-item>
+        <ion-label> <ion-icon name="calendar"></ion-icon>  Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
+     </ion-item>
+     <ion-item>
+        <ion-label>  <ion-icon name="time"></ion-icon>  Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="time"></ion-datetime>
+     </ion-item>
+   </ion-row>
    <!-- <h4>Pick the most convenient date & time: </h4>
    <form>
       <select class="month-select">

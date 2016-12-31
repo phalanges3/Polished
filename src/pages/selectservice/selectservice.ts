@@ -25,14 +25,33 @@ export class SelectservicePage {
     this.bookInfo = formBuilder.group({
        service: '',
        addOns: '',
-       date: '',
-       time: ''
+       date: '2016-01-01',
+       time: '',
+       houseNumber: '',
+       unitNumber: '',
+       street: '',
+       city: '',
+       state: '',
+       zipCode: ''
     })
   }
   //get request
   navigate(){
     console.log(this.bookInfo)
-    this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": 90010, "date":this.bookInfo.value.date + "T00:00:00.000Z", "time":this.bookInfo.value.time}))
+    let today = new Date(this.bookInfo.value.date)
+    let weekday = new Array(7)
+      weekday[0] =  "Sunday"
+      weekday[1] = "Monday"
+      weekday[2] = "Tuesday"
+      weekday[3] = "Wednesday"
+      weekday[4] = "Thursday"
+      weekday[5] = "Friday"
+      weekday[6] = "Saturday"
+    let dayOfWeek: String = weekday[today.getDay() + 1]
+    console.log(today)
+    console.log(today.getDay())
+    console.log(dayOfWeek)
+    this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "time":this.bookInfo.value.time}))
       .subscribe(artist => {
         console.log("in get", artist)
         this.result.response =  artist.json()
