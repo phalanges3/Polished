@@ -21,13 +21,16 @@ export class SearchmorePage {
   
   data: any;
 
+  bookInfo: any; 
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist) {
     this.data = this.navParams.get("data");
+    this.bookInfo = this.navParams.get("bookInfo");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchmorePage');
-    console.log('this is the params data ', this.data);
+    console.log('this is the params data inside searchmore ', this.data);
     this.loadMap();
     this.addMarkers(this.data);
   }
@@ -92,8 +95,12 @@ export class SearchmorePage {
   }
 
   bookNailArtist(nailArtist){
-    //console.log('booking button works! ', nailArtist);
-    this.bookArtist.setBooking(nailArtist);
+    //console.log('just booked ', nailArtist);
+    this.bookArtist.setBooking(nailArtist, this.bookInfo)
+      .subscribe(
+        (data: any) => {
+          console.log('heres the data from book services inside searchmore page', data)
+      });
   }
 
 }
