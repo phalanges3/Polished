@@ -35,10 +35,12 @@ const Appointment = db.define('appointment', {
   zipCode: {
     type: Sequelize.INTEGER
   },
-  nail_artist_id: Sequelize.INTEGER,
+  clientId: Sequelize.INTEGER,
   nail_artist_first: Sequelize.STRING,
   nail_artist_second: Sequelize.STRING,
-  services_selected: Sequelize.STRING
+  services_selected: Sequelize.STRING,
+  addOns: Sequelize.STRING,
+  total: Sequelize.STRING
 })
 
 Appointment.sync().then(() => {

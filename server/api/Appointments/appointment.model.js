@@ -11,7 +11,9 @@ module.exports = {
           where: { day: req.body.day }
         },
         {
-          model: Appointment
+          model: Appointment,
+          // where: { $or: [{date: req.body.date, start: {$ne: req.body.time}}, {date: {$ne:req.body.date}}]},
+          where: {date: {$ne:req.body.date}}
         }],
       where: {
         zipCode: req.body.zipCode,
@@ -35,10 +37,12 @@ module.exports = {
         city: req.body.city,
         state: req.body.state,
         zipCode: req.body.zipCode,
-        nail_artist_id: req.body.nail_artist_id,
+        clientId: req.body.clientId,
         nail_artist_first: req.body.nail_artist_first,
         nail_artist_second: req.body.nail_artist_second,
-        services_selected: req.body.services_selected
+        services_selected: req.body.services_selected,
+        addOns: req.body.addOns,
+        total: req.body.total
       })
       .then((appointment) => {
         if (appointment) {
@@ -49,7 +53,7 @@ module.exports = {
   getAppointments: (req, res) => {
     console.log('line 51 appt model', req.body)
     Appointment
-      .findAll({where:{nail_artist_id: req.body.nail_artist_id}})
+      .findAll({where:{userId: req.body.userId}})
       .then((appointment) => {
         res.send(appointment)
       })
