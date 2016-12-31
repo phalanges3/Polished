@@ -1,6 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { SignUpPage } from '../pages/signup/signup';
+import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -17,6 +19,8 @@ import { Bookartist } from '../providers/bookartist';
   declarations: [
     MyApp,
     AboutPage,
+    SignUpPage,
+    LoginPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -34,6 +38,8 @@ import { Bookartist } from '../providers/bookartist';
   entryComponents: [
     MyApp,
     AboutPage,
+    SignUpPage,
+    LoginPage,
     ContactPage,
     HomePage,
     TabsPage,
