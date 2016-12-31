@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Http } from '@angular/http'
 
 /*
   Generated class for the Signup page.
@@ -11,12 +12,25 @@ import { NavController, NavParams } from 'ionic-angular';
   selector: 'page-signup',
   templateUrl: 'signup.html'
 })
-export class SignupPage {
+export class SignUpPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
+  }
+  addSignup() {
+    this.http
+      .get('http://localhost:3000/api/user/signup')
+      .map((res) => {
+        res.json()
+      })
+      .subscribe((data) => {
+
+      })
+
+
+
   }
 
 }
