@@ -10,7 +10,7 @@ const schedule = require('./Schedule/index')
 const mainRoutesΩ = require('./routes.main')
 
 const UsersServices = db.define('UsersServices', {
-  
+
 })
 
 UsersServices.sync().then(() => {

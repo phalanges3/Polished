@@ -12,7 +12,7 @@ const Appointment = db.define('appointment', {
     type: Sequelize.TIME
   },
   end: {
-  	type: Sequelize.TIME
+    type: Sequelize.TIME
   },
   houseNumber: {
     type: Sequelize.INTEGER

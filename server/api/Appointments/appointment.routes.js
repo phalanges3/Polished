@@ -14,9 +14,9 @@ router.get('/getimage', (req, res) => {
   console.log('within appointment GET')
   appointmentModel.getAppointments(req, res)
 })
-router.post('/getappointment', (req, res) =>  {
-	console.log('within appointment GET')
-	appointmentModel.getAppointments(req, res)
+router.post('/getappointment', (req, res) => {
+  console.log('within appointment GET')
+  appointmentModel.getAppointments(req, res)
 })
 router.put('/update', (req, res) => {
   console.log('within appointment PUT update')

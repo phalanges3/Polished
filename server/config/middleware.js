@@ -1,7 +1,7 @@
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const path = require('path')
-const cors = require('cors');
+const cors = require('cors')
 
 module.exports = (app, express) => {
   app.use(morgan('dev'))
@@ -15,6 +15,5 @@ module.exports = (app, express) => {
 
     // change path
 }
-
 
 // helmet

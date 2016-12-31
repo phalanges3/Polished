@@ -19,7 +19,7 @@ module.exports = {
       }
     })
     .then((artists) => {
-      res.send(artists) 
+      res.send(artists)
     })
   },
   addAppointment: (req, res) => {
@@ -47,7 +47,7 @@ module.exports = {
       })
   },
   getAppointments: (req, res) => {
-    console.log("line 51 appt model", req.body)
+    console.log('line 51 appt model', req.body)
     Appointment
       .findAll({where:{nail_artist_id: req.body.nail_artist_id}})
       .then((appointment) => {

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const mainRouter = require('./index')
-//console.log('MAINROUTER: ', mainRouter)
+// console.log('MAINROUTER: ', mainRouter)
 
 router.use('/appointment', mainRouter.appointment.appointmentRoute)
 router.use('/image', mainRouter.image.imageRoute)
