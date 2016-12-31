@@ -32,12 +32,18 @@ export class SelectservicePage {
        street: '',
        city: '',
        state: '',
-       zipCode: ''
+       zipCode: '',
+       price: ''
     })
   }
   //get request
   navigate(){
     console.log(this.bookInfo)
+    let cost  = {
+      manicure: "$18",
+      pedicure: "$25",
+      manipedi: "$35"
+    }
     let today = new Date(this.bookInfo.value.date)
     let weekday = new Array(7)
       weekday[0] =  "Sunday"
@@ -51,9 +57,10 @@ export class SelectservicePage {
     console.log(today)
     console.log(today.getDay())
     console.log(dayOfWeek)
-    this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "time":this.bookInfo.value.time}))
+    this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time}))
       .subscribe(artist => {
         console.log("in get", artist)
+        this.bookInfo.value.price = cost[this.bookInfo.value.service]
         this.result.response =  artist.json()
         this.result.bookInfo = this.bookInfo.value
         console.log("result", this.result) 

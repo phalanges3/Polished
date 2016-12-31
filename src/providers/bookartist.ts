@@ -19,7 +19,7 @@ export class Bookartist {
     //console.log('this is nail artist inside book service, ', nailArtist);
     //console.log('this is booking inside book service, ', bookInfo);
     let appointmentData = {
-          "userId": 2,
+          "userId": nailArtist.id,
           "date": bookInfo.date,
           "start": bookInfo.time,
           "end": ((bookInfo.time.split(':')[0]) + ":45"),
@@ -29,6 +29,7 @@ export class Bookartist {
           "city": bookInfo.city,
           "state": bookInfo.state,
           "zipCode": Number(bookInfo.zipCode),
+          "clientId":  2,
           "nail_artist_id": nailArtist.id,
           "nail_artist_first": nailArtist.firstName,
           "nail_artist_second": nailArtist.lastName,

@@ -15,6 +15,7 @@ import { AvailabilityPage} from '../availability/availability'
   templateUrl: 'nailtechdashboard.html'
 })
 export class NailtechdashboardPage {
+  newDate: any
   appointments = {
    services_selected:  "loading",
    start: "",
@@ -27,10 +28,12 @@ export class NailtechdashboardPage {
  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-    this.http.post('http://localhost:3000/api/appointment/getappointment', ({"nail_artist_id": 1}))
+    this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": 1}))
     .subscribe(appointment => {
         console.log("in get", appointment.json()[0])
         this.appointments = appointment.json()[0]
+        this.newDate = new Date(this.appointments.date)
+        this.appointments.date = this.newDate.toDateString()
         console.log(this.appointments)
       })
   }
