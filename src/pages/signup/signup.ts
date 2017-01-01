@@ -1,38 +1,43 @@
-import { Component } from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { NavController, NavParams } from 'ionic-angular'
+import { UsernameValidator } from  '../../validators/username'
 import { Http } from '@angular/http'
-
-
-/*
-  Generated class for the Signup page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+ 
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html'
 })
 export class SignUpPage {
   signup
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
-  }
-  addSignup() {
-    this.http
-      .get('http://localhost:3000/api/user/signup')
-      .map((res) => {
-        res.json()
+ 
+signupForm: FormGroup
+ 
+    submitAttempt: boolean = false;
+ 
+    constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public http: Http) {
+       this.signupForm = formBuilder.group({
+        firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+        lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+        email: [''],
+        username: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')]), UsernameValidator.checkUsername],
+        isVendor: ['', Validators.required],
+        password: ['']
       })
-      .subscribe((data) => {
+    }
+ 
+    addSignup(){
+      this.submitAttempt = true
+      console.log("success!", this.signupForm.value)
+      this.http
+        .post('http://localhost:3000/api/user/signup', this.signupForm.value)
+        .map((res) => {
+          res.json()
+        })
+        .subscribe((data) => {
 
       })
-
-
-
-  }
-
+    }
+    
+ // add clearing of formdata
 }

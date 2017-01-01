@@ -1,48 +1,80 @@
-<!--
-  Generated template for the Signup page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Signup</ion-title>
-  </ion-navbar>
-
+    <ion-navbar color="primary">
+      <ion-title>
+        Sign Up
+      </ion-title>
+     
+    </ion-navbar>
 </ion-header>
+ 
+<ion-content>
+ 
+    <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+ 
+    <ion-list no-lines>
+ 
+        <form [formGroup]="signupForm">
+ 
+            <ion-item>
+                <ion-label floating>First Name</ion-label>
+                <ion-input formControlName="firstName" type="text" [class.invalid]="!signupForm.controls.firstName.valid && (signupForm.controls.firstName.dirty || submitAttempt)"></ion-input>
+            </ion-item>
+ 
+            <ion-item *ngIf="!signupForm.controls.firstName.valid  && (signupForm.controls.firstName.dirty || submitAttempt)">
+                <p>Please enter a valid name.</p>
+            </ion-item>
+ 
+            <ion-item>
+                <ion-label floating>Last Name</ion-label>
+                <ion-input formControlName="lastName" type="text" [class.invalid]="!signupForm.controls.lastName.valid && (signupForm.controls.email.dirty || submitAttempt)"></ion-input>
+            </ion-item>
+ 
+            <ion-item *ngIf="!signupForm.controls.lastName.valid  && (signupForm.controls.lastName.dirty || submitAttempt)">
+                <p>Please enter a valid name.</p>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input formControlName="email" type="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input [class.invalid]="!signupForm.controls.username.valid && (signupForm.controls.username.dirty || submitAttempt)" formControlName="username" type="text"></ion-input>
+            </ion-item>
+ 
+            <ion-item *ngIf="signupForm.controls.username.pending">
+                <p>Checking username...</p>
+            </ion-item>
+ 
+            <ion-item *ngIf="!signupForm.controls.username.valid && !signupForm.controls.username.pending && (signupForm.controls.username.dirty || submitAttempt)">
+                <p>Sorry, that username can not be used!</p>
+            </ion-item>
+ 
+            
+ 
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+            <!--<ion-item>
+              <ion-label floating>Confirm Password</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>-->
+            <ion-item>
+                <ion-label floating>Sign up as a Nail Artist?</ion-label>
+                <ion-select [class.invalid]="!signupForm.controls.isVendor.valid && (signupForm.controls.isVendor.dirty || submitAttempt)" formControlName="isVendor">
+                    <ion-option value="0" checked="true">No, thanks</ion-option>
+                    <ion-option value="1">Yes!</ion-option>
+                </ion-select>
+            </ion-item>
+ 
+            
+ 
+        </form>
+ 
+    </ion-list>
+ <button ion-button full color="primary" (click)="addSignup()">Create Account!</button>
 
-
-<ion-content padding>
-  <h1>Sign Up for a new Account!</h1>
-  <ion-list>
-
-  <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Confirm Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
-  <ion-item padding>
-  <ion-label>Sign Up as a Nail Artist</ion-label>
-  <ion-checkbox color="dark" checked="false"></ion-checkbox>
-</ion-item>
-
-</ion-list>
-
-<div padding>
-  <button (click)="addSignup()" ion-button outline>Submit</button>
-</div>
-
+ 
+  
+    
 </ion-content>
