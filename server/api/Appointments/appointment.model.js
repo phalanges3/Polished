@@ -7,14 +7,14 @@ module.exports = {
     var results = []
     User.findAll({
       include: [{
-          model: Schedule,
-          where: { day: req.body.day }
-        },
-        {
-          model: Appointment,
+        model: Schedule,
+        where: { day: req.body.day }
+      },
+      {
+        model: Appointment,
           // where: { $or: [{date: req.body.date, start: {$ne: req.body.time}}, {date: {$ne:req.body.date}}]},
-          where: {date: {$ne:req.body.date}}
-        }],
+        where: {date: {$ne: req.body.date}}
+      }],
       where: {
         zipCode: req.body.zipCode,
         isVendor: 1
@@ -53,7 +53,7 @@ module.exports = {
   getAppointments: (req, res) => {
     console.log('line 51 appt model', req.body)
     Appointment
-      .findAll({where:{userId: req.body.userId}})
+      .findAll({where: {userId: req.body.userId}})
       .then((appointment) => {
         res.send(appointment)
       })

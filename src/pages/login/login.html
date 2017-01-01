@@ -15,21 +15,22 @@
 
 <ion-content padding>
   <h1>Welcome Back!</h1>
-  <ion-list>
 
-  <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+<form [formGroup]="login" (ngSubmit)="addLogin()">
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
 
-</ion-list>
-<div padding>
-  <button (click)="addLogin()" ion-button outline>Submit</button>
-</div>
+
+    <div padding>
+      <button ion-button type="submit" outline [disabled]="!login.valid">Submit</button>
+    </div>
+</form>
 
 </ion-content>
