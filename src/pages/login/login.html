@@ -1,36 +1,53 @@
-<!--
-  Generated template for the Login page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-
+    <ion-navbar color="primary">
+      <ion-title>
+       Login
+      </ion-title>
+     
+    </ion-navbar>
 </ion-header>
+ 
+<ion-content>
+ 
+   
+ 
+    <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+ 
+    <ion-list no-lines>
+ 
+        <form [formGroup]="loginForm">
+ 
+           
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input [class.invalid]="!loginForm.controls.username.valid && (loginForm.controls.username.dirty || submitAttempt)" formControlName="username" type="text"></ion-input>
+            </ion-item>
+ 
+            <ion-item *ngIf="loginForm.controls.username.pending">
+                <p>Checking username...</p>
+            </ion-item>
+ 
+            <ion-item *ngIf="!loginForm.controls.username.valid && !loginForm.controls.username.pending && (loginForm.controls.username.dirty || submitAttempt)">
+                <p>Sorry, that username can not be used!</p>
+            </ion-item>
+ 
+            
+ 
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+         
+            
+ 
+            
+ 
+        </form>
+ 
+    </ion-list>
+ <button ion-button full color="primary" (click)="addLogin()">Login!</button>
 
-
-<ion-content padding>
-  <h1>Welcome Back!</h1>
-
-<form [formGroup]="login" (ngSubmit)="addLogin()">
-      <ion-item>
-        <ion-label floating>Username</ion-label>
-        <ion-input type="text" formControlName="username"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
-      </ion-item>
-
-
-    <div padding>
-      <button ion-button type="submit" outline [disabled]="!login.valid">Submit</button>
-    </div>
-</form>
-
+ 
+  
+    
 </ion-content>

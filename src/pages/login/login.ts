@@ -1,31 +1,40 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import {Validators, FormBuilder } from '@angular/forms';
-/*
-  Generated class for the Login page.
+import { Component, ViewChild } from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { NavController, NavParams } from 'ionic-angular'
+import { UsernameValidator } from  '../../validators/username'
+import { Http } from '@angular/http'
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  loginInput
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {}
+  signup
+ 
+loginForm: FormGroup;
+ 
+    submitAttempt: boolean = false;
+ 
+    constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public http: Http) {
+       this.loginForm = formBuilder.group({
+        username: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')]), UsernameValidator.checkUsername],
+        password: ['']
+      })
+    }
+ 
+  // still incomplete GET request: 
+    addLogin() {
+      this.submitAttempt = true;
+      console.log("success!", this.loginForm.value)
+      this.http
+        .get('http://localhost:3000/api/user/login')
+        .map((res) => {
+          res.json()
+        })
+        .subscribe((data) => {
+          console.log('DATA from get: ', data)
 
-  ionViewDidLoad() {
-    this.loginInput = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    })
-    console.log('ionViewDidLoad LoginPage');
+      })
   }
-
-  addLogin() {
-    console.log('login fired', this.loginInput.value)
-    
-  }
-
+ 
 }

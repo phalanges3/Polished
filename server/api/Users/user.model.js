@@ -17,8 +17,9 @@ module.exports = {
         })
   },
   login: (req, res) => {
+    console.log('QUERY', req.query)
     User
-      .findOne({where: {email: req.query.email}})
+      .findOne({where: {userName: req.query.userName}})
       .then((user) => {
         res.send(user)
       })
