@@ -9,7 +9,8 @@ import { Http } from '@angular/http'
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  signup
+  private loginURL = 'http://localhost:3000/api/user/login'
+  
  
 loginForm: FormGroup;
  
@@ -17,19 +18,22 @@ loginForm: FormGroup;
  
     constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public http: Http) {
        this.loginForm = formBuilder.group({
-        username: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')]), UsernameValidator.checkUsername],
+        userName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')]), UsernameValidator.checkUsername],
         password: ['']
       })
+      
     }
- 
   // still incomplete GET request: 
     addLogin() {
+
+      
       this.submitAttempt = true;
       console.log("success!", this.loginForm.value)
+      
       this.http
-        .get('http://localhost:3000/api/user/login')
+        .get(this.loginURL, this.loginForm.value)
         .map((res) => {
-          res.json()
+          //res.json()
         })
         .subscribe((data) => {
           console.log('DATA from get: ', data)

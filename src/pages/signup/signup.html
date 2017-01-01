@@ -38,14 +38,14 @@
             </ion-item>
             <ion-item>
                 <ion-label floating>Username</ion-label>
-                <ion-input [class.invalid]="!signupForm.controls.username.valid && (signupForm.controls.username.dirty || submitAttempt)" formControlName="username" type="text"></ion-input>
+                <ion-input [class.invalid]="!signupForm.controls.userName.valid && (signupForm.controls.userName.dirty || submitAttempt)" formControlName="userName" type="text"></ion-input>
             </ion-item>
  
-            <ion-item *ngIf="signupForm.controls.username.pending">
+            <ion-item *ngIf="signupForm.controls.userName.pending">
                 <p>Checking username...</p>
             </ion-item>
  
-            <ion-item *ngIf="!signupForm.controls.username.valid && !signupForm.controls.username.pending && (signupForm.controls.username.dirty || submitAttempt)">
+            <ion-item *ngIf="!signupForm.controls.userName.valid && !signupForm.controls.userName.pending && (signupForm.controls.userName.dirty || submitAttempt)">
                 <p>Sorry, that username can not be used!</p>
             </ion-item>
  
