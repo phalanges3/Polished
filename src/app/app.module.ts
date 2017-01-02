@@ -12,8 +12,10 @@ import { SearchmorePage } from '../pages/searchmore/searchmore';
 import {  SelectservicePage } from '../pages/selectservice/selectservice';
 import { NailtechdashboardPage} from '../pages/nailtechdashboard/nailtechdashboard';
 import { AvailabilityPage} from '../pages/availability/availability';
+import { ProfilePage} from '../pages/profile/profile';
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { Bookartist } from '../providers/bookartist';
+import { Auth } from '../providers/auth.ts'
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { Bookartist } from '../providers/bookartist';
     SearchmorePage,
     SelectservicePage,
     NailtechdashboardPage,
-    AvailabilityPage
+    AvailabilityPage,
+    ProfilePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -47,8 +50,9 @@ import { Bookartist } from '../providers/bookartist';
     SearchmorePage,
     SelectservicePage,
     NailtechdashboardPage,
-    AvailabilityPage
+    AvailabilityPage,
+    ProfilePage
   ],
-  providers: [Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
 })
 export class AppModule {}

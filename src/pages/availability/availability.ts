@@ -60,7 +60,7 @@ export class AvailabilityPage {
     for(var  i = 0; i < this.hours.value.day.length; i++){
        this.http.post('http://localhost:3000/api/schedule/', ({"userID": 1, "day": this.hours.value.day[i], "start": this.hours.value.start, "end": this.hours.value.end}), this.headers)
        .subscribe(data => {
-          console.log(data)
+          console.log('DATA in availability POST: ', data)
        })
     }
    

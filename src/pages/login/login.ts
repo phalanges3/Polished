@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { NavController, NavParams } from 'ionic-angular'
 import { UsernameValidator } from  '../../validators/username'
 import { Http } from '@angular/http'
-
+import { HomePage} from '../home/home'
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -33,12 +33,18 @@ loginForm: FormGroup;
       this.http
         .get(this.loginURL, this.loginForm.value)
         .map((res) => {
+          console.log(res, 'response')
           //res.json()
         })
         .subscribe((data) => {
           console.log('DATA from get: ', data)
+          localStorage.setItem('UserLoggedIn', 'true')
+          this.navCtrl.push(HomePage)
 
       })
+  }
+  logout() {
+     localStorage.setItem('UserLoggedIn', 'false')
   }
  
 }
