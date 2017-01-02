@@ -59,7 +59,7 @@ export class SelectservicePage {
     console.log(dayOfWeek)
     this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time}))
       .subscribe(artist => {
-        console.log("in get", artist)
+        console.log("in Selectservice POST", artist)
         this.bookInfo.value.price = cost[this.bookInfo.value.service]
         this.result.response =  artist.json()
         this.result.bookInfo = this.bookInfo.value

@@ -21,7 +21,8 @@ module.exports = {
     User
       .findOne({where: {userName: req.query.userName}})
       .then((user) => {
-        res.send(user)
+        console.log('USER', user)
+        res.json(user)
       })
       .catch((err) => {
         if (err) {

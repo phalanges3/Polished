@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { NavController, NavParams } from 'ionic-angular'
 import { UsernameValidator } from  '../../validators/username'
 import { Http } from '@angular/http'
+import 'rxjs/add/operator/map';
+import { LoginPage } from '../login/login'
  
 @Component({
   selector: 'page-signup',
@@ -35,6 +37,7 @@ signupForm: FormGroup
           res.json()
         })
         .subscribe((data) => {
+          this.navCtrl.push(LoginPage)
 
       })
     }
