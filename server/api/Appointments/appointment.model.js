@@ -5,19 +5,15 @@ const Review = require('../reviews/review.schema')
 
 module.exports = {
   findAvailableArtists: (req, res) => {
-    var results = []
     User.findAll({
       include: [{
         model: Schedule,
         where: { day: req.body.day }
       },
       {
-        model: Appointment,
-          // where: { $or: [{date: req.body.date, start: {$ne: req.body.time}}, {date: {$ne:req.body.date}}]},
-        where: {date: {$ne: req.body.date}}
-      },
-      {
-        model: Review
+        model: Appointment
+        //   where: { $or: [{date: req.body.date, start: {$ne: req.body.time}}, {date: {$ne:req.body.date}}]},
+        // where: {date: req.body.date, start: {$ne: req.body.time}}
       }],
       where: {
         zipCode: req.body.zipCode,
@@ -25,8 +21,35 @@ module.exports = {
       }
     })
     .then((artists) => {
-      res.send(artists)
+      var filtered =  []
+      console.log(new Date())
+      var results =  JSON.parse(JSON.stringify(artists))
+      // console.log(results, "line 27")
+      for(var i = 0; i < results.length; i++){
+        results[i].flag  = true
+        if(results[i].appointments.length===0){
+          filtered.push(results[i])
+        }  else {
+          for(var j = 0; j < results[i].appointments.length; j++){
+            if(results[i].appointments[j].start === req.body.time && results[i].appointments[j].date === req.body.date){
+              results[i].flag = false
+              console.log("flag", results[i].flag, results[i].firstName )
+            }
+            console.log("flag", results[i].flag, results[i].firstName )
+            }
+          if(results[i].flag){
+            filtered.push(results[i])
+          }  
+        }
+      }
+      // console.log(filtered)
+      return filtered
     })
+      .then(filteredRes =>  {
+        res.send(filteredRes)
+      })
+      
+      // res.send(artists)
   },
   addAppointment: (req, res) => {
     Appointment
