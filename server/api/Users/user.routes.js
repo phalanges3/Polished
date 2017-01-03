@@ -6,7 +6,7 @@ router.post('/signup', (req, res) => {
   console.log('within USER POST signup')
   userModel.signup(req, res)
 })
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
   console.log('within USER GET login', req.query)
   userModel.login(req, res)
 })
