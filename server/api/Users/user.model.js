@@ -18,7 +18,7 @@ module.exports = {
         })
   },
   login: (req, res) => {
-    console.log('BODY', req.body)
+    console.log('req.body in LOGIN::', req.body)
     User
       .findOne({where: {userName: req.body.userName}})
       .then((user) => {
@@ -33,7 +33,7 @@ module.exports = {
   },
   updateProfile: (req, res) => {
     User
-      .findOne({where: {email: req.body.email}})
+      .findOne({where: {email: req.body.userName}})
       .then((user) => {
         if (user) {
           user

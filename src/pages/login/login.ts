@@ -24,30 +24,31 @@ loginForm: FormGroup;
       })
       
     }
-  // still incomplete GET request: 
+
     addLogin() {
       this.submitAttempt = true;
       console.log("success!", this.loginForm.value)
       
       this.http
-        .post(this.loginURL, this.loginForm.value)
+        .post('http://localhost:3000/api/user/login', this.loginForm.value)
         .map((res) => {
           console.log('response: ', res)
           res.json()
        
         })
-        // .map((res) => {
-        //   console.log('SECOND RES: ', res)
-        //    localStorage.setItem('UserLoggedIn', 'true')
-        //   localStorage.setItem('isVendor', 'true')
-        //   this.navCtrl.push(HomePage)
-        // })
+        .map((res) => {
+          console.log('SECOND RES: ', res)
+           localStorage.setItem('UserLoggedIn', 'true')
+          localStorage.setItem('isVendor', 'true')
+          this.navCtrl.push(HomePage)
+        })
 
-      //   .subscribe((data) => {
-      //     console.log('DATA from get: ', data)
+        .subscribe((data) => {
+          console.log('DATA from get: ', data)
           
 
-      // })
+      })
+
     }
   logout() {
      localStorage.clear()
