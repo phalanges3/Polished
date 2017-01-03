@@ -8,6 +8,7 @@ module.exports = {
         .create({
           firstName: req.body.firstName,
           lastName: req.body.lastName,
+          userName: req.body.userName,
           email: req.body.email,
           password: req.body.password,
           isVendor: req.body.isVendor
@@ -17,11 +18,11 @@ module.exports = {
         })
   },
   login: (req, res) => {
-    console.log('QUERY', req.query)
+    console.log('BODY', req.body)
     User
-      .findOne({where: {userName: req.query.userName}})
+      .findOne({where: {userName: req.body.userName}})
       .then((user) => {
-        console.log('USER', user)
+        console.log('USER::', user)
         res.json(user)
       })
       .catch((err) => {
