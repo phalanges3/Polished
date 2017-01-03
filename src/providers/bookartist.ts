@@ -29,7 +29,7 @@ export class Bookartist {
           "city": bookInfo.city,
           "state": bookInfo.state,
           "zipCode": Number(bookInfo.zipCode),
-          "clientId":  2,
+          "clientId":  4,
           "nail_artist_id": nailArtist.id,
           "nail_artist_first": nailArtist.firstName,
           "nail_artist_second": nailArtist.lastName,
