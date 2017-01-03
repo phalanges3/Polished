@@ -72,6 +72,7 @@ export class BestmatchPage {
     this.data = this.navParams.get("data").response;
     this.bookInfo = this.navParams.get("data").bookInfo;
     this.bestmatch = this.data[0];
+  
     
   }
 

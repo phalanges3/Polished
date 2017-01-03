@@ -4,7 +4,7 @@ import { NavController, NavParams } from 'ionic-angular'
 import { UsernameValidator } from  '../../validators/username'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
-import { HomePage} from '../home/home'
+import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -26,25 +26,36 @@ loginForm: FormGroup;
     }
 
     addLogin() {
-      this.submitAttempt = true;
-      console.log("success!", this.loginForm.value)
-      
+      //this.submitAttempt = true;
+      console.log("loginformvalue!", this.loginForm.value)
+      console.log(this.http.post, "HTTP")
       this.http
         .post('http://localhost:3000/api/user/login', this.loginForm.value)
         .map((res) => {
-          console.log('response: ', res)
-          res.json()
+          console.log('response: ', res.json())
+          let response = res.json()
+          if ( response === null) {
+            alert('Login not found')
+          }
+          else  {
+            if (response.isVendor === 1)
+            localStorage.setItem('UserLoggedIn', 'true')
+            localStorage.setItem('isVendor', 'true')
+            console.log("isvendor",response.isVendor)
+            this.navCtrl.push(NailtechdashboardPage, {
+              data: response
+            })
+          }
+          
+          
        
         })
-        .map((res) => {
-          console.log('SECOND RES: ', res)
-           localStorage.setItem('UserLoggedIn', 'true')
-          localStorage.setItem('isVendor', 'true')
-          this.navCtrl.push(HomePage)
-        })
+
         .subscribe((data) => {
+          
 
       })
+       
 
     }
   logout() {
