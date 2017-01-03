@@ -18,6 +18,8 @@ import {Geolocation} from 'ionic-native';
 })
 export class SelectservicePage {
   addressFlag:any = false
+  addressFlagCount= 0
+  geolocationFlag:any = false
   result = {
     response: '',
     bookInfo: ''
@@ -44,7 +46,13 @@ export class SelectservicePage {
   }
 
   enterAddress(){
-    this.addressFlag = true
+    this.addressFlagCount++
+    if(this.addressFlagCount>0 && this.addressFlagCount%2!==0){
+      this.addressFlag = true
+    } else  {
+      this.addressFlag = false
+    }
+    
   }
   geoLocate(){
     Geolocation.getCurrentPosition().then(pos => {
@@ -55,9 +63,24 @@ export class SelectservicePage {
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude)
       this.long = pos.coords.longitude
       this.lati = pos.coords.latitude
+      // let  headers = new  Headers()
+      // headers.append('Content-Type', 'application/json')
       console.log("saved lon lat", this.long,  this.lati)
+      this.geolocationFlag = true
+      this.http.post('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.lati + ',' + this.long + '&key=AIzaSyCVnqyWXNW0HqDOt7HDNf-fOZIguJ96EXo', '')
+      .subscribe(address => {
+        console.log("in post ", address.json())
+        let addressRes = address.json()
+        console.log("address", addressRes.results)
+        this.bookInfo.value.houseNumber = addressRes.results[0].address_components[0].long_name
+        this.bookInfo.value.street =  addressRes.results[0].address_components[1].short_name
+        this.bookInfo.value.city =  addressRes.results[0].address_components[3].long_name
+        this.bookInfo.value.state = addressRes.results[0].address_components[5].short_name
+        this.bookInfo.value.zipCode = addressRes.results[0].address_components[7].long_name
+        console.log(this.bookInfo.value, 'bookingInfo')
+        console.log("captured zip", this.bookInfo.value.zipCode)
+      })
     })
-
   }
 
   //get request

@@ -35,10 +35,13 @@
         </ion-select>
      </ion-item>
    </ion-row>
-   <h4>Where is most convenient for you?</h4>
+   <!-- <h4>Where is most convenient for you?</h4> -->
    <ion-row>
-    <button ion-button (click) = "enterAddress()">Enter Address</button>
-    <button ion-button (click) = "geoLocate()">Use My Location</button>
+
+    <ion-col width-40><button ion-button full (click) = "enterAddress()">Enter Address</button></ion-col>
+    <ion-col width-40><button ion-button full (click) = "geoLocate()">Use My Location</button></ion-col>
+   </ion-row>
+   <ion-row *ngIf="geolocationFlag === true" class="locationCaptured"> Your location has been captured  <ion-icon name="checkmark"></ion-icon>
    </ion-row>
    <ion-row  *ngIf="addressFlag === true">
      <ion-col>
