@@ -3,7 +3,7 @@ const User = require('./user.schema')
 module.exports = {
 
   signup: (req, res) => {
-    console.log('in signup', req)
+    //console.log('in signup', req)
     User
         .create({
           firstName: req.body.firstName,

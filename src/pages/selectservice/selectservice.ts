@@ -6,20 +6,17 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Geolocation} from 'ionic-native';
 
-/*
-  Generated class for the Selectservice page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-selectservice',
   templateUrl: 'selectservice.html'
 })
 export class SelectservicePage {
+
   addressFlag:any = false
   addressFlagCount= 0
   geolocationFlag:any = false
+  data: any
+
   result = {
     response: '',
     bookInfo: ''
