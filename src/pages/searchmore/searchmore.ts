@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Bookartist } from '../../providers/bookartist';
+import { AlertController } from 'ionic-angular';
+import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard'
 
 /*
   Generated class for the Searchmore page.
@@ -23,7 +25,7 @@ export class SearchmorePage {
 
   bookInfo: any; 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist, public alertCtrl: AlertController) {
     this.data = this.navParams.get("data");
     this.bookInfo = this.navParams.get("bookInfo");
   }
@@ -94,13 +96,49 @@ export class SearchmorePage {
     // this.navCtrl.push(profilePage, {data: profile});
   }
 
+  showAlert(nailArtist) {
+    let alert = this.alertCtrl.create({
+      title: 'Booking Confirmed!',
+      subTitle: `Congratulations, you just booked ${nailArtist.firstName}!`,
+      buttons: ['OK']
+    });
+    alert.present(nailArtist);
+  }
+
   bookNailArtist(nailArtist){
     //console.log('just booked ', nailArtist);
     this.bookArtist.setBooking(nailArtist, this.bookInfo)
       .subscribe(
         (data: any) => {
-          console.log('heres the data from book services inside searchmore page', data)
+          console.log('heres the data from book services', data)
+          this.showAlert(nailArtist);
+          this.navCtrl.push(NailtechdashboardPage, {data: this.data});
+
       });
+  }
+
+  confirmBooking(nailArtist) {
+    let confirm = this.alertCtrl.create({
+      title: 'Confirm Booking',
+      message: `Are you sure you want to book ${nailArtist.firstName}?`,
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+            console.log('Agree clicked');
+            this.bookNailArtist(nailArtist);
+            //this.showAlert(nailArtist);
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }
