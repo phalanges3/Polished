@@ -4,6 +4,7 @@ import { BestmatchPage } from '../bestmatch/bestmatch';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Geolocation} from 'ionic-native';
 
 /*
   Generated class for the Selectservice page.
@@ -16,10 +17,15 @@ import 'rxjs/add/operator/map';
   templateUrl: 'selectservice.html'
 })
 export class SelectservicePage {
+  addressFlag:any = false
+  addressFlagCount= 0
+  geolocationFlag:any = false
   result = {
     response: '',
     bookInfo: ''
   }
+  long = 0
+  lati = 0
   bookInfo : FormGroup
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public http: Http) {
     this.bookInfo = formBuilder.group({
@@ -33,9 +39,50 @@ export class SelectservicePage {
        city: '',
        state: '',
        zipCode: '',
-       price: ''
+       price: '',
+       lat: 0,
+       lon: 0
     })
   }
+
+  enterAddress(){
+    this.addressFlagCount++
+    if(this.addressFlagCount>0 && this.addressFlagCount%2!==0){
+      this.addressFlag = true
+    } else  {
+      this.addressFlag = false
+    }
+    
+  }
+  geoLocate(){
+    Geolocation.getCurrentPosition().then(pos => {
+      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude)
+    })
+
+    let watch = Geolocation.watchPosition().subscribe(pos => {
+      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude)
+      this.long = pos.coords.longitude
+      this.lati = pos.coords.latitude
+      // let  headers = new  Headers()
+      // headers.append('Content-Type', 'application/json')
+      console.log("saved lon lat", this.long,  this.lati)
+      this.geolocationFlag = true
+      this.http.post('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + this.lati + ',' + this.long + '&key=AIzaSyCVnqyWXNW0HqDOt7HDNf-fOZIguJ96EXo', '')
+      .subscribe(address => {
+        console.log("in post ", address.json())
+        let addressRes = address.json()
+        console.log("address", addressRes.results)
+        this.bookInfo.value.houseNumber = addressRes.results[0].address_components[0].long_name
+        this.bookInfo.value.street =  addressRes.results[0].address_components[1].short_name
+        this.bookInfo.value.city =  addressRes.results[0].address_components[3].long_name
+        this.bookInfo.value.state = addressRes.results[0].address_components[5].short_name
+        this.bookInfo.value.zipCode = addressRes.results[0].address_components[7].long_name
+        console.log(this.bookInfo.value, 'bookingInfo')
+        console.log("captured zip", this.bookInfo.value.zipCode)
+      })
+    })
+  }
+
   //get request
   navigate(){
     console.log(this.bookInfo)
