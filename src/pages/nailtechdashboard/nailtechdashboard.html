@@ -17,10 +17,12 @@
   <div>
   	<h4>Next Appointment</h4>
       <ion-row>
-        <ion-item>Time: {{this.appointments.start}} </ion-item> 
-        <ion-item> Date: {{this.appointments.date}} </ion-item> 
-        <<!-- ion-item> Service: {{this.appointments.services_selected}} </ion-item> -->
-        <ion-item> Location: {{this.appointments.houseNumber}} {{this.appointments.streetName}} {{this.appointments.city}}, {{this.appointments.state}} {{this.appointments.zipCode}} </ion-item> 
+        <ion-item>{{this.appointments.start}} </ion-item> 
+        <ion-item>{{this.appointments.date}} </ion-item> 
+        <<!-- ion-item> Service: {{this.appointments.services_selected}} </ion-item> --> 
+      </ion-row>
+      <ion-row>
+      <ion-item> {{this.appointments.houseNumber}} {{this.appointments.streetName}} {{this.appointments.city}}, {{this.appointments.state}} {{this.appointments.zipCode}} </ion-item>
       </ion-row>
   </div>
   <div>

@@ -37,6 +37,10 @@
    </ion-row>
    <h4>Where is most convenient for you?</h4>
    <ion-row>
+    <button ion-button (click) = "enterAddress()">Enter Address</button>
+    <button ion-button (click) = "geoLocate()">Use My Location</button>
+   </ion-row>
+   <ion-row  *ngIf="addressFlag === true">
      <ion-col>
        <ion-item>
         <ion-input placeholder="House Number" formControlName="houseNumber"></ion-input>
@@ -53,7 +57,7 @@
        </ion-item>
      </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row *ngIf="addressFlag === true">
     <ion-item>
       <ion-input placeholder= "City" formControlName="city"></ion-input>
     </ion-item>

@@ -39,6 +39,7 @@ loginForm: FormGroup;
         .subscribe((data) => {
           console.log('DATA from get: ', data)
           localStorage.setItem('UserLoggedIn', 'true')
+          console.log(localStorage, "localStorage")
           this.navCtrl.push(HomePage)
 
       })

@@ -4,6 +4,7 @@ import { BestmatchPage } from '../bestmatch/bestmatch';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Geolocation} from 'ionic-native';
 
 /*
   Generated class for the Selectservice page.
@@ -16,10 +17,13 @@ import 'rxjs/add/operator/map';
   templateUrl: 'selectservice.html'
 })
 export class SelectservicePage {
+  addressFlag:any = false
   result = {
     response: '',
     bookInfo: ''
   }
+  long = 0
+  lati = 0
   bookInfo : FormGroup
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public http: Http) {
     this.bookInfo = formBuilder.group({
@@ -33,9 +37,29 @@ export class SelectservicePage {
        city: '',
        state: '',
        zipCode: '',
-       price: ''
+       price: '',
+       lat: 0,
+       lon: 0
     })
   }
+
+  enterAddress(){
+    this.addressFlag = true
+  }
+  geoLocate(){
+    Geolocation.getCurrentPosition().then(pos => {
+      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude)
+    })
+
+    let watch = Geolocation.watchPosition().subscribe(pos => {
+      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude)
+      this.long = pos.coords.longitude
+      this.lati = pos.coords.latitude
+      console.log("saved lon lat", this.long,  this.lati)
+    })
+
+  }
+
   //get request
   navigate(){
     console.log(this.bookInfo)
