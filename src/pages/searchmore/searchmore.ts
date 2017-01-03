@@ -54,9 +54,9 @@ export class SearchmorePage {
       let marker = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
-        position: {lat: nailArtist[i].lat, lng: nailArtist[i].lng}
+        position: {lat: Number(nailArtist[i].latitude), lng: Number(nailArtist[i].longitude)}
       });
-      console.log('heres position ', marker.position)
+      //console.log('heres position ', marker.position)
  
       let content = `<h4> <b>${ nailArtist[i].firstName} ${nailArtist[i].lastName }</b> </h4>`;          
  

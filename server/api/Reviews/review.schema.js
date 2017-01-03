@@ -4,22 +4,28 @@ const db = require('../../config/db.config.js')
 // console.log('USER WITHIN REVIEW: ', User)
 
 const Review = db.define('review', {
+  userId: {
+    type: Sequelize.INTEGER
+  },
+  reviewed_first: {
+    type: Sequelize.STRING
+  },
+  reviewed_last: {
+    type: Sequelize.STRING
+  },
+  reviewer_first: {
+    type: Sequelize.STRING
+  },
+  reviewer_last: {
+    type: Sequelize.STRING
+  },
+  reviewer_id: {
+    type: Sequelize.INTEGER
+  },
   rating: {
     type: Sequelize.INTEGER
   },
-  general_rating: {
-    type: Sequelize.INTEGER
-  },
-  reviewer_name: {
-    type: Sequelize.STRING
-  },
-  reviewed_name: {
-    type: Sequelize.STRING
-  },
   review_content: {
-    type: Sequelize.STRING
-  },
-  firstName: {
     type: Sequelize.STRING
   }
 })

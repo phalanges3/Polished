@@ -98,9 +98,9 @@ export class BestmatchPage {
       let marker = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
-        position: {lat: nailArtist[0].lat, lng: nailArtist[0].lng}
+        position: {lat: Number(nailArtist[0].latitude), lng: Number(nailArtist[0].longitude)}
       });
-      console.log('heres position ', marker.position)
+      //console.log('heres position ', marker.position)
  
       let content = `<h2> <b>${ nailArtist[0].firstName} ${nailArtist[0].lastName }</b> </h2>`;          
  
