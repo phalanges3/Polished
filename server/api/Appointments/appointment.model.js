@@ -1,6 +1,7 @@
 const Appointment = require('./appointment.schema')
 const User = require('../users/user.schema')
 const Schedule = require('../schedule/schedule.schema')
+const Review = require('../reviews/review.schema')
 
 module.exports = {
   findAvailableArtists: (req, res) => {
@@ -14,6 +15,9 @@ module.exports = {
         model: Appointment,
           // where: { $or: [{date: req.body.date, start: {$ne: req.body.time}}, {date: {$ne:req.body.date}}]},
         where: {date: {$ne: req.body.date}}
+      },
+      {
+        model: Review
       }],
       where: {
         zipCode: req.body.zipCode,

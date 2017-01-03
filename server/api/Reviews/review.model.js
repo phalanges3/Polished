@@ -5,12 +5,14 @@ module.exports = {
   addReview: (req, res) => {
     Review
         .create({
+          userId: req.body.userId,
+          reviewed_first: req.body.reviewed_first,
+          reviewed_last: req.body.reviewed_last,
+          reviewer_first: req.body.reviewer_first,
+          reviewer_last: req.body.reviewer_last,
+          reviewer_id: req.body.reviewer_id,
           rating: req.body.rating,
-          general_rating: req.body.general_rating,
-          reviewer_name: req.body.reviewer_name,
-          reviewed_name: req.body.reviewed_name,
-          review_content: req.body.review_content,
-          firstName: req.body.firstName
+          review_content: req.body.review_content
         })
         .then((review) => {
           res.send(review)
@@ -18,7 +20,7 @@ module.exports = {
   },
   getReviews: (req, res) => {
     Review
-      .find({where: {reviewer_name: req.query.reviewer_name}})
+      .find({where: {userId: req.body.userId}})
       .then((review) => {
         res.send(review)
       })
@@ -30,7 +32,7 @@ module.exports = {
   },
   getOneReview: (req, res) => {
     Review
-      .findOne({where: {reviewer_name: req.query.reviewer_name}})
+      .findOne({where: {userId: req.body.userId}})
       .then((review) => {
         res.send(review)
       })
@@ -42,17 +44,17 @@ module.exports = {
   },
   updateReview: (req, res) => {
     Review
-      .findOne({where: {reviewer_name: req.query.reviewer_name}})
+      .findOne({where: {userId: req.body.userId}})
       .then((review) => {
         if (review) {
           review
             .updateAttributes({
+              reviewed_first: req.body.reviewed_first,
+              reviewed_last: req.body.reviewed_last,
+              reviewer_first: req.body.reviewer_first,
+              reviewer_last: req.body.reviewer_last,
               rating: req.body.rating,
-              general_rating: req.body.general_rating,
-              reviewer_name: req.body.reviewer_name,
-              reviewed_name: req.body.reviewed_name,
-              review_content: req.body.review_content,
-              firstName: req.body.firstName
+              review_content: req.body.review_content
             })
         }
         res.send(review)

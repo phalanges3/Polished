@@ -30,6 +30,9 @@ const User = db.define('user', {
   userName: {
     type: Sequelize.STRING
   },
+  general_rating: {
+    type: Sequelize.INTEGER
+  },
   nailCertification: {
     type: Sequelize.INTEGER
   },
@@ -53,6 +56,12 @@ const User = db.define('user', {
   },
   zipCode: {
     type: Sequelize.INTEGER
+  },
+  latitude: {
+    type: Sequelize.STRING
+  },
+  longitude: {
+    type: Sequelize.STRING
   }
 })
 // relationships
