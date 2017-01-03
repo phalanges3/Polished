@@ -8,16 +8,13 @@
 </ion-header>
  
 <ion-content>
- 
-   
- 
+
     <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
  
     <ion-list no-lines>
  
         <form [formGroup]="loginForm">
  
-           
             <ion-item>
                 <ion-label floating>Username</ion-label>
                 <ion-input [class.invalid]="!loginForm.controls.userName.valid && (loginForm.controls.userName.dirty || submitAttempt)" formControlName="userName" type="text"></ion-input>
@@ -31,17 +28,11 @@
                 <p>Sorry, that username can not be used!</p>
             </ion-item>
  
-            
- 
             <ion-item>
               <ion-label floating>Password</ion-label>
               <ion-input formControlName="password" type="password"></ion-input>
             </ion-item>
          
-            
- 
-            
- 
         </form>
  
     </ion-list>
@@ -62,6 +53,4 @@
 }(document, 'script', 'facebook-jssdk'));</script>-->
 
  
-  
-    
 </ion-content>

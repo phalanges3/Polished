@@ -8,6 +8,7 @@ module.exports = {
         .create({
           firstName: req.body.firstName,
           lastName: req.body.lastName,
+          userName: req.body.userName,
           email: req.body.email,
           password: req.body.password,
           isVendor: req.body.isVendor
@@ -17,11 +18,11 @@ module.exports = {
         })
   },
   login: (req, res) => {
-    console.log('QUERY', req.query)
+    console.log('req.body in LOGIN::', req.body)
     User
-      .findOne({where: {userName: req.query.userName}})
+      .findOne({where: {userName: req.body.userName}})
       .then((user) => {
-        console.log('USER', user)
+        console.log('USER::', user)
         res.json(user)
       })
       .catch((err) => {
@@ -32,7 +33,7 @@ module.exports = {
   },
   updateProfile: (req, res) => {
     User
-      .findOne({where: {email: req.body.email}})
+      .findOne({where: {email: req.body.userName}})
       .then((user) => {
         if (user) {
           user
