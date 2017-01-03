@@ -10,6 +10,7 @@ import { ProfilePage} from '../profile/profile'
   templateUrl: 'nailtechdashboard.html'
 })
 export class NailtechdashboardPage {
+  data: any
   newDate: any
   appointments = {
    services_selected:  "loading",
@@ -23,6 +24,8 @@ export class NailtechdashboardPage {
  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+     this.data = this.navParams.get("data")
+     console.log('Data from login: ', this.data)
     this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": 1}))
     .subscribe(appointment => {
         console.log("intechDashboard POST: ", appointment.json()[0])

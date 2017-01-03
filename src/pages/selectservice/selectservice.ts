@@ -5,17 +5,12 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the Selectservice page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-selectservice',
   templateUrl: 'selectservice.html'
 })
 export class SelectservicePage {
+  data: any
   result = {
     response: '',
     bookInfo: ''

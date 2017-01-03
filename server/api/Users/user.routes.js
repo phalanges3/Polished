@@ -7,7 +7,7 @@ router.post('/signup', (req, res) => {
   userModel.signup(req, res)
 })
 router.post('/login', (req, res) => {
-  console.log('within USER GET login', req.query)
+  console.log('within USER login', req.query)
   userModel.login(req, res)
 })
 router.put('/update', (req, res) => {

@@ -34,7 +34,8 @@ signupForm: FormGroup
       this.http
         .post('http://localhost:3000/api/user/signup', this.signupForm.value)
         .map((res) => {
-          res.json()
+          let response = res.json()
+          console.log('response', response)
         })
         .subscribe((data) => {
           this.navCtrl.push(LoginPage)
