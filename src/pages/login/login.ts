@@ -42,10 +42,7 @@ loginForm: FormGroup;
           localStorage.setItem('isVendor', 'true')
           this.navCtrl.push(HomePage)
         })
-
         .subscribe((data) => {
-          console.log('DATA from get: ', data)
-          
 
       })
 
