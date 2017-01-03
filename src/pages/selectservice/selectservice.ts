@@ -57,7 +57,9 @@ export class SelectservicePage {
     console.log(today)
     console.log(today.getDay())
     console.log(dayOfWeek)
-    this.http.post('http://localhost:3000/api/appointment/findartists', ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time}))
+    let params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
+    console.log("params", params)
+    this.http.post('http://localhost:3000/api/appointment/findartists', params)
       .subscribe(artist => {
         console.log("in Selectservice POST", artist)
         this.bookInfo.value.price = cost[this.bookInfo.value.service]
@@ -75,7 +77,3 @@ export class SelectservicePage {
   }
 
 }
- // this.navCtrl.push(BestmatchPage, {
-    //    firstPassed: "value 1",
-    //    secondPassed: "value 2"
-    // })

@@ -24,7 +24,6 @@ module.exports = {
       var filtered =  []
       console.log(new Date())
       var results =  JSON.parse(JSON.stringify(artists))
-      // console.log(results, "line 27")
       for(var i = 0; i < results.length; i++){
         results[i].flag  = true
         if(results[i].appointments.length===0){
@@ -42,14 +41,13 @@ module.exports = {
           }  
         }
       }
-      // console.log(filtered)
       return filtered
     })
       .then(filteredRes =>  {
+        console.log("filteredRes", filteredRes, "length", filteredRes.length)
         res.send(filteredRes)
       })
       
-      // res.send(artists)
   },
   addAppointment: (req, res) => {
     Appointment
