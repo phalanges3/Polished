@@ -33,7 +33,7 @@ module.exports = {
   },
   updateProfile: (req, res) => {
     User
-      .findOne({where: {email: req.body.userName}})
+      .findOne({where: {userName: req.body.userName}})
       .then((user) => {
         if (user) {
           user

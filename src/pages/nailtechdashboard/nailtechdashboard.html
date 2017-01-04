@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Welcome George</ion-title>
+    <ion-title>Welcome {{this.data.firstName}}</ion-title>
   </ion-navbar>
  
 </ion-header>
@@ -17,23 +17,28 @@
   <div>
   	<h4>Next Appointment</h4>
       <ion-row>
-        <ion-item>{{this.appointments.start}} </ion-item> 
-        <ion-item>{{this.appointments.date}} </ion-item> 
+        <ion-item>{{this.appointments.start}} </ion-item>  
         <<!-- ion-item> Service: {{this.appointments.services_selected}} </ion-item> --> 
+      </ion-row>
+      <ion-row>
+        <ion-item>{{this.appointments.date}} </ion-item>
       </ion-row>
       <ion-row>
       <ion-item> {{this.appointments.houseNumber}} {{this.appointments.streetName}} {{this.appointments.city}}, {{this.appointments.state}} {{this.appointments.zipCode}} </ion-item>
       </ion-row>
   </div>
-  <div>
+  <div *ngIf="earningsFlag===true">
   	<h4>Weekly Earnings</h4>
   </div>
-   <div>
+  <div *ngIf="ratingsFlag===true">
   	<h4>Rating Analytics</h4>
   </div>
   <ion-row>
-    <ion-col  width-40>
+    <ion-col  width-40  *ngIf="updateHoursFlag===true">
     <button ion-button full  (click) = "goToAvailability()">Adjust Hours</button>
+    </ion-col>
+    <ion-col width-40 *ngIf="bookFlag===true">
+    <button ion-button full (click) = "goToBook()">Book Now</button>
     </ion-col>
     <ion-col width-40>
     <button ion-button full (click)="goToProfile()">Update Account</button>

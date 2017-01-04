@@ -83,6 +83,14 @@ module.exports = {
         res.send(appointment)
       })
   },
+  clientAppointments: (req, res) => {
+    console.log('line 87 appt model', req.body)
+    Appointment
+      .findAll({where: {clientId: req.body.clientId}})
+      .then((appointment) => {
+        res.send(appointment)
+      })
+  },
   updateAppointment: (req, res) => {
     console.log('within update')
     Appointment
