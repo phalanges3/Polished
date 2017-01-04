@@ -62,6 +62,9 @@ const User = db.define('user', {
   },
   longitude: {
     type: Sequelize.STRING
+  },
+  DOB: {
+    type: Sequelize.DATE
   }
 })
 // relationships

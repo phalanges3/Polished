@@ -19,7 +19,6 @@ import { Auth } from '../providers/auth.ts'
 import { Storage } from '@ionic/storage'
 import { ModalContentPage  } from '../profile/modal'
 
-
 @NgModule({
   declarations: [
     MyApp,
@@ -35,6 +34,7 @@ import { ModalContentPage  } from '../profile/modal'
     NailtechdashboardPage,
     AvailabilityPage,
     ProfilePage
+    
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -55,7 +55,8 @@ import { ModalContentPage  } from '../profile/modal'
     NailtechdashboardPage,
     AvailabilityPage,
     ProfilePage
+    
   ],
-  providers: [Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+  providers: [Storage, Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
 })
 export class AppModule {}
