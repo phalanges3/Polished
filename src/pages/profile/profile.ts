@@ -110,7 +110,7 @@ export class ProfilePage {
             handler: data => {
               console.log('Saved clicked', data);
               this.updateFlag1 = true;
-              this.http.put('http://localhost:3000/api/user/update', ({"userName": this.data.userName, "houseNumber": data.houseNumber, "street": data.street, "city": data.city, "state": data.state, "zipCode": data.zipCode}))
+              this.http.put('http://localhost:3000/api/user/update', ({"userName": this.data.userName, "houseNumber": data.houseNumber, "streetName": data.street, "city": data.city, "state": data.state, "zipCode": data.zipCode}))
               .subscribe(result => {
                 console.log('result', result)
                 this.data.houseNumber = data.houseNumber
@@ -124,6 +124,40 @@ export class ProfilePage {
         ]
       });
       prompt2.present();
+    }
+
+    showPrompt3(){
+      let prompt3 = this.alertCtrl.create({
+        title: 'Update Account Information',
+        // message: "Enter a name for this new album you're so keen on adding",
+        inputs: [
+          {
+            name: 'license',
+            placeholder: 'License'
+          }
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Save',
+            handler: data => {
+              console.log('Saved clicked', data);
+              this.updateFlag1 = true;
+              this.http.put('http://localhost:3000/api/user/update', ({"userName": this.data.userName, "nailCertification": data.license}))
+              .subscribe(result => {
+                console.log('result', result)
+                this.data.nailCertification = data.license
+              })
+            }
+          }
+        ]
+      });
+      prompt3.present();
     }
 
   ionViewDidLoad() {
