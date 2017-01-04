@@ -4,6 +4,7 @@ import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { AvailabilityPage} from '../availability/availability'
 import { ProfilePage} from '../profile/profile'
+import { SelectservicePage } from '../selectservice/selectservice'
 
 @Component({
   selector: 'page-nailtechdashboard',
@@ -12,7 +13,12 @@ import { ProfilePage} from '../profile/profile'
 export class NailtechdashboardPage {
   data: any
   newDate: any
-  appointments = {
+  earningsFlag: any = false
+  ratingsFlag: any = false
+  updateHoursFlag: any =  false
+  bookFlag: any = false
+
+  appointments: any = {
    services_selected:  "loading",
    start: "",
    date: "",
@@ -26,14 +32,35 @@ export class NailtechdashboardPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
      this.data = this.navParams.get("data")
      console.log('Data from login: ', this.data)
-    this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": 1}))
-    .subscribe(appointment => {
-        console.log("intechDashboard POST: ", appointment.json()[0])
+    
+    if(this.data.isVendor === 1){
+      this.earningsFlag = true
+      this.ratingsFlag  =  true
+      this.updateHoursFlag = true
+      this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": this.data.id}))
+        .subscribe(appointment => {
+        let result = appointment.json()
+        if(result.length === 0){
+          this.appointments = "no appointments"
+        }
         this.appointments = appointment.json()[0]
         this.newDate = new Date(this.appointments.date)
         this.appointments.date = this.newDate.toDateString()
         console.log(this.appointments)
       })
+    } else {
+      this.bookFlag = true
+      this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.data.id}))
+        .subscribe(appointment => {
+        if(appointment.json().length === 0){
+          this.appointments = "no appointments"
+        }
+        this.appointments = appointment.json()[0]
+        this.newDate = new Date(this.appointments.date)
+        this.appointments.date = this.newDate.toDateString()
+        console.log(this.appointments)
+      })
+    }
   }
   goToAvailability(){
     this.navCtrl.push(AvailabilityPage, {
@@ -41,11 +68,18 @@ export class NailtechdashboardPage {
        secondPassed: "value 2"
     })
   }
+  goToBook(){
+    this.navCtrl.push(SelectservicePage, {
+      data: this.data
+    })
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad NailtechdashboardPage')
   }
   goToProfile() {
-    this.navCtrl.push(ProfilePage)
+    this.navCtrl.push(ProfilePage, {
+      data: this.data
+    })
   }
 
 }

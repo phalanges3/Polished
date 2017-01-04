@@ -7,7 +7,9 @@ import { ModalController, Platform, NavParams, ViewController } from 'ionic-angu
   templateUrl: 'profile.html'
 })
 export class BasicPage {
-  constructor(public modalCtrl: ModalController) { }
+  constructor(public modalCtrl: ModalController) {
+
+   }
 
   openModal(characterNum) {
 

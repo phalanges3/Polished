@@ -17,6 +17,7 @@ import { Ionic2RatingModule } from 'ionic2-rating'
 import { Bookartist } from '../providers/bookartist'
 import { Auth } from '../providers/auth.ts'
 import { Storage } from '@ionic/storage'
+import { ModalContentPage  } from '../profile/modal'
 
 
 @NgModule({

@@ -9,42 +9,39 @@
 
 <ion-content padding>
   <ion-card>
-  <ion-card-content>
-    <ion-img width="80" height="80" src="https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg"></ion-img>
-    <p>name</p>
-    <p>email</p>
-    <p>phoneNumber</p><ion-icon (click)="showUpdateModal()" name="create"></ion-icon>
-  </ion-card-content>
+  <ion-row>
+  <ion-col width-35><ion-img width="80" height="80" src={{this.data.profile_image_url}}></ion-img></ion-col>
+  <ion-col width-60><ion-card-content>
+    <p>{{this.data.firstName}} {{this.data.lastName}}</p>
+    <p>{{this.data.email}}</p>
+    <p>{{this.data.phone}}</p><ion-icon (click)="showPrompt()" name="create"></ion-icon>
+  </ion-card-content></ion-col>
+  </ion-row>
 </ion-card>
 <ion-card>
   <ion-card-header>
     Address:
   </ion-card-header>
   <ion-card-content>
-     <p>houseNumber streetName</p>
-    <p>unitType unitNumber</p>
-    <p>city state zipcode</p><ion-icon (click)="showUpdateModal()" name="create"></ion-icon>
-    
+    <p>{{this.data.houseNumber}} {{this.data.streetName}}</p>
+    <p>{{this.data.unitType}} {{this.data.unitNumber}}</p>
+    <p>{{this.data.city}}, {{this.data.state}} {{this.data.zipCode}}</p><ion-icon (click)="showPrompt2()" name="create"></ion-icon>  
   </ion-card-content>
 </ion-card>
-<ion-card>
+<!-- <ion-card>
   <ion-card-header>
     Social Media:
   </ion-card-header>
   <ion-card-content>
-     <p>@jaqueline</p><ion-icon (click)="showUpdateModal()" name="create"></ion-icon>
-   
-    
+     <p>@jaqueline</p><ion-icon (click)="showUpdateModal()" name="create"></ion-icon> 
   </ion-card-content>
-</ion-card>
-<ion-card>
+</ion-card> -->
+<ion-card *ngIf="licenseFlag===true">
   <ion-card-header>
     License:
   </ion-card-header>
-  <ion-card-content>
-     
-    <p>6Y5D9F7S522K</p><ion-icon (click)="showUpdateModal()" name="create"></ion-icon>
-    
+  <ion-card-content> 
+    <p>{{this.data.nailCertification}}</p><ion-icon (click)="showUpdateModal()" name="create"></ion-icon>
   </ion-card-content>
 </ion-card>
 
