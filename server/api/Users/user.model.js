@@ -3,7 +3,7 @@ const User = require('./user.schema')
 module.exports = {
 
   signup: (req, res) => {
-    //console.log('in signup', req)
+    // console.log('in signup', req)
     User
         .create({
           firstName: req.body.firstName,
@@ -33,8 +33,9 @@ module.exports = {
   },
   updateProfile: (req, res) => {
     User
-      .findOne({where: {email: req.body.userName}})
+      .findOne({where: {userName: req.body.userName}})
       .then((user) => {
+        console.log('user: ', user)
         if (user) {
           user
             .updateAttributes({

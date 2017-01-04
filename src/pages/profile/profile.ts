@@ -5,6 +5,7 @@ import { ModalContentPage } from './modal'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-profile',

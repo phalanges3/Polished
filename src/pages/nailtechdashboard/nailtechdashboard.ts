@@ -4,6 +4,7 @@ import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { AvailabilityPage} from '../availability/availability'
 import { ProfilePage} from '../profile/profile'
+import { Storage } from '@ionic/storage'
 
 @Component({
   selector: 'page-nailtechdashboard',
@@ -23,7 +24,7 @@ export class NailtechdashboardPage {
    zipCode: ""
  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public storage: Storage) {
      this.data = this.navParams.get("data")
      console.log('Data from login: ', this.data)
     this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": 1}))

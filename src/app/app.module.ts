@@ -18,7 +18,6 @@ import { Bookartist } from '../providers/bookartist'
 import { Auth } from '../providers/auth.ts'
 import { Storage } from '@ionic/storage'
 
-
 @NgModule({
   declarations: [
     MyApp,
@@ -34,6 +33,7 @@ import { Storage } from '@ionic/storage'
     NailtechdashboardPage,
     AvailabilityPage,
     ProfilePage
+    
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -54,7 +54,8 @@ import { Storage } from '@ionic/storage'
     NailtechdashboardPage,
     AvailabilityPage,
     ProfilePage
+    
   ],
-  providers: [Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+  providers: [Storage, Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
 })
 export class AppModule {}
