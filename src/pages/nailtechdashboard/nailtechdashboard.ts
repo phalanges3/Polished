@@ -35,13 +35,15 @@ export class NailtechdashboardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
      this.data = this.navParams.get("data")
-     console.log('Data from login: ', this.data)
+
+     console.log('Data from login in TECH DASH: ', this.data)
     let convert =function (input) {
       return moment(input, 'HH:mm:ss').format('h:mm A');
     }
     let convertDate = function (input)  {
       return moment(input.slice(0,10), 'YYYY-MM-DD').toString()
     }
+
     
     this.isVendor = localStorage.getItem('isVendor')
 

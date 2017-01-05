@@ -5,61 +5,74 @@ import { UsernameValidator } from  '../../validators/username'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
+import { AlertController } from 'ionic-angular'
+import { PaymentPage } from '../payment/payment'
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
   private loginURL = 'http://localhost:3000/api/user/login'
-  url = `${this.loginURL}/?=${{'userName':'jcpace'}}`;
  
 loginForm: FormGroup;
- 
-    submitAttempt: boolean = false;
- 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public http: Http) {
+submitAttempt: boolean = false;
+ constructor(
+      public navCtrl: NavController, 
+      public navParams: NavParams, 
+      public formBuilder: FormBuilder, 
+      public http: Http,
+      public alertCtrl: AlertController
+      ) {
        this.loginForm = formBuilder.group({
         userName: [''],
         password: ['']
       })
-      
     }
 
-    addLogin() {
-      //this.submitAttempt = true;
+  addLogin() {
+      this.submitAttempt = true;
       console.log("loginformvalue!", this.loginForm.value)
       console.log(this.http.post, "HTTP")
-      this.http
+      return this.http
         .post('http://localhost:3000/api/user/login', this.loginForm.value)
         .map((res) => {
-          console.log('response: ', res.json())
           let response = res.json()
           if ( response === null) {
-            alert('Login not found')
+            console.log("is null")
+            let alert = this.alertCtrl.create({
+            title: 'Please try again',
+            buttons: ['Dismiss']
+            })
+          alert.present();
           }
           else  {
-            if (response.isVendor === 1)
             localStorage.setItem('UserLoggedIn', 'true')
-            localStorage.setItem('isVendor', 'true')
-            console.log("isvendor",response.isVendor)
+            localStorage.setItem('userName', response.userName)
+            localStorage.setItem('isVendor', response.isVendor)
+            localStorage.setItem('profile_image_url', response.profile_image_url)
+            localStorage.setItem('firstName', response.firstName)
+            localStorage.setItem('lastName', response.lastName)
+            localStorage.setItem('email', response.email)
+            localStorage.setItem('general_rating', response.general_rating)
+            localStorage.setItem('zipCode', response.zipCode)
+            console.log("isvendor?",response.isVendor)
             this.navCtrl.push(NailtechdashboardPage, {
-              data: response
+                data: response
             })
           }
-          
-          
-       
         })
-
         .subscribe((data) => {
-          
+          console.log("DATA: ", data)
+        })
+  }
 
-      })
-       
-
-    }
   logout() {
      localStorage.clear()
+  }
+
+  goToPayment() {
+    this.navCtrl.push(PaymentPage)
   }
  
 }

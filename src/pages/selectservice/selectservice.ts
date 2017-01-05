@@ -6,6 +6,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Geolocation} from 'ionic-native';
 
+
 @Component({
   selector: 'page-selectservice',
   templateUrl: 'selectservice.html'
