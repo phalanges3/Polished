@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { SearchmorePage } from '../searchmore/searchmore';
 import { PaymentPage } from '../payment/payment'
 import { Bookartist } from '../../providers/bookartist';
+import { Apptcal } from '../../providers/apptcal';
 import { AlertController } from 'ionic-angular';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard';
 import { NailartistpagePage } from '../nailartistpage/nailartistpage';
@@ -60,12 +61,14 @@ export class BestmatchPage {
 
   bookInfo: any;
 
+  userInfo: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist, public alertCtrl: AlertController, private fetchData:ProfilePicsRevs) {
+  
     this.data = this.navParams.get("data").response;
     this.bookInfo = this.navParams.get("data").bookInfo;
+    this.userInfo =  this.navParams.get("data").userInfo;
     this.bestmatch = this.data[0];
-  
-    
   }
 
   ionViewDidLoad(){
@@ -74,6 +77,7 @@ export class BestmatchPage {
     this.addMarker(this.data);
     console.log('this is params result data from the service request ', this.data)
     console.log('this is params bookInfo data from the service request ', this.bookInfo)
+    console.log('this is params userInfo data', this.userInfo)
   }
  
   loadMap(){

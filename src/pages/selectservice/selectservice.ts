@@ -20,12 +20,16 @@ export class SelectservicePage {
 
   result = {
     response: '',
-    bookInfo: ''
+    bookInfo: '',
+    userInfo: ''
   }
   long = 0
   lati = 0
   bookInfo : FormGroup
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public http: Http) {
+    this.data = this.navParams.get("data")
+     console.log('Data from login: ', this.data)
+     this.result.userInfo = this.data
     this.bookInfo = formBuilder.group({
        service: '',
        addOns: '',
@@ -85,9 +89,9 @@ export class SelectservicePage {
   navigate(){
     console.log(this.bookInfo)
     let cost  = {
-      manicure: "$18",
-      pedicure: "$25",
-      manipedi: "$35"
+      Manicure: "$18",
+      Pedicure: "$25",
+      "Mani-Pedi": "$35"
     }
     let today = new Date(this.bookInfo.value.date)
     let weekday = new Array(7)
