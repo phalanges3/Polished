@@ -1,0 +1,66 @@
+<!--
+  Generated template for the Nailartistpage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>nailartistpage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-card id="card">
+    <img src="{{ nailArtistInfo.profile_image_url }}">
+  </ion-card>
+
+  <ion-card id="card">
+    <ion-item>
+      <ion-card-title>
+      <h2> <b>{{ nailArtistInfo.firstName }} {{ nailArtistInfo.lastName }}</b> </h2>
+      </ion-card-title>
+      <h3> @{{ nailArtistInfo.userName }} </h3>
+      <rating [(ngModel)]="nailArtistInfo.general_rating" id="rating" readOnly="true"></rating>
+      <button ion-button small item-bottom icon-left full (click)="confirmBooking(nailArtistInfo)">
+        <ion-icon name="book"></ion-icon>
+        Book
+      </button>
+    </ion-item>
+  </ion-card>
+
+  <ion-card id="card">
+    <ion-card-title>
+      <h1> <b>Pictures</b> </h1>
+    </ion-card-title>
+    <ion-item>
+      <ion-slides #mySlider [options]="mySlideOptions">
+        <ion-slide *ngFor="let photo of nailArtistReviews">
+          <img src="{{ photo.image1 }}">
+        </ion-slide>
+      </ion-slides>
+    </ion-item>
+  </ion-card>
+
+  <ion-card id="card">
+    <ion-card-title>
+      <h1> <b>Reviews</b> </h1>
+    </ion-card-title>
+    <ion-item *ngFor="let reviewer of nailArtistReviews" text-wrap>
+      <ion-thumbnail item-left>
+        <img src="{{ reviewer.reviewer_profile_pic }}" id="itemPic">
+        <h3> <b>{{ reviewer.reviewer_first }}</b> </h3>
+      </ion-thumbnail>
+      <rating [(ngModel)]="reviewer.rating" id="rating" readOnly="true"></rating>
+      <p>
+        {{ reviewer.review_content }}
+      </p>
+    </ion-item>
+  </ion-card>
+
+
+</ion-content>
