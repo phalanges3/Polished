@@ -15,22 +15,23 @@
 
 <ion-content padding>
   <div>
-  	<h4>Next Appointment</h4>
+  	<h4>Upcoming Appointments</h4>
+     <ion-item *ngFor="let item of appointments">
       <ion-row>
-        <ion-item>{{this.appointments.start}} </ion-item>  
-        <<!-- ion-item> Service: {{this.appointments.services_selected}} </ion-item> --> 
+        <div class="appt">{{item.date}} </div>
+        <div class="appt">{{item.start}} </div>  
       </ion-row>
       <ion-row>
-        <ion-item>{{this.appointments.date}} </ion-item>
+     <!--  <div> {{item.houseNumber}} {{item.streetName}} {{item.city}}, {{item.state}} {{item.zipCode}} </div> -->
+        <div class="appt"> {{item.services_selected}} </div> 
+        <div class="appt"> Total: {{item.total}}</div>
       </ion-row>
-      <ion-row>
-      <ion-item> {{this.appointments.houseNumber}} {{this.appointments.streetName}} {{this.appointments.city}}, {{this.appointments.state}} {{this.appointments.zipCode}} </ion-item>
-      </ion-row>
+     </ion-item>
   </div>
-  <div *ngIf="earningsFlag===true">
+  <div class="dashSection" *ngIf="earningsFlag===true">
   	<h4>Weekly Earnings</h4>
   </div>
-  <div *ngIf="ratingsFlag===true">
+  <div class="dashSection" *ngIf="ratingsFlag===true">
   	<h4>Rating Analytics</h4>
   </div>
   <ion-row>
