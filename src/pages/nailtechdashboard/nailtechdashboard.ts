@@ -19,6 +19,7 @@ export class NailtechdashboardPage {
   ratingsFlag: any = false
   updateHoursFlag: any =  false
   bookFlag: any = false
+  isVendor: any
 
   appointments: any = [{
     start: "loading",
@@ -41,7 +42,10 @@ export class NailtechdashboardPage {
     let convertDate = function (input)  {
       return moment(input.slice(0,10), 'YYYY-MM-DD').toString()
     }
-    if(this.data.isVendor === 1){
+    
+    this.isVendor = localStorage.getItem('isVendor')
+
+    if(this.isVendor === 1){
       this.earningsFlag = true
       this.ratingsFlag  =  true
       this.updateHoursFlag = true

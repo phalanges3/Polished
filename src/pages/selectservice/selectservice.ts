@@ -19,12 +19,16 @@ export class SelectservicePage {
 
   result = {
     response: '',
-    bookInfo: ''
+    bookInfo: '',
+    userInfo: ''
   }
   long = 0
   lati = 0
   bookInfo : FormGroup
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public http: Http) {
+    this.data = this.navParams.get("data")
+     console.log('Data from login: ', this.data)
+     this.result.userInfo = this.data
     this.bookInfo = formBuilder.group({
        service: '',
        addOns: '',

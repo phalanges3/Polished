@@ -18,6 +18,7 @@ import { Bookartist } from '../providers/bookartist'
 import { Auth } from '../providers/auth.ts'
 import { Storage } from '@ionic/storage'
 import { ModalContentPage  } from '../profile/modal'
+import { Apptcal } from '../providers/apptcal'
 
 
 @NgModule({
@@ -56,6 +57,6 @@ import { ModalContentPage  } from '../profile/modal'
     AvailabilityPage,
     ProfilePage
   ],
-  providers: [Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+  providers: [Bookartist, Apptcal, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
 })
 export class AppModule {}
