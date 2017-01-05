@@ -5,13 +5,10 @@ import { AlertController } from 'ionic-angular';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard'
 import { NailartistpagePage } from '../nailartistpage/nailartistpage';
 import { ProfilePicsRevs } from '../../providers/profile-pics-revs';
+import { PaymentPage } from '../payment/payment'
 
-/*
-  Generated class for the Searchmore page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
 declare var google;
 
 @Component({
@@ -138,13 +135,18 @@ export class SearchmorePage {
           text: 'Agree',
           handler: () => {
             console.log('Agree clicked');
-            this.bookNailArtist(nailArtist);
+            this.sendToPayment()
+            //this.bookNailArtist(nailArtist);
             //this.showAlert(nailArtist);
           }
         }
       ]
     });
     confirm.present();
+  }
+  sendToPayment() {
+    this.navCtrl.push(PaymentPage, {data: this.data});
+
   }
 
 }

@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map'
 import { AvailabilityPage} from '../availability/availability'
 import { ProfilePage} from '../profile/profile'
 import { SelectservicePage } from '../selectservice/selectservice'
+import { Storage } from '@ionic/storage'
 
 @Component({
   selector: 'page-nailtechdashboard',
@@ -29,7 +30,7 @@ export class NailtechdashboardPage {
    zipCode: ""
  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public storage: Storage) {
      this.data = this.navParams.get("data")
      console.log('Data from login: ', this.data)
     

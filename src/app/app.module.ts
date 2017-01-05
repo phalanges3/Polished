@@ -1,22 +1,25 @@
 
-import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { SignUpPage } from '../pages/signup/signup';
-import { LoginPage } from '../pages/login/login';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-import { BestmatchPage } from '../pages/bestmatch/bestmatch';
-import { SearchmorePage } from '../pages/searchmore/searchmore';
-import {  SelectservicePage } from '../pages/selectservice/selectservice';
-import { NailtechdashboardPage} from '../pages/nailtechdashboard/nailtechdashboard';
-import { AvailabilityPage} from '../pages/availability/availability';
-import { ProfilePage} from '../pages/profile/profile';
-import { Ionic2RatingModule } from 'ionic2-rating';
-import { Bookartist } from '../providers/bookartist';
-import { Auth } from '../providers/auth.ts';
+import { NgModule, ErrorHandler } from '@angular/core'
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular'
+import { MyApp } from './app.component'
+import { SignUpPage } from '../pages/signup/signup'
+import { LoginPage } from '../pages/login/login'
+import { AboutPage } from '../pages/about/about'
+import { ContactPage } from '../pages/contact/contact'
+import { HomePage } from '../pages/home/home'
+import { TabsPage } from '../pages/tabs/tabs'
+import { BestmatchPage } from '../pages/bestmatch/bestmatch'
+import { SearchmorePage } from '../pages/searchmore/searchmore'
+import { SelectservicePage } from '../pages/selectservice/selectservice'
+import { NailtechdashboardPage} from '../pages/nailtechdashboard/nailtechdashboard'
+import { AvailabilityPage} from '../pages/availability/availability'
+import { ProfilePage} from '../pages/profile/profile'
+import { Ionic2RatingModule } from 'ionic2-rating'
+import { Bookartist } from '../providers/bookartist'
+import { Auth } from '../providers/auth.ts'
+import { Storage } from '@ionic/storage'
+import { ModalContentPage  } from '../profile/modal'
+import { PaymentPage  } from '../pages/payment/payment'
 import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
 import { ProfilePicsRevs } from '../providers/profile-pics-revs';
 
@@ -36,7 +39,9 @@ import { ProfilePicsRevs } from '../providers/profile-pics-revs';
     NailtechdashboardPage,
     AvailabilityPage,
     ProfilePage,
-    NailartistpagePage
+    NailartistpagePage,
+    PaymentPage
+
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -57,8 +62,12 @@ import { ProfilePicsRevs } from '../providers/profile-pics-revs';
     NailtechdashboardPage,
     AvailabilityPage,
     ProfilePage,
+    PaymentPage,
     NailartistpagePage
   ],
   providers: [Bookartist, ProfilePicsRevs, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+
+    
+
 })
 export class AppModule {}

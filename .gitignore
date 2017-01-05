@@ -29,6 +29,7 @@ plugins/ios.json
 www/
 $RECYCLE.BIN/
 server/config/credentials.json
+server/config/braintree.env
 
 .DS_Store
 Thumbs.db
