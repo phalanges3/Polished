@@ -13,6 +13,7 @@ app.listen(PORT, () => {
   console.log('SERVER listening on port: ', PORT)
 })
 
+// BRAINTREE
 const braintree = require('braintree')
 const cred = require('./config/braintree.env')
 var gateway = braintree.connect({
