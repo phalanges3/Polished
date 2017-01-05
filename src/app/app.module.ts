@@ -1,4 +1,3 @@
-
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -19,7 +18,7 @@ import { Bookartist } from '../providers/bookartist';
 import { Auth } from '../providers/auth.ts';
 import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
 import { ProfilePicsRevs } from '../providers/profile-pics-revs';
-
+import { Apptcal } from '../providers/apptcal'
 
 @NgModule({
   declarations: [
@@ -59,6 +58,8 @@ import { ProfilePicsRevs } from '../providers/profile-pics-revs';
     ProfilePage,
     NailartistpagePage
   ],
-  providers: [Bookartist, ProfilePicsRevs, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+
+  providers: [Bookartist, ProfilePicsRevs, Apptcal, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+
 })
 export class AppModule {}
