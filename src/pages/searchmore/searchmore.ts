@@ -4,12 +4,7 @@ import { Bookartist } from '../../providers/bookartist';
 import { AlertController } from 'ionic-angular';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard'
 
-/*
-  Generated class for the Searchmore page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 declare var google;
 
 @Component({
