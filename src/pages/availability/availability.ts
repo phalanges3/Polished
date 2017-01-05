@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Storage } from '@ionic/storage';
+
 
 /*
   Generated class for the Availability page.

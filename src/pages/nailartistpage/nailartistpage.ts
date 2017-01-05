@@ -4,13 +4,8 @@ import { ProfilePicsRevs } from '../../providers/profile-pics-revs';
 import { Bookartist } from '../../providers/bookartist';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard';
 import { AlertController } from 'ionic-angular';
+import { PaymentPage } from '../payment/payment'
 
-/*
-  Generated class for the Nailartistpage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 
 // const albums = [
 //       {
@@ -152,13 +147,17 @@ export class NailartistpagePage {
           text: 'Agree',
           handler: () => {
             console.log('Agree clicked');
-            this.bookNailArtist(nailArtist);
-            //this.showAlert(nailArtist);
+            //this.bookNailArtist(nailArtist);
+            this.sendToPayment()
           }
         }
       ]
     });
     confirm.present();
+  }
+  sendToPayment() {
+    this.navCtrl.push(PaymentPage, {bookInfo: this.bookInfo})
+
   }
 
 }

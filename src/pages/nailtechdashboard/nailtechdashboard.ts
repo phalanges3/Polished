@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map'
 import { AvailabilityPage} from '../availability/availability'
 import { ProfilePage} from '../profile/profile'
 import { SelectservicePage } from '../selectservice/selectservice'
-import { Storage } from '@ionic/storage'
 
 @Component({
   selector: 'page-nailtechdashboard',
@@ -30,9 +29,9 @@ export class NailtechdashboardPage {
    zipCode: ""
  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
      this.data = this.navParams.get("data")
-     console.log('Data from login: ', this.data)
+     console.log('Data from login in TECH DASH: ', this.data)
     
     if(this.data.isVendor === 1){
       this.earningsFlag = true

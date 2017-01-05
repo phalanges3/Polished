@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Http } from '@angular/http'
 import { AlertController } from 'ionic-angular'
 import 'rxjs/add/operator/map'
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-profile',

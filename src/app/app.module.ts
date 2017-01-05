@@ -1,4 +1,3 @@
-
 import { NgModule, ErrorHandler } from '@angular/core'
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular'
 import { MyApp } from './app.component'
@@ -17,7 +16,6 @@ import { ProfilePage} from '../pages/profile/profile'
 import { Ionic2RatingModule } from 'ionic2-rating'
 import { Bookartist } from '../providers/bookartist'
 import { Auth } from '../providers/auth.ts'
-import { Storage } from '@ionic/storage'
 import { ModalContentPage  } from '../profile/modal'
 import { PaymentPage  } from '../pages/payment/payment'
 import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
