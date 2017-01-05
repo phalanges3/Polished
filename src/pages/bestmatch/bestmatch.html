@@ -15,6 +15,7 @@
       </ion-thumbnail>
       <h2> <b>{{ bestmatch.firstName }} {{ bestmatch.lastName }}</b> </h2>
       <!--<h3> {{ bestmatch.insta }} </h3>-->
+      <rating [(ngModel)]="bestmatch.general_rating" id="rating" readOnly="true"></rating>
       <button ion-button very-small outline item-bottom icon-left (click)="seeProfile(bestmatch)">
         <ion-icon name="person"></ion-icon>
         Profile
@@ -23,7 +24,7 @@
         <ion-icon name="book"></ion-icon>
         Book
       </button>
-      <rating [(ngModel)]="bestmatch.general_rating" id="rating" readOnly="true"></rating>
+      
     </ion-item>
     
   </ion-card>

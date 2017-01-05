@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Bookartist } from '../../providers/bookartist';
 import { AlertController } from 'ionic-angular';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard'
+import { NailartistpagePage } from '../nailartistpage/nailartistpage';
 
 /*
   Generated class for the Searchmore page.
@@ -94,6 +95,7 @@ export class SearchmorePage {
     console.log('profile button works!, ', profile)
     // Josh, the code below should redirect you to the profilePage...just change the 'profilePage' reference to your component page
     // this.navCtrl.push(profilePage, {data: profile});
+    this.navCtrl.push(NailartistpagePage, {data: profile});
   }
 
   showAlert(nailArtist) {
