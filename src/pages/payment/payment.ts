@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { NavController, NavParams } from 'ionic-angular'
-import { Braintree } from 'braintree'
+// import { Braintree } from 'braintree'
 
 
 @Component({
@@ -9,13 +9,13 @@ import { Braintree } from 'braintree'
 })
 export class PaymentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public braintree: Braintree) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
-    this.braintree.setup('CLIENT-TOKEN-FROM-SERVER', 'dropin', {
-      container: 'dropin-container'
-    })
+    // this.braintree.setup('CLIENT-TOKEN-FROM-SERVER', 'dropin', {
+    //   container: 'dropin-container'
+    // })
   }
 
 }
