@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map'
 import { AvailabilityPage} from '../availability/availability'
 import { ProfilePage} from '../profile/profile'
 import { SelectservicePage } from '../selectservice/selectservice'
+import * as moment from 'moment/moment'
 
 @Component({
   selector: 'page-nailtechdashboard',
@@ -13,27 +14,38 @@ import { SelectservicePage } from '../selectservice/selectservice'
 export class NailtechdashboardPage {
   data: any
   newDate: any
+  currentDate = new Date()
   earningsFlag: any = false
   ratingsFlag: any = false
   updateHoursFlag: any =  false
   bookFlag: any = false
+  isVendor: any
 
-  appointments: any = {
-   services_selected:  "loading",
-   start: "",
-   date: "",
-   houseNumber: "",
-   streetName: "",
-   city: "",
-   state: "",
-   zipCode: ""
- }
+  appointments: any = [{
+    start: "loading",
+    date: "loading",
+    houseNumber: "",
+    streetName: "",
+    city: "",
+    state: "",
+    zipCode: ""
+
+  }]
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
      this.data = this.navParams.get("data")
      console.log('Data from login: ', this.data)
+    let convert =function (input) {
+      return moment(input, 'HH:mm:ss').format('h:mm A');
+    }
+    let convertDate = function (input)  {
+      return moment(input.slice(0,10), 'YYYY-MM-DD').toString()
+    }
     
-    if(this.data.isVendor === 1){
+    this.isVendor = localStorage.getItem('isVendor')
+
+    if(this.isVendor === 1){
       this.earningsFlag = true
       this.ratingsFlag  =  true
       this.updateHoursFlag = true
@@ -41,11 +53,30 @@ export class NailtechdashboardPage {
         .subscribe(appointment => {
         let result = appointment.json()
         if(result.length === 0){
-          this.appointments = "no appointments"
+          this.appointments = [{
+            start: "loading",
+            date: "loading",
+            houseNumber: "",
+            streetName: "",
+            city: "",
+            state: "",
+            zipCode: ""
+
+          }]
         }
-        this.appointments = appointment.json()[0]
-        this.newDate = new Date(this.appointments.date)
-        this.appointments.date = this.newDate.toDateString()
+        this.appointments = result
+        for(let i = 0; i <this.appointments.length; i++){
+          this.newDate = new Date(this.appointments[i].date)
+          if(this.newDate.valueOf() < this.currentDate.valueOf()){
+            this.appointments.splice(i,1)
+            i--
+          }
+        }
+        for(let j = 0; j<this.appointments.length; j++){
+          this.newDate = convertDate(this.appointments[j].date)
+          this.appointments[j].start = convert(this.appointments[j].start)
+          this.appointments[j].date = this.newDate.slice(3, 15)
+        }
         console.log(this.appointments)
       })
     } else {
@@ -53,11 +84,28 @@ export class NailtechdashboardPage {
       this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.data.id}))
         .subscribe(appointment => {
         if(appointment.json().length === 0){
-          this.appointments = "no appointments"
+          this.appointments = [{
+            start: "loading",
+            date: "loading",
+            houseNumber: "",
+            streetName: "",
+            city: "",
+            state: "",
+            zipCode: ""
+
+          }]
         }
-        this.appointments = appointment.json()[0]
-        this.newDate = new Date(this.appointments.date)
-        this.appointments.date = this.newDate.toDateString()
+        this.appointments = appointment.json()
+        console.log("this.appointments",  this.appointments)
+        for(let i = 0; i <this.appointments.length; i++){
+          this.newDate = new Date(this.appointments[i].date)
+          // if(this.newDate.valueOf() < this.currentDate.valueOf()){
+          //   this.appointments.splice(i,1)
+          //   i--
+          // }
+          this.appointments[i].start = convert(this.appointments[i].start)
+          this.appointments[i].date = this.newDate.toDateString().slice(3)
+        }
         console.log(this.appointments)
       })
     }
