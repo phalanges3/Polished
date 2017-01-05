@@ -84,9 +84,9 @@ export class SelectservicePage {
   navigate(){
     console.log(this.bookInfo)
     let cost  = {
-      manicure: "$18",
-      pedicure: "$25",
-      manipedi: "$35"
+      Manicure: "$18",
+      Pedicure: "$25",
+      "Mani-Pedi": "$35"
     }
     let today = new Date(this.bookInfo.value.date)
     let weekday = new Array(7)
