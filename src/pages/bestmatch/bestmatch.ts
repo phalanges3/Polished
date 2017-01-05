@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SearchmorePage } from '../searchmore/searchmore';
-
+import { PaymentPage } from '../payment/payment'
 import { Bookartist } from '../../providers/bookartist';
 import { AlertController } from 'ionic-angular';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard'
@@ -152,7 +152,7 @@ export class BestmatchPage {
         (data: any) => {
           console.log('heres the data from book services', data)
           this.showAlert(nailArtist);
-          this.navCtrl.push(NailtechdashboardPage, {data: this.data});
+          this.navCtrl.push(NailtechdashboardPage, {data: this.data})
       });
   }
 
@@ -164,19 +164,25 @@ export class BestmatchPage {
         {
           text: 'Disagree',
           handler: () => {
-            console.log('Disagree clicked');
+            console.log('Disagree clicked')
           }
         },
         {
           text: 'Agree',
           handler: () => {
-            console.log('Agree clicked');
-            this.bookNailArtist(nailArtist);
-            //this.showAlert(nailArtist);
+            console.log('Agree clicked')
+            this.sendToPayment()
+            //this.bookNailArtist(nailArtist)
+            //this.showAlert(nailArtist)
           }
         }
       ]
     });
     confirm.present();
+  }
+   sendToPayment() {
+    this.navCtrl.push(PaymentPage, {data: this.data,
+      bookInfo:this.bookInfo})
+
   }
 }

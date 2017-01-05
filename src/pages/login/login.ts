@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map'
 import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
 import { Storage } from '@ionic/storage'
 import { AlertController } from 'ionic-angular'
+import { PaymentPage } from '../payment/payment'
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -75,6 +76,9 @@ loginForm: FormGroup;
   logout() {
      this.storage.clear()
      localStorage.clear()
+  }
+  goToPayment() {
+    this.navCtrl.push(PaymentPage)
   }
  
 }

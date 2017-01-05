@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Bookartist } from '../../providers/bookartist';
 import { AlertController } from 'ionic-angular';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard'
+import { PaymentPage } from '../payment/payment'
 
 
 declare var google;
@@ -127,13 +128,18 @@ export class SearchmorePage {
           text: 'Agree',
           handler: () => {
             console.log('Agree clicked');
-            this.bookNailArtist(nailArtist);
+            this.sendToPayment()
+            //this.bookNailArtist(nailArtist);
             //this.showAlert(nailArtist);
           }
         }
       ]
     });
     confirm.present();
+  }
+  sendToPayment() {
+    this.navCtrl.push(PaymentPage, {data: this.data});
+
   }
 
 }

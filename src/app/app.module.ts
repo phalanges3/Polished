@@ -18,6 +18,7 @@ import { Bookartist } from '../providers/bookartist'
 import { Auth } from '../providers/auth.ts'
 import { Storage } from '@ionic/storage'
 import { ModalContentPage  } from '../profile/modal'
+import { PaymentPage  } from '../pages/payment/payment'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ModalContentPage  } from '../profile/modal'
     SelectservicePage,
     NailtechdashboardPage,
     AvailabilityPage,
-    ProfilePage
+    ProfilePage,
+    PaymentPage
     
   ],
   imports: [
@@ -54,7 +56,8 @@ import { ModalContentPage  } from '../profile/modal'
     SelectservicePage,
     NailtechdashboardPage,
     AvailabilityPage,
-    ProfilePage
+    ProfilePage,
+    PaymentPage
     
   ],
   providers: [Storage, Bookartist, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
