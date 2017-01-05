@@ -58,10 +58,8 @@ import { Apptcal } from '../providers/apptcal'
     ProfilePage,
     NailartistpagePage
   ],
-<<<<<<< HEAD
-  providers: [Bookartist, ProfilePicsRevs, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
-=======
-  providers: [Bookartist, Apptcal, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
->>>>>>> feat/calendarsync
+
+  providers: [Bookartist, ProfilePicsRevs, Apptcal, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+
 })
 export class AppModule {}
