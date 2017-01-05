@@ -4,6 +4,7 @@ import { Bookartist } from '../../providers/bookartist';
 import { AlertController } from 'ionic-angular';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard'
 import { NailartistpagePage } from '../nailartistpage/nailartistpage';
+import { ProfilePicsRevs } from '../../providers/profile-pics-revs';
 
 /*
   Generated class for the Searchmore page.
@@ -26,7 +27,7 @@ export class SearchmorePage {
 
   bookInfo: any; 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist, public alertCtrl: AlertController, private fetchData:ProfilePicsRevs) {
     this.data = this.navParams.get("data");
     this.bookInfo = this.navParams.get("bookInfo");
   }
@@ -92,10 +93,13 @@ export class SearchmorePage {
   }
 
   seeProfile(profile){
-    console.log('profile button works!, ', profile)
-    // Josh, the code below should redirect you to the profilePage...just change the 'profilePage' reference to your component page
-    // this.navCtrl.push(profilePage, {data: profile});
-    this.navCtrl.push(NailartistpagePage, {data: profile});
+    //console.log('profile button works!, ', profile)
+    this.fetchData.fetchPicsRevs(profile)
+      .subscribe(
+        (data: any) => {
+          console.log('heres the data from artist pics review services', data)
+          this.navCtrl.push(NailartistpagePage, {nailArtistInfo: profile, nailArtistReviews: data, bookInfo: this.bookInfo});
+      });
   }
 
   showAlert(nailArtist) {
