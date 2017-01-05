@@ -45,12 +45,13 @@ export class NailtechdashboardPage {
     
     this.isVendor = localStorage.getItem('isVendor')
 
-    if(this.isVendor === 1){
+    if(this.data.isVendor === 1){
       this.earningsFlag = true
       this.ratingsFlag  =  true
       this.updateHoursFlag = true
       this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": this.data.id}))
         .subscribe(appointment => {
+        console.log("appointment  response", appointment.json())
         let result = appointment.json()
         if(result.length === 0){
           this.appointments = [{
@@ -83,7 +84,8 @@ export class NailtechdashboardPage {
       this.bookFlag = true
       this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.data.id}))
         .subscribe(appointment => {
-        if(appointment.json().length === 0){
+        let result = appointment.json()
+        if(result.length === 0){
           this.appointments = [{
             start: "loading",
             date: "loading",
@@ -95,16 +97,18 @@ export class NailtechdashboardPage {
 
           }]
         }
-        this.appointments = appointment.json()
-        console.log("this.appointments",  this.appointments)
+        this.appointments = result
         for(let i = 0; i <this.appointments.length; i++){
           this.newDate = new Date(this.appointments[i].date)
-          // if(this.newDate.valueOf() < this.currentDate.valueOf()){
-          //   this.appointments.splice(i,1)
-          //   i--
-          // }
-          this.appointments[i].start = convert(this.appointments[i].start)
-          this.appointments[i].date = this.newDate.toDateString().slice(3)
+          if(this.newDate.valueOf() < this.currentDate.valueOf()){
+            this.appointments.splice(i,1)
+            i--
+          }
+        }
+        for(let j = 0; j<this.appointments.length; j++){
+          this.newDate = convertDate(this.appointments[j].date)
+          this.appointments[j].start = convert(this.appointments[j].start)
+          this.appointments[j].date = this.newDate.slice(3, 15)
         }
         console.log(this.appointments)
       })
