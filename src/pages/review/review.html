@@ -23,14 +23,15 @@
 
 <ion-content padding>
   <ion-card id="card">
-    <ion-card-title>
-      <img src="{{ markers.pic }}">
-    </ion-card-title>
+    <img src="{{ markers.pic }}">
     <h2> <b>{{ markers.firstName }} {{ markers.lastName }}</b> </h2>
     <h3> @{{ markers.insta }} </h3>
   </ion-card>
 
   <ion-card id="card">
+    <ion-title>
+      Your Rating: {{ rating }}
+    </ion-title>
     <ion-card-content text-wrap>
       <b>Overall, how would you rate your experience with {{ data.nail_artist_first }}?</b>
     </ion-card-content>
@@ -40,8 +41,15 @@
   </ion-card>
 
   <ion-card id="card">
+    <ion-title>
+      Picture
+    </ion-title>
     <ion-item>
-      <button ion-button (click)="takePhoto()">Click to take a picture</button>
+      <button ion-button (click)="takePhoto()" icon-right>
+        Add picture
+        <ion-icon name="camera"></ion-icon>
+      </button>
+      
     </ion-item>
     <ion-item>
       <img [src]="imageUrl" *ngIf="imageUrl">
@@ -49,6 +57,9 @@
   </ion-card>
 
   <ion-card id="card">
+    <ion-title>
+      Review Comment
+    </ion-title>
     <ion-card-content text-wrap>
       <b>Describe your experience with {{ data.nail_artist_first }}. Please pay special attention to the quality of the nail service as well as customer service.</b>
     </ion-card-content>
@@ -57,5 +68,5 @@
       </ion-textarea>
     </ion-item>
   </ion-card>
-  <button ion-button medium (click)="submitReview({rating: rating, review_content: review_content})">Submit Review</button>
+  <button ion-button medium (click)="submitReview({rating: rating, image1: imageUrl, review_content: review_content})">Submit Review</button>
 </ion-content>

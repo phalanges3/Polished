@@ -81,13 +81,13 @@ export class BestmatchPage {
     console.log('about to load page and markers')
     this.loadMap();
     this.addMarker(this.data);
-    console.log('this is params result data from the service request ', this.data)
-    console.log('this is params bookInfo data from the service request ', this.bookInfo)
-    console.log('this is params userInfo data', this.userInfo)
-  //   Calendar.createCalendar('MyCalendar').then(
-  //     (msg) => { console.log(msg); },
-  //     (err) => { console.log(err); }
-  //   );
+    // console.log('this is params result data from the service request ', this.data)
+    // console.log('this is params bookInfo data from the service request ', this.bookInfo)
+    // console.log('this is params userInfo data', this.userInfo)
+    // Calendar.createCalendar('MyCalendar').then(
+    //   (msg) => { console.log(msg); },
+    //   (err) => { console.log(err); }
+    // );
   }
  
   loadMap(){
@@ -145,8 +145,9 @@ export class BestmatchPage {
     this.navCtrl.push(SearchmorePage, {data: this.data, bookInfo: this.bookInfo});
   }
 
+  // Fires off on load!!!
   seeProfile(profile){
-    //console.log('profile button works!, ', profile)
+    //console.log('profile button click on bestmatch line 149, ', profile)
     this.fetchData.fetchPicsRevs(profile)
       .subscribe(
         (data: any) => {
@@ -172,8 +173,8 @@ export class BestmatchPage {
       .subscribe(
         (data: any) => {
           console.log('heres the data from book services', data)
-          this.showAlert(nailArtist);
-          this.navCtrl.push(NailtechdashboardPage, {data: this.data})
+          // this.showAlert(nailArtist);
+          // this.navCtrl.push(NailtechdashboardPage, {data: this.data})
       });
   }
 
@@ -192,8 +193,8 @@ export class BestmatchPage {
           text: 'Agree',
           handler: () => {
             console.log('Agree clicked')
+            this.bookNailArtist(nailArtist)
             this.sendToPayment()
-            //this.bookNailArtist(nailArtist)
             //this.showAlert(nailArtist)
           }
         }
