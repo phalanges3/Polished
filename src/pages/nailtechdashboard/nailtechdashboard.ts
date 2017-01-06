@@ -6,6 +6,8 @@ import { AvailabilityPage} from '../availability/availability'
 import { ProfilePage} from '../profile/profile'
 import { SelectservicePage } from '../selectservice/selectservice'
 import * as moment from 'moment/moment'
+import { FusionCharts }  from 'fusioncharts'
+import { Chart } from 'chart.js'
 
 @Component({
   selector: 'page-nailtechdashboard',
@@ -20,7 +22,27 @@ export class NailtechdashboardPage {
   updateHoursFlag: any =  false
   bookFlag: any = false
   isVendor: any
-
+  monthlyAvgs: any = [5, 4.5, 4.55 , 4.7, 4.83, 4.86, 4.9, 4.7, 4.9, 4.9, 4.88, 4.89 ]
+   
+  type = 'line';
+  dataChart = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets: [
+      { label: "Average Monthly Rating",
+        data: this.monthlyAvgs
+      }]
+  }
+  options = {
+  responsive: true,
+  maintainAspectRatio: false
+  };
+  dataChart2 = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets: [
+      { label: "Average Monthly Earnings",
+        data: this.monthlyAvgs
+      }]
+  }
   appointments: any = [{
     start: "loading",
     date: "loading",
@@ -31,6 +53,7 @@ export class NailtechdashboardPage {
     zipCode: ""
 
   }]
+  
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
@@ -46,6 +69,8 @@ export class NailtechdashboardPage {
 
     
     this.isVendor = localStorage.getItem('isVendor')
+    
+
 
     if(this.data.isVendor === 1){
       this.earningsFlag = true
@@ -55,7 +80,7 @@ export class NailtechdashboardPage {
         .subscribe(appointment => {
         console.log("appointment  response", appointment.json())
         let result = appointment.json()
-        if(result.length === 0){
+         if(result.length === 0){
           this.appointments = [{
             start: "loading",
             date: "loading",
@@ -82,7 +107,23 @@ export class NailtechdashboardPage {
         }
         console.log(this.appointments)
       })
-    } else {
+       this.http.post('http://localhost:3000/api/review/getreviews', ({"userId": this.data.id}))
+        .subscribe(reviews => {
+        console.log("reviews  response", reviews.json())
+        let result = reviews.json()
+        for(let k = 0; k < result.length; k++){
+          console.log(result[k].createdAt.slice(5,7), "sliced month")
+          let countJan = 0
+          if(result[k].createdAt.slice(5,7) === "01"){
+            countJan++
+            this.monthlyAvgs[0]+= result[k].rating
+            console.log('new Jan total', this.monthlyAvgs[0])
+          }
+          this.monthlyAvgs[0] = this.monthlyAvgs[0]/countJan
+          console.log('new Jan total divided by length', this.monthlyAvgs[0])
+         }
+        })
+      } else {
       this.bookFlag = true
       this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.data.id}))
         .subscribe(appointment => {
@@ -116,6 +157,9 @@ export class NailtechdashboardPage {
       })
     }
   }
+
+  
+
   goToAvailability(){
     this.navCtrl.push(AvailabilityPage, {
        firstPassed: "value 1",

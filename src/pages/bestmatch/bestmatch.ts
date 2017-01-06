@@ -8,6 +8,7 @@ import { AlertController } from 'ionic-angular';
 import { NailtechdashboardPage } from '../nailtechdashboard/nailtechdashboard';
 import { NailartistpagePage } from '../nailartistpage/nailartistpage';
 import { ProfilePicsRevs } from '../../providers/profile-pics-revs';
+import { Calendar } from  'ionic-native'
 
 declare var google;
 
@@ -63,22 +64,31 @@ export class BestmatchPage {
 
   userInfo: any;
 
+  cal: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist, public alertCtrl: AlertController, private fetchData:ProfilePicsRevs) {
-  
+    // interface Window {
+    //   plugins: any;
+    // }
+    // this.cal =  window.plugins.calendar;
     this.data = this.navParams.get("data").response;
     this.bookInfo = this.navParams.get("data").bookInfo;
     this.userInfo =  this.navParams.get("data").userInfo;
     this.bestmatch = this.data[0];
   }
 
-  ionViewDidLoad(){
-    console.log('about to load page and markers')
-    this.loadMap();
-    this.addMarker(this.data);
-    console.log('this is params result data from the service request ', this.data)
-    console.log('this is params bookInfo data from the service request ', this.bookInfo)
-    console.log('this is params userInfo data', this.userInfo)
-  }
+  // ionViewDidLoad(){
+  //   console.log('about to load page and markers')
+  //   this.loadMap();
+  //   this.addMarker(this.data);
+  //   console.log('this is params result data from the service request ', this.data)
+  //   console.log('this is params bookInfo data from the service request ', this.bookInfo)
+  //   console.log('this is params userInfo data', this.userInfo)
+  //   Calendar.createCalendar('MyCalendar').then(
+  //     (msg) => { console.log(msg); },
+  //     (err) => { console.log(err); }
+  //   );
+  // }
  
   loadMap(){
  
@@ -155,6 +165,7 @@ export class BestmatchPage {
     alert.present(nailArtist);
   }
 
+
   bookNailArtist(nailArtist){
     //console.log('just booked ', nailArtist);
     this.bookArtist.setBooking(nailArtist, this.bookInfo)
@@ -195,4 +206,6 @@ export class BestmatchPage {
       bookInfo:this.bookInfo})
 
   }
+
+  onInit
 }

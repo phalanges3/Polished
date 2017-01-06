@@ -21,7 +21,8 @@ import { ModalContentPage  } from '../profile/modal'
 import { PaymentPage  } from '../pages/payment/payment'
 import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
 import { ProfilePicsRevs } from '../providers/profile-pics-revs';
-import { Apptcal } from '../providers/apptcal'
+import { Apptcal } from '../providers/apptcal';
+import { ChartModule } from 'angular2-chartjs';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { Apptcal } from '../providers/apptcal'
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    Ionic2RatingModule
+    Ionic2RatingModule,
+    ChartModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
