@@ -41,7 +41,7 @@ submitAttempt: boolean = false;
         .map((res) => {
           let response = res.json()
           if ( response === null) {
-            console.log("is null")
+            console.log("is null", response)
             let alert = this.alertCtrl.create({
             title: 'Please try again',
             buttons: ['Dismiss']
@@ -58,6 +58,8 @@ submitAttempt: boolean = false;
             localStorage.setItem('email', response.email)
             localStorage.setItem('general_rating', response.general_rating)
             localStorage.setItem('zipCode', response.zipCode)
+            localStorage.setItem('id', response.id)
+             console.log("is response", response)
             this.navCtrl.push(NailtechdashboardPage, {
                 data: response
             })
@@ -73,9 +75,6 @@ submitAttempt: boolean = false;
      localStorage.clear()
   }
 
-  goToPayment() {
-    this.navCtrl.push(PaymentPage)
-  }
   presentLoading() {
  
     this.loader = this.loadingCtrl.create({

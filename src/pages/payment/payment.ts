@@ -14,6 +14,8 @@ var braintreeHasBeenSetup = false
 export class PaymentPage {
   bookInfo: any
   price: any
+  data: any
+  userInfo: any
      
   constructor(
     public navCtrl: NavController, 
@@ -23,8 +25,10 @@ export class PaymentPage {
     ) {
     
     this.bookInfo = this.navParams.get("bookInfo")
+    this.userInfo = this.navParams.get("userInfo")
     this.price = this.bookInfo.price
     console.log('bookInfo from booking: ', this.bookInfo)
+    console.log('userInfo from booking: ', this.userInfo)
     console.log('this is price: ',this.price)
   }
 
@@ -53,7 +57,7 @@ if (!braintreeHasBeenSetup) {
         {
           text: 'Close',
           handler: () => {
-            this.navCtrl.push(NailtechdashboardPage)
+            this.navCtrl.push(NailtechdashboardPage, {data: this.userInfo})
         }
       }]
 })

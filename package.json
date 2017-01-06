@@ -28,7 +28,6 @@
     "bootstrap": "^3.3.7",
     "braintree": "^1.46.0",
     "braintree-web": "^2.30.0",
-    "chart.js": "^2.4.0",
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "fusioncharts": "^3.11.3",
