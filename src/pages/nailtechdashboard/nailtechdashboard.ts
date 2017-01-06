@@ -23,6 +23,7 @@ export class NailtechdashboardPage {
   updateHoursFlag: any =  false
   bookFlag: any = false
   isVendor: any
+
   pastAppointments: any = []
   monthlyAvgs: any = [5, 4.5, 4.55 , 4.7, 4.83, 4.86, 4.9, 4.7, 4.9, 4.9, 4.88, 4.89 ]
    
@@ -45,6 +46,10 @@ export class NailtechdashboardPage {
         data: this.monthlyAvgs
       }]
   }
+
+  id: any
+  firstName: any
+
 
   appointments: any = [{
     start: "loading",
@@ -70,14 +75,16 @@ export class NailtechdashboardPage {
 
     
     this.isVendor = localStorage.getItem('isVendor')
-    
+
+     this.id = localStorage.getItem('id')
+      this.firstName = localStorage.getItem('firstName')
 
 
-    if(this.data.isVendor === 1){
+    if(this.isVendor === 1){
       this.earningsFlag = true
       this.ratingsFlag  =  true
       this.updateHoursFlag = true
-      this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": this.data.id}))
+      this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": this.id}))
         .subscribe(appointment => {
         //console.log("appointment  response", appointment.json())
         let result = appointment.json()
@@ -126,7 +133,7 @@ export class NailtechdashboardPage {
         })
       } else {
       this.bookFlag = true
-      this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.data.id}))
+      this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.id}))
         .subscribe(appointment => {
         let result = appointment.json()
         //console.log('result of call user dash line 91', result)

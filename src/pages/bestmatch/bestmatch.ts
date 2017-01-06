@@ -202,7 +202,7 @@ export class BestmatchPage {
     confirm.present();
   }
    sendToPayment() {
-    this.navCtrl.push(PaymentPage, {bookInfo:this.bookInfo})
+    this.navCtrl.push(PaymentPage, {bookInfo:this.bookInfo, data: this.data})
 
   }
 
