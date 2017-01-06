@@ -145,7 +145,7 @@ export class SearchmorePage {
     confirm.present();
   }
   sendToPayment() {
-    this.navCtrl.push(PaymentPage, {data: this.data});
+   this.navCtrl.push(PaymentPage, {bookInfo:this.bookInfo})
 
   }
 

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map'
 import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
 import { AlertController } from 'ionic-angular'
 import { PaymentPage } from '../payment/payment'
+import { LoadingController } from 'ionic-angular'
 
 @Component({
   selector: 'page-login',
@@ -14,7 +15,7 @@ import { PaymentPage } from '../payment/payment'
 })
 export class LoginPage {
   private loginURL = 'http://localhost:3000/api/user/login'
- 
+ loader: any
 loginForm: FormGroup;
 submitAttempt: boolean = false;
  constructor(
@@ -22,7 +23,8 @@ submitAttempt: boolean = false;
       public navParams: NavParams, 
       public formBuilder: FormBuilder, 
       public http: Http,
-      public alertCtrl: AlertController
+      public alertCtrl: AlertController,
+      public loadingCtrl: LoadingController
       ) {
        this.loginForm = formBuilder.group({
         userName: [''],
@@ -56,7 +58,6 @@ submitAttempt: boolean = false;
             localStorage.setItem('email', response.email)
             localStorage.setItem('general_rating', response.general_rating)
             localStorage.setItem('zipCode', response.zipCode)
-            console.log("isvendor?",response.isVendor)
             this.navCtrl.push(NailtechdashboardPage, {
                 data: response
             })
@@ -64,6 +65,7 @@ submitAttempt: boolean = false;
         })
         .subscribe((data) => {
           console.log("DATA: ", data)
+          this.presentLoading()
         })
   }
 
@@ -73,6 +75,18 @@ submitAttempt: boolean = false;
 
   goToPayment() {
     this.navCtrl.push(PaymentPage)
+  }
+  presentLoading() {
+ 
+    this.loader = this.loadingCtrl.create({
+      content: "Logging into your account..."
+      
+    });
+    this.loader.present();
+    setTimeout(() => {
+    this.loader.dismiss()
+    }, 1300)
+
   }
  
 }
