@@ -22,6 +22,7 @@ import { PaymentPage  } from '../pages/payment/payment'
 import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
 import { ProfilePicsRevs } from '../providers/profile-pics-revs';
 import { Apptcal } from '../providers/apptcal'
+import { ReviewPage } from '../pages/review/review';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { Apptcal } from '../providers/apptcal'
     AvailabilityPage,
     ProfilePage,
     NailartistpagePage,
-    PaymentPage
+    PaymentPage,
+    ReviewPage
 
   ],
   imports: [
@@ -62,7 +64,8 @@ import { Apptcal } from '../providers/apptcal'
     AvailabilityPage,
     ProfilePage,
     PaymentPage,
-    NailartistpagePage
+    NailartistpagePage,
+    ReviewPage
   ],
 providers: [Bookartist, ProfilePicsRevs, Apptcal, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
 })
