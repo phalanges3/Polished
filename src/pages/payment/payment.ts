@@ -14,6 +14,7 @@ var braintreeHasBeenSetup = false
 export class PaymentPage {
   bookInfo: any
   price: any
+  data: any
      
   constructor(
     public navCtrl: NavController, 
@@ -53,7 +54,7 @@ if (!braintreeHasBeenSetup) {
         {
           text: 'Close',
           handler: () => {
-            this.navCtrl.push(NailtechdashboardPage)
+            this.navCtrl.push(NailtechdashboardPage, {data: this.data})
         }
       }]
 })

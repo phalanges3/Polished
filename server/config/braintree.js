@@ -30,10 +30,10 @@ router.post('/checkouts', function (req, res) {
     }
   }, function (err, result) {
     if (result.success || result.transaction) {
-      res.json('you paid')
+      
     } else {
       transactionErrors = result.errors.deepErrors()
-      res.json('you paid')
+      
     }
   })
 })
