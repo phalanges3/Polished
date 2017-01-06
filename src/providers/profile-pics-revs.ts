@@ -16,7 +16,7 @@ export class ProfilePicsRevs {
   }
 
   fetchPicsRevs (artist) {
-    console.log('HERES THE ARTIST DATA ', artist)
+    //console.log('HERES THE ARTIST DATA ', artist)
     let body = JSON.stringify({userId: artist.id});
     const headers = new Headers();
     headers.append('Content-Type', 'application/json')
