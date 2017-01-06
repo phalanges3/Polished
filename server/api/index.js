@@ -8,6 +8,7 @@ const review = require('./Reviews/index')
 const image = require('./Image/index')
 const schedule = require('./Schedule/index')
 const mainRoutesΩ = require('./routes.main')
+const payment = require('../config/braintree.js')
 
 const UsersServices = db.define('UsersServices', {
 
@@ -17,25 +18,14 @@ UsersServices.sync().then(() => {
   console.log('USERSSERVICES table successfully created.')
 })
 
-// user.userSchema.create({
-//   firstName: "Ryan",
-//   lastName: "Gosling"
-// })
-
-// service.serviceSchema.create({
-//   name: "manicure"
-// })
-// service.serviceSchema.create({
-//   name: "pedicure"
-// })
-
 module.exports = {
   user: user,
   service: service,
   appointment: appointment,
   review: review,
   image: image,
-  schedule: schedule
+  schedule: schedule,
+  payment: payment
 }
 
 // This is the base exporting file for all entities.

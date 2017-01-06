@@ -10,9 +10,9 @@
 
 <ion-content padding>
 
-<form id="checkout" method="post" action="/checkout">
+<form id="checkout" method="post" action="http://localhost:3000/api/payment/checkouts">
   <div id="payment-form"></div>
-  <input type="submit" value="Pay">
+  <input type="submit" (click)="openAlert()"value="Pay">
   <ion-item>{{this.price}} </ion-item>
 </form>
 </ion-content>

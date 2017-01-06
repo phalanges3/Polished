@@ -13,24 +13,7 @@ app.listen(PORT, () => {
   console.log('SERVER listening on port: ', PORT)
 })
 
-// BRAINTREE
-const braintree = require('braintree')
-const cred = require('./config/braintree.env')
-var gateway = braintree.connect({
-  environment: braintree.Environment.Sandbox,
-  merchantId: `${cred.BT_MERCHANT_ID}`,
-  publicKey: `${cred.BT_PUBLIC_KEY}`,
-  privateKey: `${cred.BT_PRIVATE_KEY}`
-})
-app.get('/client_token', function (req, res) {
-  gateway.clientToken.generate({}, function (err, response) {
-    res.send(response.clientToken)
-  })
-})
-app.post('/checkout', function (req, res) {
-  var nonceFromTheClient = req.body.payment_method_nonce
-  // Use payment method nonce here
-})
+
 
 module.exports = app
 

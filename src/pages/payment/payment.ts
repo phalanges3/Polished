@@ -2,7 +2,8 @@ import { Component } from '@angular/core'
 import { NavController, NavParams } from 'ionic-angular'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
-
+import { AlertController } from 'ionic-angular'
+import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
 declare var braintree:any;
 var braintreeHasBeenSetup = false
 
@@ -17,7 +18,8 @@ export class PaymentPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    public http: Http
+    public http: Http,
+    public alertCtrl: AlertController
     ) {
     
     this.bookInfo = this.navParams.get("bookInfo")
@@ -38,9 +40,23 @@ if (!braintreeHasBeenSetup) {
         }
       })
     }
-  }
-  grabCurrentBooking() {
+     
 
+    
   }
-
+  
+  openAlert() {
+    let confirm = this.alertCtrl.create({
+      title: 'Payment Success!',
+      message: `Thank you for booking!`,
+      buttons: [
+        {
+          text: 'Close',
+          handler: () => {
+            this.navCtrl.push(NailtechdashboardPage)
+        }
+      }]
+})
+confirm.present()
+}
 }
