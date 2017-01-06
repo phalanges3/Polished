@@ -29,7 +29,7 @@
      </ion-item>
   </div>
   <br>
-  <div>
+  <div *ngIf="bookFlag===true">
   	<h4>Review Past Appointments</h4>
      <ion-item *ngFor="let pastAppointment of pastAppointments">
       <ion-row>
