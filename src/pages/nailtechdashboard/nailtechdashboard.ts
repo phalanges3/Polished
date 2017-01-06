@@ -7,6 +7,7 @@ import { ProfilePage} from '../profile/profile'
 import { SelectservicePage } from '../selectservice/selectservice'
 import * as moment from 'moment/moment'
 import { Chart } from 'chart.js'
+import { ReviewPage } from '../review/review'
 
 
 @Component({
