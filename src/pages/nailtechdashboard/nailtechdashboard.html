@@ -29,7 +29,7 @@
      </ion-item>
   </div>
   <br>
-  <div>
+  <div *ngIf="bookFlag===true">
   	<h4>Review Past Appointments</h4>
      <ion-item *ngFor="let pastAppointment of pastAppointments">
       <ion-row>
@@ -50,9 +50,11 @@
 
   <div class="dashSection" *ngIf="earningsFlag===true">
   	<h4>Weekly Earnings</h4>
+    <chart [type]="type" [data]="dataChart2" [options]="options"></chart>
   </div>
   <div class="dashSection" *ngIf="ratingsFlag===true">
   	<h4>Rating Analytics</h4>
+    <chart [type]="type" [data]="dataChart" [options]="options"></chart>
   </div>
   <ion-row>
     <ion-col  width-40  *ngIf="updateHoursFlag===true">

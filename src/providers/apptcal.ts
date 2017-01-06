@@ -12,15 +12,15 @@ import {Calendar} from 'ionic-native';
 @Injectable()
 export class Apptcal {
 
-  constructor(public http: Http, ) {
+  constructor(public http: Http, public calendar: Calendar) {
     console.log('Hello Calendar Provider');
    
   }
-  // window.plugins.Calendar.hasReadWritePermission()
+  // calendar.hasReadWritePermission()
   //   .then( permission => {
   //    console.log(permission)
   // })
-  // Calendar.createCalendar('MyCalendar')
+  // calendar.createCalendar('MyCalendar')
   // .then(
   // 	(msg) => { console.log(msg)}
   // 	(err) => { console.log(err)}

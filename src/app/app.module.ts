@@ -23,6 +23,7 @@ import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
 import { ProfilePicsRevs } from '../providers/profile-pics-revs';
 import { Apptcal } from '../providers/apptcal'
 import { ReviewPage } from '../pages/review/review';
+import { ChartModule } from 'angular2-chartjs';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ReviewPage } from '../pages/review/review';
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    Ionic2RatingModule
+    Ionic2RatingModule,
+    ChartModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
