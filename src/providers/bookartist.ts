@@ -35,7 +35,7 @@ export class Bookartist {
           "nail_artist_second": nailArtist.lastName,
           "services_selected": bookInfo.service
     }
-    console.log('heres app data ', appointmentData)
+    //console.log('heres app data ', appointmentData)
 
     let body = JSON.stringify(appointmentData);
 
