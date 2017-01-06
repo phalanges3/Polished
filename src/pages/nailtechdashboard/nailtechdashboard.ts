@@ -56,10 +56,6 @@ export class NailtechdashboardPage {
       }]
   }
 
-  id: any
-  firstName: any
-
-
   appointments: any = [{
     start: "loading",
     date: "loading",
@@ -74,7 +70,7 @@ export class NailtechdashboardPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public modalCtrl: ModalController) {
      this.data = this.navParams.get("data")
 
-     console.log('Data from login in TECH DASH: ', this.data)
+    console.log('Data from login in TECH DASH: ', this.data)
     let convert =function (input) {
       return moment(input, 'HH:mm:ss').format('h:mm A');
     }
@@ -82,18 +78,11 @@ export class NailtechdashboardPage {
       return moment(input.slice(0,10), 'YYYY-MM-DD').toString()
     }
 
-    
-    this.isVendor = localStorage.getItem('isVendor')
-
-     this.id = localStorage.getItem('id')
-      this.firstName = localStorage.getItem('firstName')
-
-
-    if(this.isVendor === 1){
+    if(this.data.isVendor === 1){
       this.earningsFlag = true
       this.ratingsFlag  =  true
       this.updateHoursFlag = true
-      this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": this.id}))
+      this.http.post('http://localhost:3000/api/appointment/getappointment', ({"userId": this.data.id}))
         .subscribe(appointment => {
         //console.log("appointment  response", appointment.json())
         let result = appointment.json()
@@ -177,7 +166,7 @@ export class NailtechdashboardPage {
        //  })
       } else {
       this.bookFlag = true
-      this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.id}))
+      this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.data.id}))
         .subscribe(appointment => {
         let result = appointment.json()
         //console.log('result of call user dash line 91', result)
