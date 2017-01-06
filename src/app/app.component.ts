@@ -8,6 +8,7 @@ import { LoadingController } from 'ionic-angular'
 
 
 
+
 @Component({
   templateUrl: 'app.html'
 })
