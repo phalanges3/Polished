@@ -28,6 +28,26 @@
       </ion-row>
      </ion-item>
   </div>
+  <br>
+  <div>
+  	<h4>Review Past Appointments</h4>
+     <ion-item *ngFor="let pastAppointment of pastAppointments">
+      <ion-row>
+        <div class="appt">{{pastAppointment.date}} </div>
+        <div class="appt">{{pastAppointment.start}} </div>  
+      </ion-row>
+      <ion-row>
+     <!--  <div> {{pastAppointment.houseNumber}} {{pastAppointment.streetName}} {{pastAppointment.city}}, {{pastAppointment.state}} {{pastAppointment.zipCode}} </div> -->
+        <div class="appt"> {{pastAppointment.services_selected}} </div> 
+        <div class="appt"> Total: {{pastAppointment.total}}</div>
+      </ion-row>
+        <button ion-button very-small outline item-right icon-right (click)="reviewModal(pastAppointment)">
+          Review
+          <ion-icon name="text"></ion-icon>
+        </button>
+     </ion-item>
+  </div>
+
   <div class="dashSection" *ngIf="earningsFlag===true">
   	<h4>Weekly Earnings</h4>
   </div>
