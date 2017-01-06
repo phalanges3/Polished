@@ -77,18 +77,18 @@ export class BestmatchPage {
     this.bestmatch = this.data[0];
   }
 
-  // ionViewDidLoad(){
-  //   console.log('about to load page and markers')
-  //   this.loadMap();
-  //   this.addMarker(this.data);
-  //   console.log('this is params result data from the service request ', this.data)
-  //   console.log('this is params bookInfo data from the service request ', this.bookInfo)
-  //   console.log('this is params userInfo data', this.userInfo)
+  ionViewDidLoad(){
+    console.log('about to load page and markers')
+    this.loadMap();
+    this.addMarker(this.data);
+    console.log('this is params result data from the service request ', this.data)
+    console.log('this is params bookInfo data from the service request ', this.bookInfo)
+    console.log('this is params userInfo data', this.userInfo)
   //   Calendar.createCalendar('MyCalendar').then(
   //     (msg) => { console.log(msg); },
   //     (err) => { console.log(err); }
   //   );
-  // }
+  }
  
   loadMap(){
  
@@ -202,7 +202,7 @@ export class BestmatchPage {
     confirm.present();
   }
    sendToPayment() {
-    this.navCtrl.push(PaymentPage, {bookInfo:this.bookInfo})
+    this.navCtrl.push(PaymentPage, {bookInfo:this.bookInfo, userInfo: this.userInfo})
 
   }
 
