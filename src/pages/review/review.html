@@ -44,16 +44,29 @@
     <ion-title>
       Picture
     </ion-title>
-    <ion-item>
-      <button ion-button (click)="takePhoto()" icon-right>
-        Add picture
-        <ion-icon name="camera"></ion-icon>
-      </button>
-      
-    </ion-item>
-    <ion-item>
-      <img [src]="imageUrl" *ngIf="imageUrl">
-    </ion-item>
+    <ion-card-content text-wrap>
+      <b>Please attach a review picture of the service provided.</b>
+    </ion-card-content>
+      <ion-row>
+        <ion-col width-35>
+          <button ion-button block (click)="takePhoto()" icon-right small>
+            Take Photo
+            <ion-icon name="camera"></ion-icon>
+          </button>
+        </ion-col>
+
+        <ion-col width-35>
+          <button ion-button block (click)="accessGallery()" icon-right small>
+            Open Gallery
+            <ion-icon name="photos"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-item>
+        <img [src]="imageUrl" *ngIf="imageUrl">
+      </ion-item>
   </ion-card>
 
   <ion-card id="card">
