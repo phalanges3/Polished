@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
+import { Addreview } from '../../providers/addreview';
 
 /*
   Generated class for the Review page.
@@ -15,7 +16,7 @@ import { Camera } from 'ionic-native';
 
 export class ReviewPage {
   data: any;
-  imageUrl
+  imageUrl: any = null;
   markers: any = {
     firstName: 'George',
     lastName: 'Cantstanya',
@@ -23,8 +24,9 @@ export class ReviewPage {
     pic: 'http://vignette1.wikia.nocookie.net/seinfeld/images/7/76/George-costanza.jpg/revision/latest?cb=20110406222711',
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-    this.data = this.navParams.get("data")[0];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private userReview: Addreview) {
+    this.data = Object.assign(this.navParams.get("pastApp")[0], this.navParams.get("clientInfo"));
+
   }
 
   ionViewDidLoad() {
@@ -36,7 +38,14 @@ export class ReviewPage {
   }
 
   submitReview(review) {
-    console.log('review submitted!', review)
+    //console.log('review submitted!', review)
+    let content = Object.assign(this.data, review)
+    this.userReview.addReview(content)
+      .subscribe(
+        (data: any) => {
+          console.log('heres the data from review services', data)
+          this.dismiss();
+      });
   }
 
   takePhoto() {
@@ -46,6 +55,17 @@ export class ReviewPage {
     }, (err) => {
       console.log('Error on review takePhoto function ', err)
     })
+  }
+
+   accessGallery(){
+   Camera.getPicture({
+     sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+     destinationType: Camera.DestinationType.DATA_URL
+    }).then((imageData) => {
+      this.imageUrl = 'data:image/jpeg;base64,'+imageData;
+     }, (err) => {
+      console.log(err);
+    });
   }
 
 }

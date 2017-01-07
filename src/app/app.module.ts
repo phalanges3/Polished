@@ -24,6 +24,7 @@ import { ProfilePicsRevs } from '../providers/profile-pics-revs';
 import { Apptcal } from '../providers/apptcal'
 import { ReviewPage } from '../pages/review/review';
 import { ChartModule } from 'angular2-chartjs';
+import { Addreview } from '../providers/addreview';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,6 @@ import { ChartModule } from 'angular2-chartjs';
     NailartistpagePage,
     ReviewPage
   ],
-providers: [Bookartist, ProfilePicsRevs, Apptcal, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+providers: [Bookartist, ProfilePicsRevs, Apptcal, Addreview, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
 })
 export class AppModule {}
