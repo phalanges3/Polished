@@ -31,6 +31,9 @@ const Review = db.define('review', {
   review_content: {
     type: Sequelize.STRING
   },
+  review_date: {
+    type: Sequelize.STRING
+  },
   image1: {
     type: Sequelize.STRING
   },
