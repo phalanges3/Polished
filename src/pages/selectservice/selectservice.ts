@@ -16,12 +16,34 @@ export class SelectservicePage {
   addressFlag:any = false
   addressFlagCount= 0
   geolocationFlag:any = false
+  geolocationCount= 0
   data: any
 
   result = {
     response: '',
-    bookInfo: '',
+    bookInfo: {
+       service: '',
+       addOns: '',
+       date: '2016-01-01',
+       time: '',
+       houseNumber: '',
+       unitNumber: '',
+       street: '',
+       city: '',
+       state: '',
+       zipCode: '',
+       price: '',
+       lat: 0,
+       lon: 0
+    },
     userInfo: ''
+  }
+  geoResult= {
+    houseNumber: "1",
+    street: '',
+    city: '',
+    state: '',
+    zipCode: "90010"
   }
   long = 0
   lati = 0
@@ -62,6 +84,7 @@ export class SelectservicePage {
     })
 
     let watch = Geolocation.watchPosition().subscribe(pos => {
+      this.geolocationCount++
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude)
       this.long = pos.coords.longitude
       this.lati = pos.coords.latitude
@@ -74,13 +97,13 @@ export class SelectservicePage {
         console.log("in post ", address.json())
         let addressRes = address.json()
         console.log("address", addressRes.results)
-        this.bookInfo.value.houseNumber = addressRes.results[0].address_components[0].long_name
-        this.bookInfo.value.street =  addressRes.results[0].address_components[1].short_name
-        this.bookInfo.value.city =  addressRes.results[0].address_components[3].long_name
-        this.bookInfo.value.state = addressRes.results[0].address_components[5].short_name
-        this.bookInfo.value.zipCode = addressRes.results[0].address_components[7].long_name
+        this.geoResult.houseNumber = addressRes.results[0].address_components[0].long_name
+        this.geoResult.street =  addressRes.results[0].address_components[1].short_name
+        this.geoResult.city =  addressRes.results[0].address_components[3].long_name
+        this.geoResult.state = addressRes.results[0].address_components[5].short_name
+        this.geoResult.zipCode = addressRes.results[0].address_components[7].long_name
         console.log(this.bookInfo.value, 'bookingInfo')
-        console.log("captured zip", this.bookInfo.value.zipCode)
+        console.log("captured zip", this.geoResult.zipCode)
       })
     })
   }
@@ -106,9 +129,24 @@ export class SelectservicePage {
     console.log(today)
     console.log(today.getDay())
     console.log(dayOfWeek)
-    let params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
-    console.log("params", params)
-    this.http.post('http://localhost:3000/api/appointment/findartists', params)
+    let params
+    if(this.geolocationCount>0){
+      params = ({"zipCode": this.geoResult.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
+      this.http.post('http://localhost:3000/api/appointment/findartists', params)
+      .subscribe(artist => {
+        console.log("in Selectservice POST", artist)
+        this.bookInfo.value.price = cost[this.bookInfo.value.service]
+        this.result.response =  artist.json()
+        this.result.bookInfo = this.bookInfo.value
+        this.result.bookInfo.zipCode = this.geoResult.zipCode
+        console.log("result", this.result) 
+        this.navCtrl.push(BestmatchPage, {
+          data: this.result
+        })
+      })
+    } else {
+      params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
+      this.http.post('http://localhost:3000/api/appointment/findartists', params)
       .subscribe(artist => {
         console.log("in Selectservice POST", artist)
         this.bookInfo.value.price = cost[this.bookInfo.value.service]
@@ -119,6 +157,7 @@ export class SelectservicePage {
           data: this.result
         })
       })
+    }
    
   }
   ionViewDidLoad() {
