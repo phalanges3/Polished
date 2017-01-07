@@ -23,6 +23,8 @@ export class NailtechdashboardPage {
   updateHoursFlag: any =  false
   bookFlag: any = false
   isVendor: any
+  chartFlag: any = false
+  rateChartFlag: any = false
 
   pastAppointments: any = []
   pastAppts: any  =  [{
@@ -34,8 +36,8 @@ export class NailtechdashboardPage {
     state: "",
     zipCode: ""
   }]
-  monthlyAvgs: any = [5, 4.5, 4.55 , 4.7, 4.83, 4.86, 4.9, 4.7, 4.9, 4.9, 4.88, 4.89 ]
-  earningAvgs: any = [500,180,200,90,230,70,190,190,190,400,240,168]
+  monthlyAvgs: any = [0,0,0,0,0,0,0,0,0,0,0,0]
+  earningAvgs: any = [0,0,0,0,0,0,0,0,0,0,0,0]
   type = 'line';
   dataChart = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -99,6 +101,7 @@ export class NailtechdashboardPage {
           }]
         }
         this.appointments = result
+        console.log("appts  line 103",  this.appointments)
         this.pastAppts = result
         for(let i = 0; i <this.appointments.length; i++){
           this.newDate = new Date(this.appointments[i].date)
@@ -116,54 +119,160 @@ export class NailtechdashboardPage {
         }
         console.log("pastAppts line 121", this.pastAppointments)
         for(let h = 0; h < this.pastAppointments.length; h++){
-          console.log("inside for loop")
-          console.log(this.pastAppointments[h][0].date.slice(5,7), "sliced month")
-          let countJan = 0
+          console.log(this.pastAppointments[h][0].date.slice(5,7), "sliced month in for loop")
           if(this.pastAppointments[h][0].date.slice(5,7) === "01"){
-            countJan++
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[0]+= this.pastAppointments[h][0].total.slice(1)
-            } else  {
-              this.earningAvgs[0]+= 18
-            }
-            
+              this.earningAvgs[0]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
             console.log('new Jan total', this.earningAvgs[0])
+          }  else if(this.pastAppointments[h][0].date.slice(5,7) === "02"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[1]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+            console.log('new Feb total', this.earningAvgs[0])
           }
-          // this.earningAvgs[0] = this.monthlyAvgs[0]/countJan
-          // console.log('new Jan total divided by length', this.earningAvgs[0])
+           if(this.pastAppointments[h][0].date.slice(5,7) === "03"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[2]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "04"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[3]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "05"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[4]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "06"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[5]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "07"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[6]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "08"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[7]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "09"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[8]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "10"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[9]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "11"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[10]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          if(this.pastAppointments[h][0].date.slice(5,7) === "12"){
+            if(this.pastAppointments[h][0].total){
+              this.earningAvgs[11]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+            } 
+          }
+          this.chartFlag = true
          }
       })
-       console.log("after  past appt array")
-       for(let h = 0; h < this.pastAppointments.length; h++){
-          console.log("inside for loop")
-          console.log(this.pastAppointments[h].createdAt.slice(5,7), "sliced month")
-          let countJan = 0
-          if(this.pastAppointments[h].date.slice(5,7) === "01"){
-            countJan++
-            this.earningAvgs[0]+= this.pastAppointments[h].price.slice(1)
-            console.log('new Jan total', this.earningAvgs[0])
+       this.http.post('http://localhost:3000/api/review/getreviews', ({"userId": this.data.id}))
+        .subscribe(reviews => {
+        console.log("reviews  response", reviews.json())
+        let result = reviews.json()
+        let countDec = 0
+        let countNov = 0
+        let countOct = 0
+        let countSep = 0
+        let countAug = 0
+        let countJul = 0
+        let countJun = 0
+        let countMay = 0
+        let countApr = 0
+        let countMar = 0
+        let countFeb = 0
+        let countJan = 0
+        for(let k = 0; k < result.length; k++){
+          console.log(result[k].review_date.slice(5,7), "sliced month")
+          if(result[k].review_date.slice(5,7) === "12"){
+            countDec++
+            this.monthlyAvgs[11]+= result[k].rating
+            console.log('new Dec total', this.monthlyAvgs[11])
           }
-          this.earningAvgs[0] = this.monthlyAvgs[0]/countJan
-          console.log('new Jan total divided by length', this.earningAvgs[0])
+         if(result[k].review_date.slice(5,7) === "11"){
+            countNov++
+            this.monthlyAvgs[10]+= result[k].rating
+            console.log('new Nov total', this.monthlyAvgs[10])
+          }
+         if(result[k].review_date.slice(5,7) === "10"){
+            countOct++
+            this.monthlyAvgs[9]+= result[k].rating
+            console.log('new Nov total', this.monthlyAvgs[9])
+          }
+         if(result[k].review_date.slice(5,7) === "09"){
+            countSep++
+            this.monthlyAvgs[8]+= result[k].rating
+            console.log('new Nov total', this.monthlyAvgs[8])
+          }
+          if(result[k].review_date.slice(5,7) === "08"){
+            countAug++
+            this.monthlyAvgs[7]+= result[k].rating
+            console.log('new Nov total', this.monthlyAvgs[7])
+          }
+          if(result[k].review_date.slice(5,7) === "07"){
+            countJul++
+            this.monthlyAvgs[6]+= result[k].rating
+          }
+          if(result[k].review_date.slice(5,7) === "06"){
+            countJun++
+            this.monthlyAvgs[5]+= result[k].rating
+          }
+          if(result[k].review_date.slice(5,7) === "05"){
+            countMay++
+            this.monthlyAvgs[4]+= result[k].rating
+          }
+          if(result[k].review_date.slice(5,7) === "04"){
+            countApr++
+            this.monthlyAvgs[3]+= result[k].rating
+          }
+          if(result[k].review_date.slice(5,7) === "03"){
+            countMar++
+            this.monthlyAvgs[2]+= result[k].rating
+          }
+          if(result[k].review_date.slice(5,7) === "02"){
+            countFeb++
+            this.monthlyAvgs[1]+= result[k].rating
+          }
+           if(result[k].review_date.slice(5,7) === "02"){
+            countJan++
+            this.monthlyAvgs[0]+= result[k].rating
+          }
          }
-      
-      
-       // this.http.post('http://localhost:3000/api/review/getreviews', ({"userId": this.data.id}))
-       //  .subscribe(reviews => {
-       //  console.log("reviews  response", reviews.json())
-       //  let result = reviews.json()
-       // for(let k = 0; k < result.length; k++){
-       //    console.log(result[k].createdAt.slice(5,7), "sliced month")
-       //    let countJan = 0
-       //    if(result[k].createdAt.slice(5,7) === "01"){
-       //      countJan++
-       //      this.monthlyAvgs[0]+= result[k].rating
-       //      console.log('new Jan total', this.monthlyAvgs[0])
-       //    }
-       //    this.monthlyAvgs[0] = this.monthlyAvgs[0]/countJan
-       //    console.log('new Jan total divided by length', this.monthlyAvgs[0])
-       //   }
-       //  })
+         this.monthlyAvgs[11] = this.monthlyAvgs[11]/countDec
+         this.monthlyAvgs[10] = this.monthlyAvgs[10]/countNov
+         this.monthlyAvgs[9] = this.monthlyAvgs[9]/countOct
+         this.monthlyAvgs[8] = this.monthlyAvgs[8]/countSep
+         this.monthlyAvgs[7] = this.monthlyAvgs[7]/countAug
+         this.monthlyAvgs[6] = this.monthlyAvgs[6]/countJul
+         this.monthlyAvgs[5] = this.monthlyAvgs[5]/countJun
+         this.monthlyAvgs[4] = this.monthlyAvgs[4]/countMay
+         this.monthlyAvgs[3] = this.monthlyAvgs[3]/countApr
+         this.monthlyAvgs[2] = this.monthlyAvgs[2]/countMar
+         this.monthlyAvgs[1] = this.monthlyAvgs[2]/countMar
+         this.monthlyAvgs[1] = this.monthlyAvgs[2]/countMar
+
+         console.log(this.monthlyAvgs[11], "dec avg")
+         console.log(this.monthlyAvgs[10], "nov avg")
+         this.rateChartFlag = true
+        })
       } else {
       this.bookFlag = true
       this.http.post('http://localhost:3000/api/appointment/clientappointments', ({"clientId": this.data.id}))

@@ -50,11 +50,11 @@
 
   <div class="dashSection" *ngIf="earningsFlag===true">
   	<h4>Monthly Earnings</h4>
-    <chart [type]="type" [data]="dataChart2" [options]="options"></chart>
+    <chart [type]="type" [data]="dataChart2" [options]="options" *ngIf="chartFlag===true"></chart>
   </div>
   <div class="dashSection" *ngIf="ratingsFlag===true">
   	<h4>Rating Analytics</h4>
-    <chart [type]="type" [data]="dataChart" [options]="options"></chart>
+    <chart [type]="type" [data]="dataChart" [options]="options" *ngIf="rateChartFlag===true"></chart>
   </div>
   <ion-row>
     <ion-col  width-40  *ngIf="updateHoursFlag===true">
