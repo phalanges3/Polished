@@ -81,27 +81,27 @@ export class BestmatchPage {
     console.log('about to load page and markers')
     this.loadMap();
     this.addMarker(this.data);
-    console.log('this is params result data from the service request ', this.data)
-    console.log('this is params bookInfo data from the service request ', this.bookInfo)
-    console.log('this is params userInfo data', this.userInfo)
+    // console.log('this is params result data from the service request ', this.data)
+    // console.log('this is params bookInfo data from the service request ', this.bookInfo)
+    // console.log('this is params userInfo data', this.userInfo)
     // Calendar.createCalendar('MyCalendar').then(
     //   (msg) => { console.log(msg); },
     //   (err) => { console.log(err); }
     // );
   }
- 
+
   loadMap(){
- 
+
     let latLng = new google.maps.LatLng(34.052235, -118.243683);
- 
+
     let mapOptions = {
       center: latLng,
       zoom: 10,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
- 
+
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
- 
+
   }
 
   addMarker(nailArtist){
@@ -111,19 +111,19 @@ export class BestmatchPage {
         position: {lat: Number(nailArtist[0].latitude), lng: Number(nailArtist[0].longitude)}
       });
       //console.log('heres position ', marker.position)
- 
-      let content = `<h2> <b>${ nailArtist[0].firstName} ${nailArtist[0].lastName }</b> </h2>`;          
- 
+
+      let content = `<h2> <b>${ nailArtist[0].firstName} ${nailArtist[0].lastName }</b> </h2>`;
+
       this.addInfoWindow(marker, content);
- 
+
   }
 
   addInfoWindow(marker, content){
- 
+
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
- 
+
     google.maps.event.addListener(marker, 'click', () => {
       if (!marker.open) {
         infoWindow.open(this.map, marker);
@@ -142,7 +142,7 @@ export class BestmatchPage {
   }
 
   searchMore(){
-    this.navCtrl.push(SearchmorePage, {data: this.data, bookInfo: this.bookInfo});
+    this.navCtrl.push(SearchmorePage, {data: this.data, bookInfo: this.bookInfo, userInfo: this.userInfo});
   }
 
   // Fires off on load!!!
@@ -155,9 +155,9 @@ export class BestmatchPage {
           this.navCtrl.push(NailartistpagePage, {nailArtistInfo: profile, nailArtistReviews: data, bookInfo: this.bookInfo});
       });
   }
-  
+
   showAlert(nailArtist) {
-    
+
     let alert = this.alertCtrl.create({
       title: 'Booking Confirmed!',
       subTitle: `Congratulations, you just booked ${nailArtist.firstName}!`,

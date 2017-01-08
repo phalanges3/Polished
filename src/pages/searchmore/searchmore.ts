@@ -19,19 +19,20 @@ declare var google;
 export class SearchmorePage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  
   data: any;
-
   bookInfo: any; 
+  userInfo: any
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private bookArtist: Bookartist, public alertCtrl: AlertController, private fetchData:ProfilePicsRevs) {
     this.data = this.navParams.get("data");
     this.bookInfo = this.navParams.get("bookInfo");
+    this.userInfo = this.navParams.get("userInfo");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchmorePage');
-    console.log('this is the params data inside searchmore ', this.data);
+    console.log('params DATA inside SEARCHMORE ', this.data);
+    console.log('USERINFO inside SEARCHMORE', this.userInfo)
     this.loadMap();
     this.addMarkers(this.data);
   }
@@ -114,8 +115,8 @@ export class SearchmorePage {
       .subscribe(
         (data: any) => {
           console.log('heres the data from book services', data)
-          this.showAlert(nailArtist);
-          this.navCtrl.push(NailtechdashboardPage, {data: this.data});
+          // this.showAlert(nailArtist);
+          // this.navCtrl.push(NailtechdashboardPage, {data: this.data});
 
       });
   }
@@ -135,8 +136,8 @@ export class SearchmorePage {
           text: 'Agree',
           handler: () => {
             console.log('Agree clicked');
+            this.bookNailArtist(nailArtist);
             this.sendToPayment()
-            //this.bookNailArtist(nailArtist);
             //this.showAlert(nailArtist);
           }
         }
@@ -145,7 +146,8 @@ export class SearchmorePage {
     confirm.present();
   }
   sendToPayment() {
-   this.navCtrl.push(PaymentPage, {bookInfo:this.bookInfo})
+    console.log('userINFO in paymeny', this.userInfo)
+   this.navCtrl.push(PaymentPage, {bookInfo:this.bookInfo, userInfo: this.userInfo})
 
   }
 
