@@ -34,7 +34,11 @@ request.post(options, (err, resp, body) => {
       console.log(err)
     }
     let response = resp.body
+<<<<<<< HEAD
   console.log('This is resp: ', resp.body)
+=======
+  //console.log('This is resp: ', resp.body)
+>>>>>>> feat/lic
 })
 
 
