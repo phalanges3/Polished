@@ -38,7 +38,7 @@ export class SearchmorePage {
 
   loadMap(){
  
-    let latLng = new google.maps.LatLng(34.052235, -118.243683);
+    let latLng = new google.maps.LatLng(this.bookInfo.lat, this.bookInfo.lon);
  
     let mapOptions = {
       center: latLng,

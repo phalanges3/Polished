@@ -16,8 +16,8 @@ export class Bookartist {
   }
 
   setBooking(nailArtist, bookInfo) {
-    //console.log('this is nail artist inside book service, ', nailArtist);
-    //console.log('this is booking inside book service, ', bookInfo);
+    console.log('this is nail artist inside book service, ', nailArtist);
+    console.log('this is booking inside book service, ', bookInfo);
     let appointmentData = {
           "userId": nailArtist.id,
           "date": bookInfo.date,
