@@ -23,7 +23,7 @@ export class PaymentPage {
     public http: Http,
     public alertCtrl: AlertController
     ) {
-    
+  
     this.bookInfo = this.navParams.get("bookInfo")
     this.userInfo = this.navParams.get("userInfo")
     this.price = this.bookInfo.price

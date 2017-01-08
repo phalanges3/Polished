@@ -24,7 +24,7 @@ export class SelectservicePage {
     bookInfo: {
        service: '',
        addOns: '',
-       date: '2016-01-01',
+       date: '2017-01-01',
        time: '',
        houseNumber: '',
        unitNumber: '',
@@ -55,7 +55,7 @@ export class SelectservicePage {
     this.bookInfo = formBuilder.group({
        service: '',
        addOns: '',
-       date: '2016-01-01',
+       date: '2017-01-01',
        time: '',
        houseNumber: '',
        unitNumber: '',

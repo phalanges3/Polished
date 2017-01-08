@@ -3,6 +3,9 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
 const routes = require('./api/routes.main')
+const pg = require('pg')
+
+
 
 // Middleware
 require('./config/middleware.js')(app, express)
@@ -13,8 +16,4 @@ app.listen(PORT, () => {
   console.log('SERVER listening on port: ', PORT)
 })
 
-
-
 module.exports = app
-
-// Do I need to serve static files from front-end or ionic does this auto?
