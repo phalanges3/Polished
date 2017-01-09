@@ -26,6 +26,8 @@ module.exports = {
       var results =  JSON.parse(JSON.stringify(artists))
       for(var i = 0; i < results.length; i++){
         results[i].flag  = true
+        results[i].general_rating = (results[i].general_rating / 100) 
+        console.log('general rating / 100 ', results[i].general_rating)
         if(results[i].appointments.length===0){
           filtered.push(results[i])
         }  else {
@@ -65,6 +67,8 @@ module.exports = {
         clientId: req.body.clientId,
         nail_artist_first: req.body.nail_artist_first,
         nail_artist_second: req.body.nail_artist_second,
+        nail_artist_username: req.body.nail_artist_username,
+        nail_artist_image: req.body.nail_artist_image,
         services_selected: req.body.services_selected,
         addOns: req.body.addOns,
         total: req.body.total

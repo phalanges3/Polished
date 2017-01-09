@@ -15,8 +15,36 @@ export class Addreview {
     console.log('Hello Addreview Provider');
   }
 
+    updateGenReview(review) {
+    let user = {userId: review.userId}
+    return this.http.post('http://localhost:3000/api/review/getreviews', user)
+      .map((data: Response) => data.json())
+      .subscribe(
+        (data: any) => {
+          console.log('heres the data from review services', data)
+          console.log('heres inside data update gen rev ', data[0])
+          console.log('heres inside data update gen rev ', data[0].rating)
+          let ratingSum = data.reduce(function(a, b){
+            return {rating: a.rating + b.rating};
+          })
+          console.log(ratingSum)
+          console.log(ratingSum.rating)
+          console.log(data.length)
+          let genRating = ((ratingSum.rating + (review.rating * 100)) / (data.length + 1) * 100)
+          console.log(genRating)
+          return this.http.put('http://localhost:3000/api/user/update', {userName: review.nail_artist_username, general_rating: genRating})
+            .map((data: Response) => data.json())
+            .subscribe(
+              (data: any) => {
+                console.log('heres the return from updating gen rating ', data)
+              })
+
+      });
+  }
+
   addReview(review) {
     console.log('review sent from services! ', review)
+    this.updateGenReview(review);
 
     let currentDate = new Date();
 

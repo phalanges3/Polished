@@ -108,6 +108,13 @@ export class SelectservicePage {
     })
   }
 
+  getAddressLatLong(address) {
+    console.log('heres the address ...   ', address.value)
+    //console.log(address.value.houseNumber + address.value.street + address.value.city + address.value.state)
+    return this.http.post('https://maps.googleapis.com/maps/api/geocode/json?address='+ address.value.houseNumber + address.value.street + ', ' + address.value.city + ',' + address.value.state + '&key=AIzaSyCVnqyWXNW0HqDOt7HDNf-fOZIguJ96EXo', '')
+      
+  }
+
   //get request
   navigate(){
     console.log(this.bookInfo)
@@ -142,24 +149,37 @@ export class SelectservicePage {
         this.result.bookInfo.street = this.geoResult.street
         this.result.bookInfo.city = this.geoResult.city
         this.result.bookInfo.zipCode = this.geoResult.zipCode
-        console.log("result", this.result) 
+        this.result.bookInfo.lat = this.lati
+        this.result.bookInfo.lon = this.long
+        console.log("this is the result from http call to select service ", this.result) 
         this.navCtrl.push(BestmatchPage, {
           data: this.result
         })
       })
     } else {
-      params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
-      this.http.post('http://localhost:3000/api/appointment/findartists', params)
-      .subscribe(artist => {
-        console.log("in Selectservice POST", artist)
-        this.bookInfo.value.price = cost[this.bookInfo.value.service]
-        this.result.response =  artist.json()
-        this.result.bookInfo = this.bookInfo.value
-        console.log("result", this.result) 
-        this.navCtrl.push(BestmatchPage, {
-          data: this.result
+      this.getAddressLatLong(this.bookInfo)
+        .subscribe( result => {
+        // console.log('SUBSCRIBE RESULT !!!!! ', result.json())
+        // console.log(result.json().results)
+        // console.log(result.json().results[0])
+        let addressLatLong = result.json().results[0].geometry.location;
+        
+        params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
+        this.http.post('http://localhost:3000/api/appointment/findartists', params)
+        .subscribe(artist => {
+          console.log("in Selectservice POST", artist)
+          this.bookInfo.value.price = cost[this.bookInfo.value.service]
+          this.result.response =  artist.json()
+          this.result.bookInfo = this.bookInfo.value
+          this.result.bookInfo.lat = addressLatLong.lat
+          this.result.bookInfo.lon = addressLatLong.lng
+          console.log("this is the result from http call to select service ", this.result) 
+          this.navCtrl.push(BestmatchPage, {
+            data: this.result
+          })
         })
       })
+
     }
    
   }

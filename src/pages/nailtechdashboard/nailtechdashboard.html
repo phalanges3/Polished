@@ -16,7 +16,8 @@
 <ion-content padding>
   <div>
   	<h4>Upcoming Appointments</h4>
-     <ion-item *ngFor="let item of appointments">
+    <div *ngFor="let item of appointments; let i = index">
+     <ion-item *ngIf="i < 3">
       <ion-row>
         <div class="appt">{{item.date}} </div>
         <div class="appt">{{item.start}} </div>  
@@ -31,13 +32,15 @@
            <ion-icon name="compass"></ion-icon>
       </button>
      </ion-item>
+    </div>
   </div>
   <br>
   <div *ngIf="bookFlag===true">
   	<h4>Review Past Appointments</h4>
-     <ion-item *ngFor="let pastAppointment of pastAppointments">
+    <div *ngFor="let pastAppointment of pastAppointments; let j = index">
+     <ion-item *ngIf="j < 3">
       <ion-row>
-        <div class="appt">{{pastAppointment.date}} </div>
+        <div class="appt" >{{pastAppointment.date}}</div>
         <div class="appt">{{pastAppointment.start}} </div>  
       </ion-row>
       <ion-row>
@@ -50,6 +53,7 @@
           <ion-icon name="text"></ion-icon>
         </button>
      </ion-item>
+    </div>
   </div>
 
   <div class="dashSection" *ngIf="earningsFlag===true">
@@ -61,7 +65,7 @@
     <chart [type]="type" [data]="dataChart" [options]="options" *ngIf="rateChartFlag===true"></chart>
   </div>
   <ion-row>
-    <ion-col  width-40  *ngIf="updateHoursFlag===true">
+    <ion-col width-40  *ngIf="updateHoursFlag===true">
     <button ion-button full  (click) = "goToAvailability()">Adjust Hours</button>
     </ion-col>
     <ion-col width-40 *ngIf="bookFlag===true">
