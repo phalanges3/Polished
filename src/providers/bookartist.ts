@@ -33,6 +33,8 @@ export class Bookartist {
           "nail_artist_id": nailArtist.id,
           "nail_artist_first": nailArtist.firstName,
           "nail_artist_second": nailArtist.lastName,
+          "nail_artist_username": nailArtist.userName,
+          "nail_artist_image": nailArtist.profile_image_url,
           "services_selected": bookInfo.service
     }
     //console.log('heres app data ', appointmentData)

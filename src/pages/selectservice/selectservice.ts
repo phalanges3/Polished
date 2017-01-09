@@ -151,7 +151,7 @@ export class SelectservicePage {
         this.result.bookInfo.zipCode = this.geoResult.zipCode
         this.result.bookInfo.lat = this.lati
         this.result.bookInfo.lon = this.long
-        console.log("result", this.result) 
+        console.log("this is the result from http call to select service ", this.result) 
         this.navCtrl.push(BestmatchPage, {
           data: this.result
         })
@@ -173,7 +173,7 @@ export class SelectservicePage {
           this.result.bookInfo = this.bookInfo.value
           this.result.bookInfo.lat = addressLatLong.lat
           this.result.bookInfo.lon = addressLatLong.lng
-          console.log("result", this.result) 
+          console.log("this is the result from http call to select service ", this.result) 
           this.navCtrl.push(BestmatchPage, {
             data: this.result
           })
