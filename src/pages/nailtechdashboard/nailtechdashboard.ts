@@ -201,57 +201,57 @@ export class NailtechdashboardPage {
         let countFeb = 0
         let countJan = 0
         for(let k = 0; k < result.length; k++){
-          console.log(result[k].review_date.slice(5,7), "sliced month")
-          if(result[k].review_date.slice(5,7) === "12"){
+          console.log(result[k].review_date.slice(4,7), "sliced month")
+          if(result[k].review_date.slice(4,7) === "Dec"){
             countDec++
             this.monthlyAvgs[11]+= result[k].rating
             console.log('new Dec total', this.monthlyAvgs[11])
           }
-         if(result[k].review_date.slice(5,7) === "11"){
+         if(result[k].review_date.slice(4,7) === "Nov"){
             countNov++
             this.monthlyAvgs[10]+= result[k].rating
             console.log('new Nov total', this.monthlyAvgs[10])
           }
-         if(result[k].review_date.slice(5,7) === "10"){
+         if(result[k].review_date.slice(4,7) === "Oct"){
             countOct++
             this.monthlyAvgs[9]+= result[k].rating
             console.log('new Nov total', this.monthlyAvgs[9])
           }
-         if(result[k].review_date.slice(5,7) === "09"){
+         if(result[k].review_date.slice(4,7) === "Sep"){
             countSep++
             this.monthlyAvgs[8]+= result[k].rating
             console.log('new Nov total', this.monthlyAvgs[8])
           }
-          if(result[k].review_date.slice(5,7) === "08"){
+          if(result[k].review_date.slice(4,7) === "Aug"){
             countAug++
             this.monthlyAvgs[7]+= result[k].rating
             console.log('new Nov total', this.monthlyAvgs[7])
           }
-          if(result[k].review_date.slice(5,7) === "07"){
+          if(result[k].review_date.slice(4,7) === "Jul"){
             countJul++
             this.monthlyAvgs[6]+= result[k].rating
           }
-          if(result[k].review_date.slice(5,7) === "06"){
+          if(result[k].review_date.slice(4,7) === "Jun"){
             countJun++
             this.monthlyAvgs[5]+= result[k].rating
           }
-          if(result[k].review_date.slice(5,7) === "05"){
+          if(result[k].review_date.slice(4,7) === "May"){
             countMay++
             this.monthlyAvgs[4]+= result[k].rating
           }
-          if(result[k].review_date.slice(5,7) === "04"){
+          if(result[k].review_date.slice(4,7) === "Apr"){
             countApr++
             this.monthlyAvgs[3]+= result[k].rating
           }
-          if(result[k].review_date.slice(5,7) === "03"){
+          if(result[k].review_date.slice(4,7) === "Mar"){
             countMar++
             this.monthlyAvgs[2]+= result[k].rating
           }
-          if(result[k].review_date.slice(5,7) === "02"){
+          if(result[k].review_date.slice(4,7) === "Feb"){
             countFeb++
             this.monthlyAvgs[1]+= result[k].rating
           }
-           if(result[k].review_date.slice(5,7) === "02"){
+           if(result[k].review_date.slice(4,7) === "Jan"){
             countJan++
             this.monthlyAvgs[0]+= result[k].rating
           }
@@ -266,8 +266,8 @@ export class NailtechdashboardPage {
          this.monthlyAvgs[4] = this.monthlyAvgs[4]/countMay
          this.monthlyAvgs[3] = this.monthlyAvgs[3]/countApr
          this.monthlyAvgs[2] = this.monthlyAvgs[2]/countMar
-         this.monthlyAvgs[1] = this.monthlyAvgs[2]/countMar
-         this.monthlyAvgs[1] = this.monthlyAvgs[2]/countMar
+         this.monthlyAvgs[1] = this.monthlyAvgs[1]/countFeb
+         this.monthlyAvgs[0] = this.monthlyAvgs[0]/countJan
 
          console.log(this.monthlyAvgs[11], "dec avg")
          console.log(this.monthlyAvgs[10], "nov avg")
