@@ -1,4 +1,5 @@
 const User = require('./user.schema')
+const Schedule =  require('../schedule/schedule.schema')
 
 module.exports = {
 
@@ -13,7 +14,76 @@ module.exports = {
           isVendor: req.body.isVendor
         })
         .then((user) => {
+          if(req.body.isVendor===1){
+              Schedule.create({
+            userId: req.body.id,
+            day: "Sunday",
+            start: "09:00:00",
+            end: "17:00:00"
+          })
+          .then(schedule => {
+            Schedule.create({
+            userId: req.body.id,
+            day: "Monday",
+            start: "09:00:00",
+            end: "17:00:00"
+            })
+            .then(schedule => {
+              Schedule.create({
+                userId: req.body.id,
+                day: "Sunday",
+                start: "09:00:00",
+                end: "17:00:00"
+              })
+              .then(schedule => {
+                Schedule.create({
+                  userId: req.body.id,
+                  day: "Tuesday",
+                  start: "09:00:00",
+                  end: "17:00:00"
+                })
+                .then(schedule => {
+                  Schedule.create({
+                    userId: req.body.id,
+                    day: "Wednesday",
+                    start: "09:00:00",
+                    end: "17:00:00"
+                  })
+                  .then(schedule => {
+                    Schedule.create({
+                      userId: req.body.id,
+                      day: "Thursday",
+                      start: "09:00:00",
+                      end: "17:00:00"
+                    })
+                    .then(schedule => {
+                      Schedule.create({
+                        userId: req.body.id,
+                        day: "Friday",
+                        start: "09:00:00",
+                        end: "17:00:00"
+                      })
+                      .then(schedule => {
+                        Schedule.create({
+                          userId: req.body.id,
+                          day: "Saturday",
+                          start: "09:00:00",
+                          end: "17:00:00"
+                        })
+                        .then(schedule => {
+                          res.send(schedule)
+                        })
+                      })
+                    })
+                  })
+                })
+              })
+            })
+          })
+        }  else {
           res.send(user)
+        }
+        
         })
   },
   login: (req, res) => {
