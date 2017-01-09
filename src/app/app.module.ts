@@ -25,6 +25,7 @@ import { Apptcal } from '../providers/apptcal'
 import { ReviewPage } from '../pages/review/review';
 import { ChartModule } from 'angular2-chartjs';
 import { Addreview } from '../providers/addreview';
+import { DirectionsPage } from  '../pages/directions/directions'
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { Addreview } from '../providers/addreview';
     ProfilePage,
     NailartistpagePage,
     PaymentPage,
-    ReviewPage
+    ReviewPage,
+    DirectionsPage
 
   ],
   imports: [
@@ -68,7 +70,8 @@ import { Addreview } from '../providers/addreview';
     ProfilePage,
     PaymentPage,
     NailartistpagePage,
-    ReviewPage
+    ReviewPage,
+    DirectionsPage
   ],
 providers: [Bookartist, ProfilePicsRevs, Apptcal, Addreview, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
 })

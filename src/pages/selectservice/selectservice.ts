@@ -52,7 +52,7 @@ export class SelectservicePage {
     this.data = this.navParams.get("data")
      console.log('Data from login: ', this.data)
      this.result.userInfo = this.data
-    this.bookInfo = formBuilder.group({
+     this.bookInfo = formBuilder.group({
        service: '',
        addOns: '',
        date: '2016-01-01',
@@ -138,6 +138,9 @@ export class SelectservicePage {
         this.bookInfo.value.price = cost[this.bookInfo.value.service]
         this.result.response =  artist.json()
         this.result.bookInfo = this.bookInfo.value
+        this.result.bookInfo.houseNumber = this.geoResult.houseNumber
+        this.result.bookInfo.street = this.geoResult.street
+        this.result.bookInfo.city = this.geoResult.city
         this.result.bookInfo.zipCode = this.geoResult.zipCode
         console.log("result", this.result) 
         this.navCtrl.push(BestmatchPage, {
