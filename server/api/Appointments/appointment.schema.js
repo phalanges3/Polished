@@ -38,6 +38,8 @@ const Appointment = db.define('appointment', {
   clientId: Sequelize.INTEGER,
   nail_artist_first: Sequelize.STRING,
   nail_artist_second: Sequelize.STRING,
+  nail_artist_username: Sequelize.STRING,
+  nail_artist_image: Sequelize.STRING,
   services_selected: Sequelize.STRING,
   addOns: Sequelize.STRING,
   total: Sequelize.STRING

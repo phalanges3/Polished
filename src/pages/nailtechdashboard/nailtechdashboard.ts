@@ -345,6 +345,7 @@ export class NailtechdashboardPage {
 
   reviewModal(pastApp) {
     console.log('sdaasd asda sasdas ds', this.data)
+    console.log('sdaasd asda sasdas ds ad222222', pastApp)
     let modal = this.modalCtrl.create(ReviewPage, {pastApp: pastApp, clientInfo: this.data}, {"showBackdrop": false, "enableBackdropDismiss": false});
     modal.present();
 
