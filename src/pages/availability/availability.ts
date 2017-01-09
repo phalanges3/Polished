@@ -16,9 +16,11 @@ import 'rxjs/add/operator/map';
   templateUrl: 'availability.html'
 })
 export class AvailabilityPage {
+  data: any
   hours: FormGroup
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public http: Http) {
+    this.data = this.navParams.get("data")
     this.hours = formBuilder.group({
       // startSun: '',
       // endSun: '',
@@ -59,9 +61,9 @@ export class AvailabilityPage {
     	}
     }
     for(var  i = 0; i < this.hours.value.day.length; i++){
-       this.http.post('http://localhost:3000/api/schedule/', ({"userID": 1, "day": this.hours.value.day[i], "start": this.hours.value.start, "end": this.hours.value.end}), this.headers)
+       this.http.put('http://localhost:3000/api/schedule/updatehours', ({"userId": this.data.id, "day": this.hours.value.day[i], "start": this.hours.value.start, "end": this.hours.value.end}), this.headers)
        .subscribe(data => {
-          console.log('DATA in availability POST: ', data)
+          console.log('DATA in availability PUT: ', data)
        })
     }
    
