@@ -9,4 +9,8 @@ router.post('/', (req, res) => {
 router.post('/getschedule', (req, res) => {
   scheduleModel.getSchedule(req, res)
 })
+router.put('/updatehours', (req, res) => {
+  console.log('in update hours line 13')
+  scheduleModel.updateHours(req,res)
+})
 module.exports = router
