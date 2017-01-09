@@ -325,8 +325,7 @@ export class NailtechdashboardPage {
 
   goToAvailability(){
     this.navCtrl.push(AvailabilityPage, {
-       firstPassed: "value 1",
-       secondPassed: "value 2"
+      data: this.data
     })
   }
   goToBook(){
