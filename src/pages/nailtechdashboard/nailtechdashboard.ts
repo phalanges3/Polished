@@ -8,6 +8,7 @@ import { SelectservicePage } from '../selectservice/selectservice'
 import * as moment from 'moment/moment'
 import { Chart } from 'chart.js'
 import { ReviewPage } from '../review/review'
+import { DirectionsPage } from  '../directions/directions'
 
 
 @Component({
@@ -25,7 +26,6 @@ export class NailtechdashboardPage {
   isVendor: any
   chartFlag: any = false
   rateChartFlag: any = false
-
   pastAppointments: any = []
   pastAppts: any  =  [{
     start: "loading",
@@ -341,6 +341,11 @@ export class NailtechdashboardPage {
     this.navCtrl.push(ProfilePage, {
       data: this.data
     })
+  }
+
+  goToDirections(appt){
+    console.log("inside go to directions line line 347", appt)
+    this.navCtrl.push(DirectionsPage, {data: this.data, appointment: appt} )
   }
 
   reviewModal(pastApp) {

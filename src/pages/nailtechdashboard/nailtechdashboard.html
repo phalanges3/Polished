@@ -26,6 +26,10 @@
         <div class="appt"> {{item.services_selected}} </div> 
         <div class="appt"> Total: {{item.total}}</div>
       </ion-row>
+      <button ion-button very-small outline item-right icon-right *ngIf="earningsFlag===true" (click)="goToDirections(item)">
+          Directions
+           <ion-icon name="compass"></ion-icon>
+      </button>
      </ion-item>
   </div>
   <br>
