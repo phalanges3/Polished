@@ -2,9 +2,8 @@ import { Component } from '@angular/core'
 import { Platform } from 'ionic-angular'
 import { StatusBar, Splashscreen } from 'ionic-native'
 import { LoginPage } from '../pages/login/login'
-import { Auth } from '../providers/auth'
 import { TabsPage } from '../pages/tabs/tabs'
-import { LoadingController } from 'ionic-angular'
+import { LoadingController, MenuController } from 'ionic-angular'
 
 
 
@@ -13,23 +12,23 @@ import { LoadingController } from 'ionic-angular'
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = LoginPage
+  rootPage: any = TabsPage
   loader: any
 
-  constructor(public auth: Auth, public loadingCtrl: LoadingController) {
-    this.presentLoading()
-    this.auth
-      .login()
-      .then((isLoggedIn) => {
-        if (isLoggedIn) {
-          this.rootPage = TabsPage
-        }
-        else {
-          this.rootPage = LoginPage
-        }
-         this.loader.dismiss()
-      })
-    // platform.ready().then(() => {
+  constructor(public platform: Platform, public loadingCtrl: LoadingController, public menuCtrl: MenuController) {
+    // this.presentLoading()
+    // this.auth
+    //   .login()
+    //   .then((isLoggedIn) => {
+    //     if (isLoggedIn) {
+    //       this.rootPage = TabsPage
+    //     }
+    //     else {
+    //       this.rootPage = LoginPage
+    //     }
+    //      this.loader.dismiss()
+    //   })
+    // this.platform.ready().then(() => {
     //   // Okay, so the platform is ready and our plugins are available.
     //   // Here you can do any higher level native things you might need.
     //   StatusBar.styleDefault();
@@ -37,11 +36,11 @@ export class MyApp {
     // });
    
   }
-  presentLoading() {
-    this.loader = this.loadingCtrl.create({
-      content: "Logging into your account..."
+//   presentLoading() {
+//     this.loader = this.loadingCtrl.create({
+//       content: "Logging into your account..."
       
-    });
-    this.loader.present();
-  }
+//     });
+//     this.loader.present();
+//   }
 }

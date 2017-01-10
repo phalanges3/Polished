@@ -9,7 +9,7 @@ const image = require('./Image/index')
 const schedule = require('./Schedule/index')
 const mainRoutesΩ = require('./routes.main')
 const payment = require('../config/braintree.js')
-const scrape = require('../config/scrape.js')
+//const scrape = require('../config/scrape.js')
 
 const UsersServices = db.define('UsersServices', {
 
@@ -26,8 +26,7 @@ module.exports = {
   review: review,
   image: image,
   schedule: schedule,
-  payment: payment,
-  scrape: scrape
+  payment: payment
 }
 
 // This is the base exporting file for all entities.
