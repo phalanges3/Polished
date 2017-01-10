@@ -10,6 +10,7 @@ import { LoadingController } from 'ionic-angular'
 // import { LocalNotifications } from 'ionic-native';
 import { SignUpPage } from '../signup/signup'
 
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -59,8 +60,8 @@ submitAttempt: boolean = false;
             // localStorage.setItem('email', response.email)
             // localStorage.setItem('general_rating', response.general_rating)
             // localStorage.setItem('zipCode', response.zipCode)
-            // localStorage.setItem('userId', response.id)
-            //  console.log("is response", response)
+            // localStorage.setItem('id', response.id)
+             console.log("is response", response)
             this.navCtrl.push(NailtechdashboardPage, {
                 data: response
             })
@@ -72,9 +73,9 @@ submitAttempt: boolean = false;
         })
   }
 
-  logout() {
-     localStorage.clear()
-  }
+  // logout() {
+  //    localStorage.clear()
+  // }
 
   presentLoading() {
  
@@ -91,23 +92,6 @@ submitAttempt: boolean = false;
 
 ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-      //leave push  notifications to test after deployment
-      // LocalNotifications.schedule([{
-      //    id: 1,
-      //    text: 'Reminder Manicure @ 3:00 P.M.',
-      //    sound: null
-      //   },{
-      //    id: 2,
-      //    title: 'Appointment Reminder,
-      //    text: 'Pedicure @ 4:00 P.M',
-      //    icon: 'http://iconpopanswers.com/wp-content/uploads/2013/03/iconpopbrand-large-096.jpg'
-      // }]);
-      // LocalNotifications.schedule({
-      //    text: 'Delayed ILocalNotification',
-      //    at: new Date(new Date().getTime() + 3600),
-      //    led: 'FF0000',
-      //    sound: null
-      // });
   }
 
   goToSignUp() {

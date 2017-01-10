@@ -119,6 +119,7 @@ export class NailtechdashboardPage {
           this.appointments[j].date = this.newDate.slice(3, 15)
         }
         console.log("pastAppts line 121", this.pastAppointments)
+
         for(let h = 0; h < this.pastAppointments.length; h++){
           console.log(this.pastAppointments[h][0].date.slice(5,7), "sliced month in for loop")
           if(this.pastAppointments[h][0].date.slice(5,7) === "01"){
@@ -182,8 +183,9 @@ export class NailtechdashboardPage {
               this.earningAvgs[11]+= parseInt(this.pastAppointments[h][0].total)
             } 
           }
-          this.chartFlag = true
+          
          }
+         this.chartFlag = true
       })
        this.http.post('http://localhost:3000/api/review/getreviews', ({"userId": this.data.id}))
         .subscribe(reviews => {
@@ -257,19 +259,18 @@ export class NailtechdashboardPage {
             this.monthlyAvgs[0]+= result[k].rating
           }
          }
-         this.monthlyAvgs[11] = this.monthlyAvgs[11]/countDec
-         this.monthlyAvgs[10] = this.monthlyAvgs[10]/countNov
-         this.monthlyAvgs[9] = this.monthlyAvgs[9]/countOct
-         this.monthlyAvgs[8] = this.monthlyAvgs[8]/countSep
-         this.monthlyAvgs[7] = this.monthlyAvgs[7]/countAug
-         this.monthlyAvgs[6] = this.monthlyAvgs[6]/countJul
-         this.monthlyAvgs[5] = this.monthlyAvgs[5]/countJun
-         this.monthlyAvgs[4] = this.monthlyAvgs[4]/countMay
-         this.monthlyAvgs[3] = this.monthlyAvgs[3]/countApr
-         this.monthlyAvgs[2] = this.monthlyAvgs[2]/countMar
-         this.monthlyAvgs[1] = this.monthlyAvgs[1]/countFeb
-         this.monthlyAvgs[0] = this.monthlyAvgs[0]/countJan
-
+         this.monthlyAvgs[11] = this.monthlyAvgs[11]/(countDec*10)
+         this.monthlyAvgs[10] = this.monthlyAvgs[10]/(countNov*10)
+         this.monthlyAvgs[9] = this.monthlyAvgs[9]/(countOct*10)
+         this.monthlyAvgs[8] = this.monthlyAvgs[8]/(countSep*10)
+         this.monthlyAvgs[7] = this.monthlyAvgs[7]/(countAug*10)
+         this.monthlyAvgs[6] = this.monthlyAvgs[6]/(countJul*10)
+         this.monthlyAvgs[5] = this.monthlyAvgs[5]/(countJun*10)
+         this.monthlyAvgs[4] = this.monthlyAvgs[4]/(countMay*10)
+         this.monthlyAvgs[3] = this.monthlyAvgs[3]/(countApr*10)
+         this.monthlyAvgs[2] = this.monthlyAvgs[2]/(countMar*10)
+         this.monthlyAvgs[1] = this.monthlyAvgs[1]/(countFeb*10)
+         this.monthlyAvgs[0] = this.monthlyAvgs[0]/(countJan*10)
          console.log(this.monthlyAvgs[11], "dec avg")
          console.log(this.monthlyAvgs[10], "nov avg")
          this.rateChartFlag = true
@@ -335,7 +336,7 @@ export class NailtechdashboardPage {
     })
   }
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad NailtechdashboardPage')
+    console.log('ionViewDidLoad NailtechdashboardPage')
   }
   goToProfile() {
     this.navCtrl.push(ProfilePage, {
