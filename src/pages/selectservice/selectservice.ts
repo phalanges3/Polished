@@ -13,9 +13,10 @@ import {Geolocation} from 'ionic-native';
 })
 export class SelectservicePage {
 
-  addressFlag:any = false
+  addressFlag: any = false
   addressFlagCount= 0
-  geolocationFlag:any = false
+  geolocationFlag: any = false
+  noAddress: any = false
   geolocationCount= 0
   data: any
 
@@ -70,6 +71,7 @@ export class SelectservicePage {
   }
 
   enterAddress(){
+    this.geolocationFlag = false;
     this.addressFlagCount++
     if(this.addressFlagCount>0 && this.addressFlagCount%2!==0){
       this.addressFlag = true
@@ -79,6 +81,7 @@ export class SelectservicePage {
     
   }
   geoLocate(){
+    this.noAddress = false;
     Geolocation.getCurrentPosition().then(pos => {
       console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude)
     })
@@ -141,48 +144,65 @@ export class SelectservicePage {
       params = ({"zipCode": this.geoResult.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
       this.http.post('http://localhost:3000/api/appointment/findartists', params)
       .subscribe(artist => {
-        console.log("in Selectservice POST", artist)
-        this.bookInfo.value.price = cost[this.bookInfo.value.service]
-        this.result.response =  artist.json()
-        this.result.bookInfo = this.bookInfo.value
-        this.result.bookInfo.houseNumber = this.geoResult.houseNumber
-        this.result.bookInfo.street = this.geoResult.street
-        this.result.bookInfo.city = this.geoResult.city
-        this.result.bookInfo.zipCode = this.geoResult.zipCode
-        this.result.bookInfo.lat = this.lati
-        this.result.bookInfo.lon = this.long
-        console.log("this is the result from http call to select service ", this.result) 
-        this.navCtrl.push(BestmatchPage, {
-          data: this.result
-        })
+        if (!artist.json().length) {
+            console.log('sorry error in page', artist.json())
+            console.log('No nail artist around here, try a different area!')
+          }
+          else {
+            console.log("in Selectservice POST", artist)
+            this.bookInfo.value.price = cost[this.bookInfo.value.service]
+            this.result.response =  artist.json()
+            this.result.bookInfo = this.bookInfo.value
+            this.result.bookInfo.houseNumber = this.geoResult.houseNumber
+            this.result.bookInfo.street = this.geoResult.street
+            this.result.bookInfo.city = this.geoResult.city
+            this.result.bookInfo.zipCode = this.geoResult.zipCode
+            this.result.bookInfo.lat = this.lati
+            this.result.bookInfo.lon = this.long
+            console.log("this is the result from http call to select service ", this.result) 
+            this.navCtrl.push(BestmatchPage, {
+              data: this.result
+            })
+          }
       })
     } else {
       this.getAddressLatLong(this.bookInfo)
         .subscribe( result => {
-        // console.log('SUBSCRIBE RESULT !!!!! ', result.json())
+        console.log('SUBSCRIBE RESULT !!!!! ', result.json())
         // console.log(result.json().results)
-        // console.log(result.json().results[0])
-        let addressLatLong = result.json().results[0].geometry.location;
-        
-        params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
-        this.http.post('http://localhost:3000/api/appointment/findartists', params)
-        .subscribe(artist => {
-          console.log("in Selectservice POST", artist)
-          this.bookInfo.value.price = cost[this.bookInfo.value.service]
-          this.result.response =  artist.json()
-          this.result.bookInfo = this.bookInfo.value
-          this.result.bookInfo.lat = addressLatLong.lat
-          this.result.bookInfo.lon = addressLatLong.lng
-          console.log("this is the result from http call to select service ", this.result) 
-          this.navCtrl.push(BestmatchPage, {
-            data: this.result
-          })
+        console.log('error here!!!! ', result.json().results.length)
+        if (!result.json().results.length) {
+          this.noAddress = true 
+          console.log('Address not found, please enter a new address.')
+        }
+        else {
+          let addressLatLong = result.json().results[0].geometry.location;
+          params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
+          this.http.post('http://localhost:3000/api/appointment/findartists', params)
+            .subscribe(artist => {
+              if (!artist.json().length) {
+                console.log('sorry error in page', artist.json())
+                console.log('No nail artist around here, try a different area!')
+              }
+              else {
+                console.log("in Selectservice POST", artist.json())
+                this.bookInfo.value.price = cost[this.bookInfo.value.service]
+                this.result.response =  artist.json()
+                this.result.bookInfo = this.bookInfo.value
+                this.result.bookInfo.lat = addressLatLong.lat
+                this.result.bookInfo.lon = addressLatLong.lng
+                console.log("this is the result from http call to select service ", this.result) 
+                this.navCtrl.push(BestmatchPage, {
+                  data: this.result
+                })
+              }
+            })
+          }
         })
-      })
-
-    }
-   
+      }
   }
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectservicePage');
   }
