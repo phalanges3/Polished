@@ -334,7 +334,7 @@ export class NailtechdashboardPage {
     })
   }
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad NailtechdashboardPage')
+    console.log('ionViewDidLoad NailtechdashboardPage')
   }
   goToProfile() {
     this.navCtrl.push(ProfilePage, {

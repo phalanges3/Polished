@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { LocalNotifications } from 'ionic-native';
+
 
 /*
   Generated class for the Bookartist provider.
@@ -38,6 +40,15 @@ export class Bookartist {
           "services_selected": bookInfo.service
     }
     //console.log('heres app data ', appointmentData)
+    
+    //schedule push notification
+     LocalNotifications.schedule([{
+         id: 1,
+         text: 'Reminder Manicure @ 3:00 P.M.',
+         sound: null
+        }])
+
+
 
     let body = JSON.stringify(appointmentData);
 
