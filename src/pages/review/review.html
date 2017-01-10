@@ -65,8 +65,14 @@
 
 
       <ion-item>
-        <img [src]="imageUrl" *ngIf="imageUrl">
+        <!--<img [src]="imageUrl" *ngIf="imageUrl">-->
+      <button id="startbutton" (click)="takepicture()">Take photo</button>
+      <button>Clear Photo</button>
+      <video *ngIf="vidFlag" #video width="320" height="240" autoplay></video>
+      <img [src]="imageUrl" *ngIf="imageUrl">
+        <canvas id="canvas" *ngIf="vidFlag"></canvas>
       </ion-item>
+
   </ion-card>
 
   <ion-card id="card">
