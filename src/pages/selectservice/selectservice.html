@@ -13,6 +13,7 @@
    <h4>Manicure, Pedicure, or Both?</h4>
    <ion-row>
      <ion-item>
+       <ion-label floating></ion-label>
      	  <ion-select placeholder="Select Services" formControlName="service">
      	  	<ion-option value="Manicure">Manicure $18</ion-option>
      	  	<ion-option value="Pedicure">Pedicure $25</ion-option>
@@ -20,6 +21,7 @@
      	  </ion-select>
      </ion-item>
      <ion-item class="service-check">
+       <ion-label floating></ion-label>
         <ion-select placeholder="Add Ons" formControlName="addOns" multiple="true">
           <ion-option name="addon" value="scrub"> Sea Salt Scrub $5</ion-option>
           <ion-option name="addon" value="nailart"> Nail Art $5</ion-option>
@@ -47,16 +49,19 @@
    <ion-row  *ngIf="addressFlag === true">
      <ion-col>
        <ion-item>
-        <ion-input placeholder="House #" formControlName="houseNumber"></ion-input>
+         <ion-label floating></ion-label>
+        <ion-input placeholder="###" formControlName="houseNumber"></ion-input>
        </ion-item>
      </ion-col>
      <ion-col>
        <ion-item>
-         <ion-input placeholder="Unit #" formControlName="unitNumber"></ion-input>
+         <ion-label floating></ion-label>
+         <ion-input placeholder="Unit" formControlName="unitNumber"></ion-input>
        </ion-item>
      </ion-col>
      <ion-col>
        <ion-item>
+         <ion-label floating></ion-label>
          <ion-input  placeholder="Street"  formControlName="street"></ion-input>
        </ion-item>
      </ion-col>
@@ -75,11 +80,11 @@
   <h4>When would you like your nails done?</h4>
   <ion-row>
      <ion-item>
-        <ion-label> <ion-icon name="calendar"></ion-icon> Date</ion-label>
+        <ion-label> <ion-icon name="calendar"></ion-icon>  Date</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
      </ion-item>
      <ion-item>
-        <ion-label>  <ion-icon name="time"></ion-icon>  Time</ion-label>
+        <ion-label><ion-icon name="time"></ion-icon>  Time</ion-label>
         <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="time"></ion-datetime>
      </ion-item>
    </ion-row>
