@@ -100,6 +100,9 @@ export class SelectservicePage {
         console.log("in post ", address.json())
         let addressRes = address.json()
         console.log("address", addressRes.results)
+        if(addressRes.results[0].address_components[0]===undefined){
+          console.log("geolocation unavailable")
+        }
         this.geoResult.houseNumber = addressRes.results[0].address_components[0].long_name
         this.geoResult.street =  addressRes.results[0].address_components[1].short_name
         this.geoResult.city =  addressRes.results[0].address_components[3].long_name
@@ -142,7 +145,7 @@ export class SelectservicePage {
     let params
     if(this.geolocationCount>0){
       params = ({"zipCode": this.geoResult.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
-      this.http.post('http://192.168.1.53:3000/api/appointment/findartists', params)
+      this.http.post('http://localhost:3000/api/appointment/findartists', params)
       .subscribe(artist => {
         if (!artist.json().length) {
             console.log('sorry error in page', artist.json())
@@ -178,7 +181,7 @@ export class SelectservicePage {
         else {
           let addressLatLong = result.json().results[0].geometry.location;
           params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
-          this.http.post('http://192.168.1.53:3000/api/appointment/findartists', params)
+          this.http.post('http://localhost:3000/api/appointment/findartists', params)
             .subscribe(artist => {
               if (!artist.json().length) {
                 console.log('sorry error in page', artist.json())

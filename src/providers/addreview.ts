@@ -17,7 +17,7 @@ export class Addreview {
 
     updateGenReview(review) {
     let user = {userId: review.userId}
-    return this.http.post('http://192.168.1.53:3000/api/review/getreviews', user)
+    return this.http.post('http://localhost:3000/api/review/getreviews', user)
       .map((data: Response) => data.json())
       .subscribe(
         (data: any) => {
@@ -32,7 +32,7 @@ export class Addreview {
           console.log(data.length)
           let genRating = ((ratingSum.rating + (review.rating * 100)) / (data.length + 1) * 100)
           console.log(genRating)
-          return this.http.put('http://192.168.1.53:3000/api/user/update', {userName: review.nail_artist_username, general_rating: genRating})
+          return this.http.put('http://localhost:3000/api/user/update', {userName: review.nail_artist_username, general_rating: genRating})
             .map((data: Response) => data.json())
             .subscribe(
               (data: any) => {
@@ -71,7 +71,7 @@ export class Addreview {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json')
 
-    return this.http.post('http://192.168.1.53:3000/api/review/addreview', body, {
+    return this.http.post('http://localhost:3000/api/review/addreview', body, {
       headers: headers
     })
       .map((data: Response) => data.json())
