@@ -5,17 +5,18 @@ import { LoginPage } from '../pages/login/login'
 import { TabsPage } from '../pages/tabs/tabs'
 import { LoadingController, MenuController } from 'ionic-angular'
 
-
-
-
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = TabsPage
+  rootPage: any = LoginPage
   loader: any
 
-  constructor(public platform: Platform, public loadingCtrl: LoadingController, public menuCtrl: MenuController) {
+  constructor(
+    public platform: Platform, 
+    public loadingCtrl: LoadingController, 
+    public menuCtrl: MenuController
+    ) {
     // this.presentLoading()
     // this.auth
     //   .login()

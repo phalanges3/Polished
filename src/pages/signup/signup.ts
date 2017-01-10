@@ -51,7 +51,8 @@ signupForm: FormGroup
         .post('http://localhost:3000/api/user/signup', this.signupForm.value)
         .map((res) => {
           let response = res.json()
-          console.log('response', typeof response.nailCertification)
+          console.log('response', response)
+
           if (response.nailCertification == this.signupForm.value.nailCertification) {
              let alertTrue = this.alertCtrl.create({
             title: 'Thank you for verifying your license',
