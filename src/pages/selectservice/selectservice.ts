@@ -97,6 +97,9 @@ export class SelectservicePage {
         console.log("in post ", address.json())
         let addressRes = address.json()
         console.log("address", addressRes.results)
+        if(addressRes.results[0].address_components[0]===undefined){
+          console.log("geolocation unavailable")
+        }
         this.geoResult.houseNumber = addressRes.results[0].address_components[0].long_name
         this.geoResult.street =  addressRes.results[0].address_components[1].short_name
         this.geoResult.city =  addressRes.results[0].address_components[3].long_name
@@ -155,7 +158,7 @@ export class SelectservicePage {
         this.navCtrl.push(BestmatchPage, {
           data: this.result
         })
-      })
+      }) 
     } else {
       this.getAddressLatLong(this.bookInfo)
         .subscribe( result => {
