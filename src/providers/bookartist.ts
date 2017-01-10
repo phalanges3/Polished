@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { LocalNotifications } from 'ionic-native';
+import * as moment from 'moment/moment';
+
 
 /*
   Generated class for the Bookartist provider.
@@ -38,6 +41,23 @@ export class Bookartist {
           "services_selected": bookInfo.service
     }
     //console.log('heres app data ', appointmentData)
+    let convert =function (input) {
+      return moment(input, 'HH:mm:ss').format('h:mm A');
+    }
+    let convertDate = function (input)  {
+      return moment(input.slice(0,10), 'YYYY-MM-DD').toString()
+    }
+    let apptTime = convert(bookInfo.time)
+    let apptDate = convertDate(bookInfo.date)
+    console.log("appt time date", apptTime, apptDate)
+    //schedule push notification
+     LocalNotifications.schedule([{
+         id: 1,
+         text: 'Reminder ' +  bookInfo.service + ' on ' + apptDate.slice(3,15) + ' @  ' + apptTime,
+         sound: null
+        }])
+
+
 
     let body = JSON.stringify(appointmentData);
 
