@@ -32,7 +32,7 @@ signupForm: FormGroup
       this.submitAttempt = true
       console.log("success!", this.signupForm.value)
       this.http
-        .post('http://localhost:3000/api/user/signup', this.signupForm.value)
+        .post('http://192.168.1.53:3000/api/user/signup', this.signupForm.value)
         .map((res) => {
           let response = res.json()
           console.log('response', response)

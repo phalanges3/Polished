@@ -139,7 +139,7 @@ export class SelectservicePage {
     let params
     if(this.geolocationCount>0){
       params = ({"zipCode": this.geoResult.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
-      this.http.post('http://localhost:3000/api/appointment/findartists', params)
+      this.http.post('http://192.168.1.53:3000/api/appointment/findartists', params)
       .subscribe(artist => {
         console.log("in Selectservice POST", artist)
         this.bookInfo.value.price = cost[this.bookInfo.value.service]
@@ -165,7 +165,7 @@ export class SelectservicePage {
         let addressLatLong = result.json().results[0].geometry.location;
         
         params = ({"zipCode": this.bookInfo.value.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
-        this.http.post('http://localhost:3000/api/appointment/findartists', params)
+        this.http.post('http://192.168.1.53:3000/api/appointment/findartists', params)
         .subscribe(artist => {
           console.log("in Selectservice POST", artist)
           this.bookInfo.value.price = cost[this.bookInfo.value.service]
