@@ -59,12 +59,22 @@
               <ion-label floating>Confirm Password</ion-label>
               <ion-input type="password"></ion-input>
             </ion-item>-->
-            <ion-item>
+            <!--<ion-item>
                 <ion-label floating>Sign up as a Nail Artist?</ion-label>
                 <ion-select [class.invalid]="!signupForm.controls.isVendor.valid && (signupForm.controls.isVendor.dirty || submitAttempt)" formControlName="isVendor">
                     <ion-option value="0" checked="true">No, thanks</ion-option>
                     <ion-option value="1">Yes!</ion-option>
                 </ion-select>
+            </ion-item>-->
+            <ion-item>
+                <ion-label>Sign up as a Nail Artist?</ion-label>
+                <ion-toggle formControlName="isVendor" color="energized" checked="true"></ion-toggle>
+                <!--<ion-option value="1" checked="true"></ion-option>
+                <ion-option value="0" checked="false"></ion-option>-->
+            </ion-item>
+            <ion-item>
+              <ion-label floating>License Number</ion-label>
+              <ion-input formControlName="nailCertification" type="text"></ion-input>
             </ion-item>
  
             

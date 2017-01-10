@@ -46,17 +46,17 @@
    <ion-row  *ngIf="addressFlag === true">
      <ion-col>
        <ion-item>
-        <ion-input placeholder="House Number" formControlName="houseNumber"></ion-input>
+        <ion-input placeholder="House #" formControlName="houseNumber"></ion-input>
        </ion-item>
      </ion-col>
      <ion-col>
        <ion-item>
-         <ion-input placeholder="Unit Number" formControlName="unitNumber"></ion-input>
+         <ion-input placeholder="Unit #" formControlName="unitNumber"></ion-input>
        </ion-item>
      </ion-col>
      <ion-col>
        <ion-item>
-         <ion-input  placeholder="Street Name"  formControlName="street"></ion-input>
+         <ion-input  placeholder="Street"  formControlName="street"></ion-input>
        </ion-item>
      </ion-col>
   </ion-row>
@@ -68,13 +68,13 @@
       <ion-input placeholder= "State" formControlName="state"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder= "Zip Code" formControlName="zipCode"></ion-input>
+      <ion-input placeholder= "Zip" formControlName="zipCode"></ion-input>
     </ion-item>
   </ion-row>
   <h4>When would you like your nails done?</h4>
   <ion-row>
      <ion-item>
-        <ion-label> <ion-icon name="calendar"></ion-icon>  Date</ion-label>
+        <ion-label> <ion-icon name="calendar"></ion-icon> Date</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
      </ion-item>
      <ion-item>

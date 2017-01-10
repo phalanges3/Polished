@@ -16,7 +16,6 @@ import { AvailabilityPage} from '../pages/availability/availability'
 import { ProfilePage} from '../pages/profile/profile'
 import { Ionic2RatingModule } from 'ionic2-rating'
 import { Bookartist } from '../providers/bookartist'
-import { Auth } from '../providers/auth.ts'
 import { ModalContentPage  } from '../profile/modal'
 import { PaymentPage  } from '../pages/payment/payment'
 import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
@@ -73,6 +72,6 @@ import { DirectionsPage } from  '../pages/directions/directions'
     ReviewPage,
     DirectionsPage
   ],
-providers: [Bookartist, ProfilePicsRevs, Apptcal, Addreview, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+providers: [Bookartist, ProfilePicsRevs, Apptcal, Addreview, {provide: ErrorHandler, useClass: IonicErrorHandler} ]
 })
 export class AppModule {}

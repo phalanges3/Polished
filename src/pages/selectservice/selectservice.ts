@@ -121,7 +121,13 @@ export class SelectservicePage {
     let cost  = {
       Manicure: "$18",
       Pedicure: "$25",
-      "Mani-Pedi": "$35"
+      "Mani-Pedi": "$35",
+      "scrub": "$5",
+      "nailart": "$5",
+      "reflexology": "$10",
+      "gel": "$5",
+      "acrylic": "$10",
+      "parrafin": "$10"
     }
     let today = new Date(this.bookInfo.value.date)
     let weekday = new Array(7)
