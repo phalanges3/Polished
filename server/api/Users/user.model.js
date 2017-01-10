@@ -1,5 +1,5 @@
 const User = require('./user.schema')
-const Schedule =  require('../schedule/schedule.schema')
+const Schedule = require('../schedule/schedule.schema')
 const express = require('express')
 const router = express.Router()
 let request = require('request')
@@ -44,7 +44,7 @@ module.exports = {
       let nailLicense = Number(req.body.nailCertification)
       console.log(Number(dataViewLast) === nailLicense)
     })
-    
+
     User
         .create({
           firstName: req.body.firstName,
@@ -56,7 +56,6 @@ module.exports = {
           nailCertification: req.body.nailCertification
         })
         .then((user) => {
-          res.send(user)
           if (user.isVendor === 1) {
             console.log('inside is vendor create schedule')
             Schedule.create({
@@ -115,7 +114,8 @@ module.exports = {
                           end: '17:00:00'
                         })
                         .then(schedule => {
-                          res.send(schedule)
+                          console.log('user after: ', user)
+                          res.send(user)
                         })
                       })
                     })
@@ -124,13 +124,11 @@ module.exports = {
               })
             })
           })
-
           } else {
             res.send(user)
           }
 
           console.log('USER: ', user)
-
         })
   },
   login: (req, res) => {
@@ -182,6 +180,4 @@ module.exports = {
       })
   }
 }
-
-
 

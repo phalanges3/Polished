@@ -38,11 +38,4 @@ export class MyApp {
     // });
    
   }
-//   presentLoading() {
-//     this.loader = this.loadingCtrl.create({
-//       content: "Logging into your account..."
-      
-//     });
-//     this.loader.present();
-//   }
 }
