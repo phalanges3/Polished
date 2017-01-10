@@ -15,11 +15,11 @@ module.exports = {
       res.send(schedule)
     })
   },
-  updateHours: (req, res) =>{
-    console.log("in update schedule",  req)
+  updateHours: (req, res) => {
+    console.log('in update schedule', req)
     Schedule.find({where: {userId: req.body.userId, day: req.body.day}})
-    .then((hours) =>  {
-      if(hours) {
+    .then((hours) => {
+      if (hours) {
         hours.updateAttributes({
           start: req.body.start,
           end: req.body.end

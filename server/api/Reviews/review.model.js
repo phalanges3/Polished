@@ -81,42 +81,41 @@ module.exports = {
   },
 
   seedReviews: (req, res) => {
-
-    //Seeding Reviews for nail artist: Josh Pace
+    // Seeding Reviews for nail artist: Josh Pace
 
     Review
         .create({
           userId: 1,
-          reviewed_first: "Josh",
-          reviewed_last: "Pace",
-          reviewer_first: "Jose",
-          reviewer_last: "Cuchilla",
+          reviewed_first: 'Josh',
+          reviewed_last: 'Pace',
+          reviewer_first: 'Jose',
+          reviewer_last: 'Cuchilla',
           reviewer_id: 4,
-          reviewer_profile_pic: "https://s-media-cache-ak0.pinimg.com/736x/33/ff/eb/33ffebd9cd1ba691f6ae772e639a2479.jpg", 
+          reviewer_profile_pic: 'https://s-media-cache-ak0.pinimg.com/736x/33/ff/eb/33ffebd9cd1ba691f6ae772e639a2479.jpg',
           rating: 490,
-          review_content: "Josh is awesome at his job. He is punctual and really friendly! Would repeat!",
-          review_date: "Fri Jul 06 2016",
-          image1: "https://s-media-cache-ak0.pinimg.com/736x/33/ff/eb/33ffebd9cd1ba691f6ae772e639a2479.jpg",
+          review_content: 'Josh is awesome at his job. He is punctual and really friendly! Would repeat!',
+          review_date: 'Fri Jul 06 2016',
+          image1: 'https://s-media-cache-ak0.pinimg.com/736x/33/ff/eb/33ffebd9cd1ba691f6ae772e639a2479.jpg',
           image2: null,
           image3: null
         })
         .then((review) => {
           console.log('User created: ', review)
         })
-    
+
     Review
         .create({
           userId: 1,
-          reviewed_first: "Josh",
-          reviewed_last: "Pace",
-          reviewer_first: "Jackie",
-          reviewer_last: "Feiler",
+          reviewed_first: 'Josh',
+          reviewed_last: 'Pace',
+          reviewer_first: 'Jackie',
+          reviewer_last: 'Feiler',
           reviewer_id: 9,
-          reviewer_profile_pic: "https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg",
+          reviewer_profile_pic: 'https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg',
           rating: 400,
-          review_content: "He was very friendly and did a great job. He is also super punctual! Would repeat!",
-          review_date: "Fri Aug 06 2016",
-          image1: "http://bestartnails.com/wp-content/uploads/2016/03/nail-art-1382-250x250.jpg",
+          review_content: 'He was very friendly and did a great job. He is also super punctual! Would repeat!',
+          review_date: 'Fri Aug 06 2016',
+          image1: 'http://bestartnails.com/wp-content/uploads/2016/03/nail-art-1382-250x250.jpg',
           image2: null,
           image3: null
         })
@@ -127,16 +126,16 @@ module.exports = {
     Review
         .create({
           userId: 1,
-          reviewed_first: "Josh",
-          reviewed_last: "Pace",
-          reviewer_first: "Riley",
-          reviewer_last: "James",
+          reviewed_first: 'Josh',
+          reviewed_last: 'Pace',
+          reviewer_first: 'Riley',
+          reviewer_last: 'James',
           reviewer_id: 16,
-          reviewer_profile_pic: "http://www.watch-id.com/sites/default/files/upload/sighting/Breitling-watch-Jerry-Seinfeld-2.jpg",
+          reviewer_profile_pic: 'http://www.watch-id.com/sites/default/files/upload/sighting/Breitling-watch-Jerry-Seinfeld-2.jpg',
           rating: 480,
-          review_content: "Wow, Josh is really really awesome at his job. He is punctual and really friendly! Would repeat!",
-          review_date: "Fri Sept 06 2016",
-          image1: "http://nailartstyle.com/wp-content/uploads/2016/06/25-acrylic-matte-nails-600x525.jpg?x97692",
+          review_content: 'Wow, Josh is really really awesome at his job. He is punctual and really friendly! Would repeat!',
+          review_date: 'Fri Sept 06 2016',
+          image1: 'http://nailartstyle.com/wp-content/uploads/2016/06/25-acrylic-matte-nails-600x525.jpg?x97692',
           image2: null,
           image3: null
         })
@@ -147,25 +146,23 @@ module.exports = {
     Review
         .create({
           userId: 1,
-          reviewed_first: "Josh",
-          reviewed_last: "Pace",
-          reviewer_first: "Jacqueline",
-          reviewer_last: "Feiler",
+          reviewed_first: 'Josh',
+          reviewed_last: 'Pace',
+          reviewer_first: 'Jacqueline',
+          reviewer_last: 'Feiler',
           reviewer_id: 15,
-          reviewer_profile_pic: "https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg",
+          reviewer_profile_pic: 'https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg',
           rating: 300,
-          review_content: "Really really enjoyed my nails. Josh is awesome at his job. He is punctual and really friendly! Would repeat!",
-          review_date: "Fri Oct 06 2016",
-          image1: "https://s-media-cache-ak0.pinimg.com/originals/a1/a0/00/a1a000609baa9ac891e3bbc93c6d200e.jpg",
+          review_content: 'Really really enjoyed my nails. Josh is awesome at his job. He is punctual and really friendly! Would repeat!',
+          review_date: 'Fri Oct 06 2016',
+          image1: 'https://s-media-cache-ak0.pinimg.com/originals/a1/a0/00/a1a000609baa9ac891e3bbc93c6d200e.jpg',
           image2: null,
           image3: null
         })
         .then((review) => {
           console.log('User created: ', review)
         })
-      
   }
-
 
 }
 

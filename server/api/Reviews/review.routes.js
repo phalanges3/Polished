@@ -20,5 +20,4 @@ router.post('/seedReviews', (req, res) => {
   reviewModel.seedReviews(req, res)
 })
 
-
 module.exports = router

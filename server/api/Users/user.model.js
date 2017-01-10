@@ -59,11 +59,11 @@ module.exports = {
           if (user.isVendor === 1) {
             console.log('inside is vendor create schedule')
             Schedule.create({
-                userId: user.id,
-                day: 'Sunday',
-                start: '09:00:00',
-                end: '17:00:00'
-              })
+              userId: user.id,
+              day: 'Sunday',
+              start: '09:00:00',
+              end: '17:00:00'
+            })
           .then(schedule => {
             Schedule.create({
               userId: user.id,
