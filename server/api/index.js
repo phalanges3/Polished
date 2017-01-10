@@ -9,8 +9,6 @@ const image = require('./Image/index')
 const schedule = require('./Schedule/index')
 const mainRoutesΩ = require('./routes.main')
 const payment = require('../config/braintree.js')
-//const scrape = require('../config/scrape.js')
-
 const UsersServices = db.define('UsersServices', {
 
 })

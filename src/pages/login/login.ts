@@ -50,17 +50,17 @@ submitAttempt: boolean = false;
           alert.present();
           }
           else  {
-            localStorage.setItem('UserLoggedIn', 'true')
-            localStorage.setItem('userName', response.userName)
-            localStorage.setItem('isVendor', response.isVendor)
-            localStorage.setItem('profile_image_url', response.profile_image_url)
-            localStorage.setItem('firstName', response.firstName)
-            localStorage.setItem('lastName', response.lastName)
-            localStorage.setItem('email', response.email)
-            localStorage.setItem('general_rating', response.general_rating)
-            localStorage.setItem('zipCode', response.zipCode)
-            localStorage.setItem('userId', response.id)
-             console.log("is response", response)
+            // localStorage.setItem('UserLoggedIn', 'true')
+            // localStorage.setItem('userName', response.userName)
+            // localStorage.setItem('isVendor', response.isVendor)
+            // localStorage.setItem('profile_image_url', response.profile_image_url)
+            // localStorage.setItem('firstName', response.firstName)
+            // localStorage.setItem('lastName', response.lastName)
+            // localStorage.setItem('email', response.email)
+            // localStorage.setItem('general_rating', response.general_rating)
+            // localStorage.setItem('zipCode', response.zipCode)
+            // localStorage.setItem('userId', response.id)
+            //  console.log("is response", response)
             this.navCtrl.push(NailtechdashboardPage, {
                 data: response
             })
@@ -88,7 +88,6 @@ submitAttempt: boolean = false;
     }, 1300)
 
   }
-
 
 ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');

@@ -23,19 +23,13 @@ module.exports = {
     .then((artists) => {
       var filtered = []
       // console.log(new Date())
-<<<<<<< HEAD
-      var results =  JSON.parse(JSON.stringify(artists))
-      for(var i = 0; i < results.length; i++){
-        results[i].flag  = true
-        results[i].general_rating = (results[i].general_rating / 100) 
-        console.log('general rating / 100 ', results[i].general_rating)
-        if(results[i].appointments.length===0){
-=======
       var results = JSON.parse(JSON.stringify(artists))
       for (var i = 0; i < results.length; i++) {
         results[i].flag = true
+        results[i].general_rating = (results[i].general_rating / 100)
+        console.log('general rating / 100 ', results[i].general_rating)
         if (results[i].appointments.length === 0) {
->>>>>>> [progress] working on styling
+
           filtered.push(results[i])
         } else {
           for (var j = 0; j < results[i].appointments.length; j++) {

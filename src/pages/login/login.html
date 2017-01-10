@@ -1,13 +1,13 @@
 <ion-header>
-    <ion-navbar color="primary">
+    <ion-navbar>
       <ion-title>
-       Login
+       
       </ion-title>
      
     </ion-navbar>
 </ion-header>
  
-<ion-content>
+<ion-content class="page">
 
     <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
  
@@ -36,13 +36,13 @@
         </form>
  
     </ion-list>
- <button ion-button outline color="primary" (click)="addLogin()">Login!</button>
+ <button ion-button outline color="primary" (click)="addLogin()">Login!</button><br><br>
 
 First time here?
+
  <button ion-button full (click)="goToSignUp()">Register</button>
 
  <br><br> <br><br><br><br> <br><br><br><br> <br><br>
   <button ion-button outline color="primary" (click)="logout()">Logout!</button>
 
- 
 </ion-content>

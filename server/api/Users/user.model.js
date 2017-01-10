@@ -11,11 +11,10 @@ request = request.defaults({
   followAllRedirects: true
 })
 
-
 module.exports = {
 
   signup: (req, res) => {
-    let cookie = 'JSESSIONID=437CBEA2BE2F88A33ACC39FCF7AA2AEF.vo7; TS01d54a5e=0175b9cb54d434a0c4458b7351e48398ea8328af9f555c6a8e2561a7caafa9c303114ffac2f2bfae04edb12981a604b0c6cb5ffdd30a9a7e6734c7351e5a2c3935cc3386fc; BIGipServerpool_env98_vo_app=656414730.36895.0000; TS01561989_77=088bb9a2b4ab2800278b35d52b37a5dcc971045cc920df998a28a308439e308d18e8439dfc14febe34c0e6c1423b543b0892b9bf62823800a67dd983915d332d8da8ef4166bfdb8ea1f50f53880581998b29a3843a95823eb50e7bddc6cc210b059a95e3ad5a7b85807e09480abfe68f; TS01561989=0175b9cb546ea6014d4794c80884bd729d425b7fee9ab809247fb760ec8af9f2730169ba557875f22beb2334655d644cac4553d079'
+    let cookie = 'JSESSIONID=A84B0F3BC619487975636236BB654B3B.vo7; TS01d54a5e=0175b9cb54bfb8d3e11c71c3956e301747d81887ebbddc9e3bb9ddfb6a74afebb53954b8b578aa6edb46c9fd9d588ac19e976ebac0b51dd3f6b122783114a8845cd7b864b8; BIGipServerpool_env98_vo_app=656414730.36895.0000; TS01561989_77=088bb9a2b4ab2800f87bd3cf5946e787375868d84e5fd35966e1c6d143269b652c163a4ba81e9b8ba6490d5f8c7346d4086d153d9e823800604e57e61c1ff48108084adceb4683c1bd02eee9946d88a1c137ab2ef25ec6a9bc16c83eea23cc74e3bca58fa5f34b1fec278d998e9c80ab; TS01561989=0175b9cb54af4e3a2a2bcbc0816841b83501ded6babddc9e3bb9ddfb6a74afebb53954b8b52a9c63d9d1098991f4491c20bbc5c9fc'
     let url = 'https://www.breeze.ca.gov/datamart/searchByLicNumber.do'
     let options = {
       url: url,
@@ -57,62 +56,62 @@ module.exports = {
           nailCertification: req.body.nailCertification
         })
         .then((user) => {
-          if(user.isVendor===1){
-              console.log("inside is vendor create schedule")
-              Schedule.create({
+          if (user.isVendor === 1) {
+            console.log('inside is vendor create schedule')
+            Schedule.create({
               userId: user.id,
-              day: "Sunday",
-              start: "09:00:00",
-              end: "17:00:00"
-          })
+              day: 'Sunday',
+              start: '09:00:00',
+              end: '17:00:00'
+            })
           .then(schedule => {
             Schedule.create({
-            userId: user.id,
-            day: "Monday",
-            start: "09:00:00",
-            end: "17:00:00"
+              userId: user.id,
+              day: 'Monday',
+              start: '09:00:00',
+              end: '17:00:00'
             })
             .then(schedule => {
               Schedule.create({
                 userId: user.id,
-                day: "Sunday",
-                start: "09:00:00",
-                end: "17:00:00"
+                day: 'Sunday',
+                start: '09:00:00',
+                end: '17:00:00'
               })
               .then(schedule => {
                 Schedule.create({
                   userId: user.id,
-                  day: "Tuesday",
-                  start: "09:00:00",
-                  end: "17:00:00"
+                  day: 'Tuesday',
+                  start: '09:00:00',
+                  end: '17:00:00'
                 })
                 .then(schedule => {
                   Schedule.create({
                     userId: user.id,
-                    day: "Wednesday",
-                    start: "09:00:00",
-                    end: "17:00:00"
+                    day: 'Wednesday',
+                    start: '09:00:00',
+                    end: '17:00:00'
                   })
                   .then(schedule => {
                     Schedule.create({
                       userId: user.id,
-                      day: "Thursday",
-                      start: "09:00:00",
-                      end: "17:00:00"
+                      day: 'Thursday',
+                      start: '09:00:00',
+                      end: '17:00:00'
                     })
                     .then(schedule => {
                       Schedule.create({
                         userId: user.id,
-                        day: "Friday",
-                        start: "09:00:00",
-                        end: "17:00:00"
+                        day: 'Friday',
+                        start: '09:00:00',
+                        end: '17:00:00'
                       })
                       .then(schedule => {
                         Schedule.create({
                           userId: user.id,
-                          day: "Saturday",
-                          start: "09:00:00",
-                          end: "17:00:00"
+                          day: 'Saturday',
+                          start: '09:00:00',
+                          end: '17:00:00'
                         })
                         .then(schedule => {
                           res.send(schedule)
@@ -124,10 +123,12 @@ module.exports = {
               })
             })
           })
-        }  else {
-          res.send(user)
 
-        console.log('USER: ', user)
+          } else {
+            res.send(user)
+          }
+
+          console.log('USER: ', user)
 
         })
   },

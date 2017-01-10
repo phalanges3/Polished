@@ -12,7 +12,7 @@
 
 <form id="checkout" method="post" action="http://localhost:3000/api/payment/checkouts">
   <div id="payment-form"></div>
-  <button ion-button outline color="primary" type="submit" (click)="openAlert()">{{this.price}}</button>
+  <button ion-button outline color="primary" type="submit" (click)="openAlert()">${{this.price}}</button>
  
 </form>
 </ion-content>
