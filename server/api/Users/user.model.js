@@ -14,7 +14,7 @@ request = request.defaults({
 module.exports = {
 
   signup: (req, res) => {
-    let cookie = 'JSESSIONID=A84B0F3BC619487975636236BB654B3B.vo7; TS01d54a5e=0175b9cb54bfb8d3e11c71c3956e301747d81887ebbddc9e3bb9ddfb6a74afebb53954b8b578aa6edb46c9fd9d588ac19e976ebac0b51dd3f6b122783114a8845cd7b864b8; BIGipServerpool_env98_vo_app=656414730.36895.0000; TS01561989_77=088bb9a2b4ab2800f87bd3cf5946e787375868d84e5fd35966e1c6d143269b652c163a4ba81e9b8ba6490d5f8c7346d4086d153d9e823800604e57e61c1ff48108084adceb4683c1bd02eee9946d88a1c137ab2ef25ec6a9bc16c83eea23cc74e3bca58fa5f34b1fec278d998e9c80ab; TS01561989=0175b9cb54af4e3a2a2bcbc0816841b83501ded6babddc9e3bb9ddfb6a74afebb53954b8b52a9c63d9d1098991f4491c20bbc5c9fc'
+    let cookie = 'JSESSIONID=A84B0F3BC619487975636236BB654B3B.vo7; TS01d54a5e=0175b9cb54bfb8d3e11c71c3956e301747d81887ebbddc9e3bb9ddfb6a74afebb53954b8b578aa6edb46c9fd9d588ac19e976ebac0b51dd3f6b122783114a8845cd7b864b8; BIGipServerpool_env98_vo_app=656414730.36895.0000; TS01561989_77=088bb9a2b4ab2800f87bd3cf5946e787375868d84e5fd35966e1c6d143269b652c163a4ba81e9b8ba6490d5f8c7346d4086d153d9e823800604e57e61c1ff48108084adceb4683c1bd02eee9946d88a1c137ab2ef25ec6a9bc16c83eea23cc74e3bca58fa5f34b1fec278d998e9c80ab; TS01561989=0175b9cb546a56a0e52e905a03e4b77988c02b2a5cfaf6ba4699548e18664021981b5b673f96fb6434d44c8d49a7aeb50aa0c9b09d'
     let url = 'https://www.breeze.ca.gov/datamart/searchByLicNumber.do'
     let options = {
       url: url,
@@ -42,7 +42,7 @@ module.exports = {
       let dataViewLast = dataView.last().text()
       console.log('Result from CHEERIO: ', dataViewLast)
       let nailLicense = Number(req.body.nailCertification)
-      //console.log(Number(dataViewLast) === nailLicense)
+      console.log(Number(dataViewLast) === nailLicense)
     })
     
     User
@@ -56,6 +56,7 @@ module.exports = {
           nailCertification: req.body.nailCertification
         })
         .then((user) => {
+          res.send(user)
           if (user.isVendor === 1) {
             console.log('inside is vendor create schedule')
             Schedule.create({

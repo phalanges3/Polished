@@ -9,7 +9,7 @@ import { LoadingController, MenuController } from 'ionic-angular'
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = TabsPage
+  rootPage: any = LoginPage
   loader: any
 
   constructor(
