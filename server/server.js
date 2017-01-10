@@ -5,8 +5,6 @@ const PORT = process.env.PORT || 3000
 const routes = require('./api/routes.main')
 const pg = require('pg')
 
-
-
 // Middleware
 require('./config/middleware.js')(app, express)
 // routes

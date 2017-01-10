@@ -1,13 +1,15 @@
 import { Component, ViewChild } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { NavController, NavParams } from 'ionic-angular'
+import { NavController, NavParams, AlertController } from 'ionic-angular'
 import { UsernameValidator } from  '../../validators/username'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
-import { AlertController } from 'ionic-angular'
 import { PaymentPage } from '../payment/payment'
 import { LoadingController } from 'ionic-angular'
+// import { LocalNotifications } from 'ionic-native';
+import { SignUpPage } from '../signup/signup'
+
 
 @Component({
   selector: 'page-login',
@@ -88,10 +90,12 @@ submitAttempt: boolean = false;
 
   }
 
-
 ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-
+  goToSignUp() {
+    this.navCtrl.push(SignUpPage)
+  }
+ 
 }

@@ -4,10 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular'
 import { MyApp } from './app.component'
 import { SignUpPage } from '../pages/signup/signup'
 import { LoginPage } from '../pages/login/login'
-import { AboutPage } from '../pages/about/about'
-import { ContactPage } from '../pages/contact/contact'
-import { HomePage } from '../pages/home/home'
-import { TabsPage } from '../pages/tabs/tabs'
 import { BestmatchPage } from '../pages/bestmatch/bestmatch'
 import { SearchmorePage } from '../pages/searchmore/searchmore'
 import { SelectservicePage } from '../pages/selectservice/selectservice'
@@ -16,7 +12,6 @@ import { AvailabilityPage} from '../pages/availability/availability'
 import { ProfilePage} from '../pages/profile/profile'
 import { Ionic2RatingModule } from 'ionic2-rating'
 import { Bookartist } from '../providers/bookartist'
-import { Auth } from '../providers/auth.ts'
 import { ModalContentPage  } from '../profile/modal'
 import { PaymentPage  } from '../pages/payment/payment'
 import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
@@ -30,12 +25,8 @@ import { DirectionsPage } from  '../pages/directions/directions'
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     SignUpPage,
     LoginPage,
-    ContactPage,
-    HomePage,
-    TabsPage,
     BestmatchPage,
     SearchmorePage,
     SelectservicePage,
@@ -56,12 +47,8 @@ import { DirectionsPage } from  '../pages/directions/directions'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     SignUpPage,
     LoginPage,
-    ContactPage,
-    HomePage,
-    TabsPage,
     BestmatchPage,
     SearchmorePage,
     SelectservicePage,
@@ -73,6 +60,6 @@ import { DirectionsPage } from  '../pages/directions/directions'
     ReviewPage,
     DirectionsPage
   ],
-providers: [Bookartist, ProfilePicsRevs, Apptcal, Addreview, {provide: ErrorHandler, useClass: IonicErrorHandler}, Auth]
+providers: [Bookartist, ProfilePicsRevs, Apptcal, Addreview, {provide: ErrorHandler, useClass: IonicErrorHandler} ]
 })
 export class AppModule {}

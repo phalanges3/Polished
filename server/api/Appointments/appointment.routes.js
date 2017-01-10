@@ -20,7 +20,7 @@ router.post('/getappointment', (req, res) => {
 })
 router.post('/clientappointments', (req, res) => {
   console.log('within client appt GET')
-  appointmentModel.clientAppointments(req,res)
+  appointmentModel.clientAppointments(req, res)
 })
 router.put('/update', (req, res) => {
   console.log('within appointment PUT update')
