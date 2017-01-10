@@ -18,23 +18,7 @@ export class HomePage {
       public navCtrl: NavController, 
       public formBuilder: FormBuilder,
       public http: Http,
-
-      ) {
+    ) {
        
     }
-
-    checkLicense() {
-      this.http
-      .get('https://www.breeze.ca.gov/datamart/loginCADCA.do')
-      .map((res) => {
-        let response = res.json()
-        console.log(res)
-      })
-      .subscribe((data) => {
-
-      })
-    }
- 
-    
- 
 }

@@ -10,6 +10,6 @@ router.use('/schedule', mainRouter.schedule.scheduleRoute)
 router.use('/service', mainRouter.service.serviceRoute)
 router.use('/user', mainRouter.user.userRoute)
 router.use('/payment', mainRouter.payment)
-router.use('/scrape', mainRouter.scrape)
+//router.use('/scrape', mainRouter.scrape)
 
 module.exports = router

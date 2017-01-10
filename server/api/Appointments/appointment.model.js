@@ -21,33 +21,32 @@ module.exports = {
       }
     })
     .then((artists) => {
-      var filtered =  []
+      var filtered = []
       // console.log(new Date())
-      var results =  JSON.parse(JSON.stringify(artists))
-      for(var i = 0; i < results.length; i++){
-        results[i].flag  = true
-        if(results[i].appointments.length===0){
+      var results = JSON.parse(JSON.stringify(artists))
+      for (var i = 0; i < results.length; i++) {
+        results[i].flag = true
+        if (results[i].appointments.length === 0) {
           filtered.push(results[i])
-        }  else {
-          for(var j = 0; j < results[i].appointments.length; j++){
-            if(results[i].appointments[j].start === req.body.time && results[i].appointments[j].date === req.body.date){
+        } else {
+          for (var j = 0; j < results[i].appointments.length; j++) {
+            if (results[i].appointments[j].start === req.body.time && results[i].appointments[j].date === req.body.date) {
               results[i].flag = false
               // console.log("flag", results[i].flag, results[i].firstName )
             }
             // console.log("flag", results[i].flag, results[i].firstName )
-            }
-          if(results[i].flag){
+          }
+          if (results[i].flag) {
             filtered.push(results[i])
-          }  
+          }
         }
       }
       return filtered
     })
-      .then(filteredRes =>  {
+      .then(filteredRes => {
         // console.log("filteredRes", filteredRes, "length", filteredRes.length)
         res.send(filteredRes)
       })
-      
   },
   addAppointment: (req, res) => {
     Appointment

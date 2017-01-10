@@ -1,13 +1,13 @@
 import { Component, ViewChild } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { NavController, NavParams } from 'ionic-angular'
+import { NavController, NavParams, AlertController } from 'ionic-angular'
 import { UsernameValidator } from  '../../validators/username'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
-import { AlertController } from 'ionic-angular'
 import { PaymentPage } from '../payment/payment'
 import { LoadingController } from 'ionic-angular'
+import { SignUpPage } from '../signup/signup'
 
 @Component({
   selector: 'page-login',
@@ -58,7 +58,7 @@ submitAttempt: boolean = false;
             localStorage.setItem('email', response.email)
             localStorage.setItem('general_rating', response.general_rating)
             localStorage.setItem('zipCode', response.zipCode)
-            localStorage.setItem('id', response.id)
+            localStorage.setItem('userId', response.id)
              console.log("is response", response)
             this.navCtrl.push(NailtechdashboardPage, {
                 data: response
@@ -86,6 +86,9 @@ submitAttempt: boolean = false;
     this.loader.dismiss()
     }, 1300)
 
+  }
+  goToSignUp() {
+    this.navCtrl.push(SignUpPage)
   }
  
 }
