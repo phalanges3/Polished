@@ -1,13 +1,7 @@
-<!-- <ion-header>
-    <ion-navbar color="primary">
->>>>>>> feat/emulate
-      <ion-title>
-       
-      </ion-title>
-     
-    </ion-navbar>
-</ion-header> -->
- 
+<ion-header>
+    <h1 class="polished">Polished</h1>
+</ion-header>
+
 <ion-content class="beige">
     <br>
  
@@ -32,13 +26,13 @@
               <ion-label floating></ion-label>
               <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
             </ion-item>
-         
+         <button class="loginBut" ion-button small color="primary" (click)="addLogin()">Login!</button><br><br>
         </form>
  
     </ion-list>
 
- <button ion-button outline color="primary" (click)="addLogin()">Login!</button><br><br>
+ 
 
-First time here? <a id="link-6" (click)="goToSignUp()" ng-href="#">Register.</a>
+<p class="sign">First time here? <a id="link-6" (click)="goToSignUp()" ng-href="#">Register.</a></p>
 
 </ion-content>

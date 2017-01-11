@@ -1,7 +1,7 @@
 .ios, .md {
 
 .logItem{
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, .7);
 }
 
     page-login {
@@ -25,7 +25,7 @@
         }
  
         ion-input, ion-select, ion-textarea {
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: #6E0BBA;
             padding: 5px 10px;
             margin-left: -5px;
             color: black;
@@ -34,20 +34,19 @@
         .invalid {
             border: 1px solid #ea6153;
         }
- 
     }
- 
 }
 
 .logForm{
-    margin-top: 100px;
+    margin-top: 50px;
     border-radius: 10pt;
+    padding: 20px;
 }
 
 ion-input{
     margin-bottom:  20px;
+    border-radius: 10px;
 }
-
 
 .beige{
   background-image:url('https://drscdn.500px.org/photo/143684555/q%3D80_m%3D1500/6a5283fe2531cd93362d39029ac9bd1d');
@@ -55,3 +54,17 @@ ion-input{
  
 }
 
+.loginBut{
+  background-color: #3C94CF
+}
+
+.sign{
+   background-color: rgba(0, 0, 0, .7);
+}
+
+.polished{
+  margin-top: 50px;
+  color: white;
+  background-color: rgba(0, 0, 0, .7);
+  font-size: 24pt;
+}

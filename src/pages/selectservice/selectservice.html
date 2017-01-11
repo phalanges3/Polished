@@ -17,13 +17,11 @@ Branch: dev Find file Copy pathindulge/src/pages/selectservice/selectservice.htm
 RawBlameHistory     
 202 lines (196 sloc)  7.47 KB
 
-<!-- <ion-header>
+<ion-header>
   <ion-navbar>
     <ion-title>Booking</ion-title>
   </ion-navbar>
 </ion-header>
- -->
-
 <ion-content class="page" padding>
    <form [formGroup]="bookInfo">
    <h4>Manicure, Pedicure, or Both?</h4>
@@ -49,10 +47,9 @@ RawBlameHistory
      </ion-item>
    </ion-row>
    <!-- <h4>Where is most convenient for you?</h4> -->
-   <ion-row>
-
-    <ion-col width-40><button ion-button full (click) = "enterAddress()">Enter Address</button></ion-col>
-    <ion-col width-40><button ion-button full (click) = "geoLocate()">Use My Location</button></ion-col>
+   <ion-row> 
+    <ion-col class="addressButs"><button ion-button full (click) = "enterAddress()">Enter Address</button></ion-col>
+    <ion-col class="addressButs"><button ion-button full (click) = "geoLocate()">Use My Location</button></ion-col>
    </ion-row>
    <ion-row *ngIf="geolocationFlag === true" class="locationCaptured" icon-right> 
      Your location has been captured
