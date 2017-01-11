@@ -1,31 +1,40 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @JackieCabinet
+ Watch 1
+  Star 0
+ Fork 3 jcpace/indulge
+forked from phalanges3/indulge
+ Code  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
+Branch: dev Find file Copy pathindulge/src/pages/selectservice/selectservice.html
+26be5ef  4 hours ago
+@jcpace jcpace [progress] styling
+3 contributors @JackieCabinet @jcpace @jacuchilla
+RawBlameHistory     
+202 lines (196 sloc)  7.47 KB
 
-<ion-header>
-
-<ion-header>
-
-
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>Booking</ion-title>
   </ion-navbar>
-
 </ion-header>
+ -->
 
-
-<<<<<<< HEAD
 <ion-content class="page" padding>
-=======
-<ion-content class="beige" padding>
->>>>>>> feat/emulate
    <form [formGroup]="bookInfo">
    <h4>Manicure, Pedicure, or Both?</h4>
    <ion-row>
      <ion-item>
        <ion-label floating></ion-label>
-     	  <ion-select placeholder="Select Services" formControlName="service">
-     	  	<ion-option value="Manicure">Manicure $18</ion-option>
-     	  	<ion-option value="Pedicure">Pedicure $25</ion-option>
-     	  	<ion-option value="Mani-Pedi">Mani-Pedi $35 </ion-option>
-     	  </ion-select>
+        <ion-select placeholder="Select Services" formControlName="service">
+          <ion-option value="Manicure">Manicure $18</ion-option>
+          <ion-option value="Pedicure">Pedicure $25</ion-option>
+          <ion-option value="Mani-Pedi">Mani-Pedi $35 </ion-option>
+        </ion-select>
      </ion-item>
      <ion-item class="service-check">
        <ion-label floating></ion-label>
@@ -112,97 +121,99 @@
         <option value="month">December</option>
       </select>
       <select class="day-select">
-      	<option value="day">1</option>
-      	<option value="day">2</option>
-      	<option value="day">3</option>
-      	<option value="day">4</option>
-      	<option value="day">5</option>
-      	<option value="day">6</option>
-      	<option value="day">7</option>
-      	<option value="day">8</option>
-      	<option value="day">9</option>
-      	<option value="day">10</option>
-      	<option value="day">11</option>
-      	<option value="day">12</option>
-      	<option value="day">13</option>
-      	<option value="day">14</option>
-      	<option value="day">15</option>
-      	<option value="day">16</option>
-      	<option value="day">17</option>
-      	<option value="day">18</option>
-      	<option value="day">19</option>
-      	<option value="day">20</option>
-      	<option value="day">21</option>
-      	<option value="day">22</option>
-      	<option value="day">23</option>
-      	<option value="day">24</option>
-      	<option value="day">25</option>
-      	<option value="day">26</option>
-      	<option value="day">27</option>
-      	<option value="day">28</option>
-      	<option value="day">29</option>
-      	<option value="day">30</option>
-      	<option value="day">31</option>
+        <option value="day">1</option>
+        <option value="day">2</option>
+        <option value="day">3</option>
+        <option value="day">4</option>
+        <option value="day">5</option>
+        <option value="day">6</option>
+        <option value="day">7</option>
+        <option value="day">8</option>
+        <option value="day">9</option>
+        <option value="day">10</option>
+        <option value="day">11</option>
+        <option value="day">12</option>
+        <option value="day">13</option>
+        <option value="day">14</option>
+        <option value="day">15</option>
+        <option value="day">16</option>
+        <option value="day">17</option>
+        <option value="day">18</option>
+        <option value="day">19</option>
+        <option value="day">20</option>
+        <option value="day">21</option>
+        <option value="day">22</option>
+        <option value="day">23</option>
+        <option value="day">24</option>
+        <option value="day">25</option>
+        <option value="day">26</option>
+        <option value="day">27</option>
+        <option value="day">28</option>
+        <option value="day">29</option>
+        <option value="day">30</option>
+        <option value="day">31</option>
       </select>
       <select class="year-select">
-      	<option value="year">2016</option>
-      	<option value="year">2017</option>
-      	<option value="year">2018</option>
+        <option value="year">2016</option>
+        <option value="year">2017</option>
+        <option value="year">2018</option>
       </select>
    </form> -->
    <!-- <form>
-   	<select class="time">
-   		<option value="hour">1</option>
-   		<option value="hour">2</option>
-   		<option value="hour">3</option>
-   		<option value="hour">4</option>
-   		<option value="hour">5</option>
-   		<option value="hour">6</option>
-   		<option value="hour">7</option>
-   		<option value="hour">8</option>
-   		<option value="hour">9</option>
-   		<option value="hour">10</option>
-   		<option value="hour">11</option>
-   		<option value="hour">12</option>
-   	</select>
-   	<select class="time">
-      	<option value="minutes">01</option>
-      	<option value="minutes">02</option>
-      	<option value="minutes">03</option>
-      	<option value="minutes">04</option>
-      	<option value="minutes">05</option>
-      	<option value="minutes">06</option>
-      	<option value="minutes">07</option>
-      	<option value="minutes">08</option>
-      	<option value="minutes">09</option>
-      	<option value="minutes">10</option>
-      	<option value="minutes">11</option>
-      	<option value="minutes">12</option>
-      	<option value="minutes">13</option>
-      	<option value="minutes">14</option>
-      	<option value="minutes">15</option>
-      	<option value="minutes">16</option>
-      	<option value="minutes">17</option>
-      	<option value="minutes">18</option>
-      	<option value="minutes">19</option>
-      	<option value="minutes">20</option>
-      	<option value="minutes">21</option>
-      	<option value="minutes">22</option>
-      	<option value="minutes">23</option>
-      	<option value="minutes">24</option>
-      	<option value="minutes">25</option>
-      	<option value="minutes">26</option>
-      	<option value="minutes">27</option>
-      	<option value="minutes">28</option>
-      	<option value="minutes">29</option>
-      	<option value="minutes">30</option>
-      	<option value="minutes">31</option>
+    <select class="time">
+      <option value="hour">1</option>
+      <option value="hour">2</option>
+      <option value="hour">3</option>
+      <option value="hour">4</option>
+      <option value="hour">5</option>
+      <option value="hour">6</option>
+      <option value="hour">7</option>
+      <option value="hour">8</option>
+      <option value="hour">9</option>
+      <option value="hour">10</option>
+      <option value="hour">11</option>
+      <option value="hour">12</option>
+    </select>
+    <select class="time">
+        <option value="minutes">01</option>
+        <option value="minutes">02</option>
+        <option value="minutes">03</option>
+        <option value="minutes">04</option>
+        <option value="minutes">05</option>
+        <option value="minutes">06</option>
+        <option value="minutes">07</option>
+        <option value="minutes">08</option>
+        <option value="minutes">09</option>
+        <option value="minutes">10</option>
+        <option value="minutes">11</option>
+        <option value="minutes">12</option>
+        <option value="minutes">13</option>
+        <option value="minutes">14</option>
+        <option value="minutes">15</option>
+        <option value="minutes">16</option>
+        <option value="minutes">17</option>
+        <option value="minutes">18</option>
+        <option value="minutes">19</option>
+        <option value="minutes">20</option>
+        <option value="minutes">21</option>
+        <option value="minutes">22</option>
+        <option value="minutes">23</option>
+        <option value="minutes">24</option>
+        <option value="minutes">25</option>
+        <option value="minutes">26</option>
+        <option value="minutes">27</option>
+        <option value="minutes">28</option>
+        <option value="minutes">29</option>
+        <option value="minutes">30</option>
+        <option value="minutes">31</option>
       </select>
       <select  class="time">
-      	<option>am</option>
-      	<option>pm</option>
+        <option>am</option>
+        <option>pm</option>
       </select>
    </form> -->
    </form>
    <button ion-button full (click) = "navigate()">Find Next Available</button>
 </ion-content>
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help

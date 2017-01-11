@@ -16,8 +16,8 @@
         <form class="logForm" [formGroup]="loginForm">
  
             <ion-item class="logItem">
-                <ion-label floating>Username</ion-label>
-                <ion-input  formControlName="userName" type="text"></ion-input>
+                <ion-label floating></ion-label>
+                <ion-input  formControlName="userName" type="text" placeholder="Username"></ion-input>
             </ion-item>
  
             <ion-item *ngIf="loginForm.controls.userName.pending">
@@ -29,8 +29,8 @@
             </ion-item>
  
             <ion-item class="logItem">
-              <ion-label floating>Password</ion-label>
-              <ion-input formControlName="password" type="password"></ion-input>
+              <ion-label floating></ion-label>
+              <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
             </ion-item>
          
         </form>
