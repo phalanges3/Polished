@@ -1,23 +1,23 @@
-<ion-header>
-    <ion-navbar>
+<!-- <ion-header>
+    <ion-navbar color="primary">
+>>>>>>> feat/emulate
       <ion-title>
        
       </ion-title>
      
     </ion-navbar>
-</ion-header>
+</ion-header> -->
  
-<ion-content class="page">
-
+<ion-content class="beige">
     <br>
  
     <ion-list no-lines>
  
-        <form [formGroup]="loginForm">
+        <form class="logForm" [formGroup]="loginForm">
  
-            <ion-item>
-                <ion-label floating>Username</ion-label>
-                <ion-input  formControlName="userName" type="text"></ion-input>
+            <ion-item class="logItem">
+                <ion-label floating></ion-label>
+                <ion-input  formControlName="userName" type="text" placeholder="Username"></ion-input>
             </ion-item>
  
             <ion-item *ngIf="loginForm.controls.userName.pending">
@@ -28,18 +28,17 @@
                 <p>Sorry, that username can not be used!</p>
             </ion-item>
  
-            <ion-item>
-              <ion-label floating>Password</ion-label>
-              <ion-input formControlName="password" type="password"></ion-input>
+            <ion-item class="logItem">
+              <ion-label floating></ion-label>
+              <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
             </ion-item>
          
         </form>
  
     </ion-list>
+
  <button ion-button outline color="primary" (click)="addLogin()">Login!</button><br><br>
 
 First time here? <a id="link-6" (click)="goToSignUp()" ng-href="#">Register.</a>
-
- 
 
 </ion-content>
