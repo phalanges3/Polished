@@ -104,6 +104,8 @@ RawBlameHistory
         <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="time"></ion-datetime>
      </ion-item>
    </ion-row>
+
+   
    <!-- <h4>Pick the most convenient date & time: </h4>
    <form>
       <select class="month-select">
@@ -213,6 +215,10 @@ RawBlameHistory
       </select>
    </form> -->
    </form>
+   <ion-row *ngIf="noArtist" icon-right class="wrongAddress">
+     No nail technicians in this area, try searching a different day, time, or address.
+     <ion-icon name="close-circle"></ion-icon>
+   </ion-row>
    <button ion-button full (click) = "navigate()">Find Next Available</button>
 </ion-content>
 Contact GitHub API Training Shop Blog About

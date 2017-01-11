@@ -17,6 +17,7 @@ export class SelectservicePage {
   addressFlagCount= 0
   geolocationFlag: any = false
   noAddress: any = false
+  noArtist: any = false
   geolocationCount= 0
   data: any
 
@@ -153,7 +154,9 @@ export class SelectservicePage {
       params = ({"zipCode": this.geoResult.zipCode, "day": dayOfWeek, "date": this.bookInfo.value.date +  "T00:00:00.000Z", "time":this.bookInfo.value.time + ":00"})
       this.http.post('http://localhost:3000/api/appointment/findartists', params)
       .subscribe(artist => {
+        this.noArtist = false
         if (!artist.json().length) {
+            this.noArtist = true
             console.log('sorry error in page', artist.json())
             console.log('No nail artist around here, try a different area!')
           }
@@ -180,6 +183,7 @@ export class SelectservicePage {
         console.log('SUBSCRIBE RESULT !!!!! ', result.json())
         // console.log(result.json().results)
         console.log('error here!!!! ', result.json().results.length)
+        this.noArtist = false
         if (!result.json().results.length) {
           this.noAddress = true 
           console.log('Address not found, please enter a new address.')
@@ -190,6 +194,8 @@ export class SelectservicePage {
           this.http.post('http://localhost:3000/api/appointment/findartists', params)
             .subscribe(artist => {
               if (!artist.json().length) {
+                this.noArtist = true
+
                 console.log('sorry error in page', artist.json())
                 console.log('No nail artist around here, try a different area!')
               }

@@ -4,6 +4,7 @@ import { Camera } from 'ionic-native';
 import { Addreview } from '../../providers/addreview';
 import { Platform } from 'ionic-angular';
 import {ViewChild, ViewChildren, QueryList, ElementRef} from '@angular/core'
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 /*
   Generated class for the Review page.
@@ -21,7 +22,7 @@ export class ReviewPage {
   @ViewChild('myname') 
   input: any; 
   @ViewChild('video') 
-  video: any = null;
+  video: any;
   width: any = 320;
   height: any = 240;
   canvas: any;
@@ -30,6 +31,10 @@ export class ReviewPage {
   data: any;
   imageUrl: any = null;
   vidFlag: any = true;
+  cloudinaryUrl: any;
+  buttonFlag: any = false;
+  readyMark: any = false;
+  nativeElement : any;
   // markers: any = {
   //   firstName: 'George',
   //   lastName: 'Cantstanya',
@@ -38,7 +43,7 @@ export class ReviewPage {
   // }
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private userReview: Addreview, public platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private userReview: Addreview, public platform: Platform,  public http: Http, private elementRef: ElementRef) {
     this.data = Object.assign(this.navParams.get("pastApp")[0], this.navParams.get("clientInfo"));
     this.platform = platform;
   }
@@ -73,26 +78,40 @@ export class ReviewPage {
   takepicture() {
     this.canvas = document.getElementById('canvas')
     console.log('canvas ', this.canvas)
-    var context = this.canvas.getContext('2d');
+    let context = this.canvas.getContext('2d');
     if (this.width && this.height) {
       this.canvas.width = this.width;
       this.canvas.height = this.height;
       context.drawImage(this.video, 0, 0, this.width, this.height);
       this.vidFlag = false;
       this.imageUrl = this.canvas.toDataURL('image/png');
-    } 
-    // else {
-    //   clearphoto();
-    // }
+    }
+  }
+
+  clearImage() {
+    // let context = this.canvas.getContext('2d');
+    // context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.imageUrl = null
+    this.vidFlag = true
+    // this.imageUrl = this.canvas.toDataURL('image/png');
+    this.video = document.getElementById('video');
+    // this.takePhoto();
+    // console.log('finished clear ', this.video)
+    // console.log('finished clear ', this.video.elementRef)
+    // console.log('finished clear ', this.video)
   }
 
   takePhoto() {
-    console.log('taking photo')
-    console.log(this.platform.platforms());
-    console.log('heres the check photo ', this.platform.is("core"))
+    // console.log('taking photo')
+    // console.log(this.platform.platforms());
+    // console.log('heres the check photo ', this.platform.is("core"))
     if (this.platform.is("core")) {
-      console.log('opening laptop camera ')
-      this.video= this.video.nativeElement;
+      this.buttonFlag = true
+      //console.log('opening laptop camera ')
+      console.log('heres video!! ', this.video)
+      this.video = this.video.nativeElement;
+      console.log('heres video!! ', this.video)
+      
       if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices
           .getUserMedia({ video: true, audio: false })
@@ -122,5 +141,25 @@ export class ReviewPage {
       console.log(err);
     });
   }
+
+  saveImage(image) {
+    //console.log('heres the image ', image)
+    //console.log('heres the imageUrl ', this.imageUrl)
+      let body = {
+        "file": image,
+        "upload_preset": "yi4d6zwf"
+      }
+      return this.http.post("https://api.cloudinary.com/v1_1/ddy7oiu4u/image/upload", body)
+        .map((data: Response) => {
+          console.log('heres the data page ', data)
+          console.log('heres the data page ', data.json().url)
+          return data.json().url;
+        })
+        .subscribe(url => {
+          console.log("saved image results ", url)
+          this.cloudinaryUrl = url
+          this.readyMark = true;
+        })
+      }
   
 }
