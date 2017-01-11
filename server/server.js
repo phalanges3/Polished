@@ -3,8 +3,6 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
 const routes = require('./api/routes.main')
-const pg = require('pg')
-const path = require('path')
 
 // Middleware
 require('./config/middleware.js')(app, express)
