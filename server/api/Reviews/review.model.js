@@ -92,11 +92,11 @@ module.exports = {
           reviewer_first: "Jose",
           reviewer_last: "Cuchilla",
           reviewer_id: 4,
-          reviewer_profile_pic: "https://s-media-cache-ak0.pinimg.com/736x/33/ff/eb/33ffebd9cd1ba691f6ae772e639a2479.jpg", 
+          reviewer_profile_pic: "http://www.sociology.ucla.edu/sites/default/files/u236/cuchilla.jpg", 
           rating: 490,
           review_content: "Josh is awesome at his job. He is punctual and really friendly! Would repeat!",
           review_date: "Fri Jul 06 2016",
-          image1: "https://s-media-cache-ak0.pinimg.com/736x/33/ff/eb/33ffebd9cd1ba691f6ae772e639a2479.jpg",
+          image1: "https://s-media-cache-ak0.pinimg.com/236x/cd/a7/6a/cda76a85b61ab9050856e63469ccf1f5.jpg",
           image2: null,
           image3: null
         })
@@ -112,7 +112,7 @@ module.exports = {
           reviewer_first: "Jackie",
           reviewer_last: "Feiler",
           reviewer_id: 9,
-          reviewer_profile_pic: "https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg",
+          reviewer_profile_pic: "http://vignette1.wikia.nocookie.net/seinfeld/images/7/76/George-costanza.jpg/revision/latest?cb=20110406222711",
           rating: 400,
           review_content: "He was very friendly and did a great job. He is also super punctual! Would repeat!",
           review_date: "Fri Aug 06 2016",
@@ -156,7 +156,7 @@ module.exports = {
           rating: 300,
           review_content: "Really really enjoyed my nails. Josh is awesome at his job. He is punctual and really friendly! Would repeat!",
           review_date: "Fri Oct 06 2016",
-          image1: "https://s-media-cache-ak0.pinimg.com/originals/a1/a0/00/a1a000609baa9ac891e3bbc93c6d200e.jpg",
+          image1: "http://www.weddingelation.com/wp-content/uploads/2014/11/unique-wedding-nail-design-7-striking-ideas-3.png",
           image2: null,
           image3: null
         })

@@ -13,7 +13,7 @@
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <span color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        <ion-icon name="md-close" showWhen="android,windows,core"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
@@ -23,7 +23,7 @@
 
 <ion-content padding>
   <ion-card id="card">
-    <img src="{{ data.nail_artist_image }}">
+    <img src="{{ data.nail_artist_image }}" onresize="">
     <h2> <b>{{ data.nail_artist_first }} {{ data.nail_artist_second }}</b> </h2>
     <h3> @{{ data.nail_artist_username }} </h3>
   </ion-card>
@@ -50,7 +50,7 @@
       <ion-row>
         <ion-col width-35>
           <button ion-button block (click)="takePhoto()" icon-right small>
-            Take Photo
+            Photo
             <ion-icon name="camera"></ion-icon>
           </button>
         </ion-col>
@@ -65,12 +65,19 @@
 
 
       <ion-item>
-        <!--<img [src]="imageUrl" *ngIf="imageUrl">-->
-      <button id="startbutton" (click)="takepicture()">Take photo</button>
-      <button>Clear Photo</button>
-      <video *ngIf="vidFlag" #video width="320" height="240" autoplay></video>
-      <img [src]="imageUrl" *ngIf="imageUrl">
+        <video *ngIf="vidFlag" #video width="320" height="240" autoplay></video>
+        <img [src]="imageUrl" *ngIf="imageUrl">
         <canvas id="canvas" *ngIf="vidFlag"></canvas>
+      </ion-item>
+      <ion-item>
+        <!--<img [src]="imageUrl" *ngIf="imageUrl">-->
+      <button *ngIf="buttonFlag" ion-button small id="startbutton" (click)="takepicture()">Take photo</button>
+      <button *ngIf="buttonFlag" ion-button small (click)="saveImage(imageUrl)">Use Photo</button>
+      <button *ngIf="buttonFlag" ion-button small (click)="clearImage()">Clear Photo</button>
+      <ion-row *ngIf="readyMark" class="locationCaptured" icon-right> 
+        Your photo is ready!
+      <ion-icon name="checkmark"></ion-icon>
+      </ion-row>
       </ion-item>
 
   </ion-card>
@@ -87,5 +94,5 @@
       </ion-textarea>
     </ion-item>
   </ion-card>
-  <button ion-button medium (click)="submitReview({rating: rating, image1: imageUrl, review_content: review_content})">Submit Review</button>
+  <button ion-button medium (click)="submitReview({rating: rating, image1: cloudinaryUrl, review_content: review_content})">Submit Review</button>
 </ion-content>
