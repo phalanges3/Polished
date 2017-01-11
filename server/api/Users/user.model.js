@@ -1,5 +1,5 @@
 const User = require('./user.schema')
-const Schedule = require('../schedule/schedule.schema')
+const Schedule = require('../Schedule/schedule.schema')
 const express = require('express')
 const router = express.Router()
 let request = require('request')
