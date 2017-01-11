@@ -19,4 +19,3 @@ DBConnection
 
 module.exports = DBConnection
 
-// require models here if needed

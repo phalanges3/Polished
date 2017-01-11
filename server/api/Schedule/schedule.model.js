@@ -1,5 +1,4 @@
 const Schedule = require('./schedule.schema')
-const User = require('../Users/user.schema')
 
 module.exports = {
   addAvailability: (req, res) => {
@@ -34,5 +33,4 @@ module.exports = {
       res.send(results)
     })
   }
-
 }

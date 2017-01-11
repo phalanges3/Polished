@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize')
 const db = require('../../config/db.config.js')
-const User = require('../Users/user.schema')
 
 const Schedule = db.define('schedule', {
   userId: {

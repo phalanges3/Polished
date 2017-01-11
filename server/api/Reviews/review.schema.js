@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize')
 const db = require('../../config/db.config.js')
-// const User = require('../Users/user.schema.js')
-// console.log('USER WITHIN REVIEW: ', User)
 
 const Review = db.define('review', {
   userId: {

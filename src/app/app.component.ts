@@ -14,7 +14,5 @@ export class MyApp {
     public platform: Platform, 
     public loadingCtrl: LoadingController, 
     public menuCtrl: MenuController
-    ) {
-
-  }
+  ) {}
 }

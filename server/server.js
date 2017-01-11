@@ -8,10 +8,8 @@ const path = require('path')
 
 // Middleware
 require('./config/middleware.js')(app, express)
-// routes
+// Routes
 app.use('/api', routes)
-
-app.use(express.static(path.join(__dirname, 'www')))
 
 app.listen(PORT, () => {
   console.log('SERVER listening on port: ', PORT)

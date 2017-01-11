@@ -1,7 +1,6 @@
 const Review = require('./review.schema')
 
 module.exports = {
-
   addReview: (req, res) => {
     Review
         .create({
@@ -82,7 +81,6 @@ module.exports = {
 
   seedReviews: (req, res) => {
     // Seeding Reviews for nail artist: Josh Pace
-
     Review
         .create({
           userId: 1,
@@ -91,11 +89,11 @@ module.exports = {
           reviewer_first: 'Jose',
           reviewer_last: 'Cuchilla',
           reviewer_id: 4,
-          reviewer_profile_pic: "http://www.sociology.ucla.edu/sites/default/files/u236/cuchilla.jpg", 
+          reviewer_profile_pic: 'http://www.sociology.ucla.edu/sites/default/files/u236/cuchilla.jpg',
           rating: 490,
-          review_content: "Josh is awesome at his job. He is punctual and really friendly! Would repeat!",
-          review_date: "Fri Jul 06 2016",
-          image1: "https://s-media-cache-ak0.pinimg.com/236x/cd/a7/6a/cda76a85b61ab9050856e63469ccf1f5.jpg",
+          review_content: 'Josh is awesome at his job. He is punctual and really friendly! Would repeat!',
+          review_date: 'Fri Jul 06 2016',
+          image1: 'https://s-media-cache-ak0.pinimg.com/236x/cd/a7/6a/cda76a85b61ab9050856e63469ccf1f5.jpg',
           image2: null,
           image3: null
         })
@@ -111,7 +109,7 @@ module.exports = {
           reviewer_first: 'Jackie',
           reviewer_last: 'Feiler',
           reviewer_id: 9,
-          reviewer_profile_pic: "http://vignette1.wikia.nocookie.net/seinfeld/images/7/76/George-costanza.jpg/revision/latest?cb=20110406222711",
+          reviewer_profile_pic: 'http://vignette1.wikia.nocookie.net/seinfeld/images/7/76/George-costanza.jpg/revision/latest?cb=20110406222711',
           rating: 400,
           review_content: 'He was very friendly and did a great job. He is also super punctual! Would repeat!',
           review_date: 'Fri Aug 06 2016',
@@ -153,9 +151,9 @@ module.exports = {
           reviewer_id: 15,
           reviewer_profile_pic: 'https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg',
           rating: 300,
-          review_content: "Really really enjoyed my nails. Josh is awesome at his job. He is punctual and really friendly! Would repeat!",
-          review_date: "Fri Oct 06 2016",
-          image1: "http://www.weddingelation.com/wp-content/uploads/2014/11/unique-wedding-nail-design-7-striking-ideas-3.png",
+          review_content: 'Really really enjoyed my nails. Josh is awesome at his job. He is punctual and really friendly! Would repeat!',
+          review_date: 'Fri Oct 06 2016',
+          image1: 'http://www.weddingelation.com/wp-content/uploads/2014/11/unique-wedding-nail-design-7-striking-ideas-3.png',
           image2: null,
           image3: null
         })
