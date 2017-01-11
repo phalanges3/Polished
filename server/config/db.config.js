@@ -5,7 +5,7 @@ const Sequelize = require('sequelize')
 const creds = require('./credentials')
 
 // Database connection
-const DBConnection = new Sequelize(creds.DBurl)
+const DBConnection = new Sequelize('postgres://pmbwfnib:Mkxsvk0pwQLPkxsCTf_mSvoO4fy7QwXW@elmer.db.elephantsql.com:5432/pmbwfnib')
 
 // Connection testing
 DBConnection
