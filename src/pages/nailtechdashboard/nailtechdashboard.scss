@@ -1,11 +1,18 @@
 page-nailtechdashboard {
   width: 99%;
 }
-.appt{
-  margin-right: 7px;
+.apptSection{
+  background-color: rgba(255,255,255, .9);
+  padding-top: 10px;
+  border-bottom-left-radius: 10pt;
+  border-bottom-right-radius: 10pt;
 }
 .dashSection{
-  margin-top: 15px;
+  background-color: rgba(255,255,255, .9);
+  padding-top: 10px;
+  border-bottom-left-radius: 10pt;
+  border-bottom-right-radius: 10pt;
+  margin-bottom: 20px;
 }
 .directBut{
   position: absolute;
@@ -14,4 +21,18 @@ page-nailtechdashboard {
 }
 .page {
   font-family: 'Lato', sans-serif;
+}
+.appointmentItem  {
+  background-color: rgba(0,0,0,0);
+  padding-bottom: 10pt;
+  padding-right: 10px;
+}
+h4{
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top-left-radius: 10pt;
+  border-top-right-radius: 10pt;
+  background-color: rgba(255,0,0,.9);
+  margin-bottom: -1px;
 }

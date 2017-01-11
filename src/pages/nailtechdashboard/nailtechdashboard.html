@@ -14,10 +14,10 @@
 
 
 <ion-content class="page" padding>
-  <div>
-  	<h4>Upcoming Appointments</h4>
+  <h4>Upcoming Appointments</h4>
+  <div class="apptSection" >
     <div *ngFor="let item of appointments; let i = index">
-     <ion-item *ngIf="i < 3">
+     <ion-item class="appointmentItem" *ngIf="i < 3">
       <ion-row>
         <div class="appt">{{item.date}} </div>
         <div class="appt">{{item.start}} </div>  
@@ -35,10 +35,10 @@
     </div>
   </div>
   <br>
-  <div *ngIf="bookFlag===true">
-  	<h4>Review Past Appointments</h4>
+  <h4 *ngIf="bookFlag===true">Review Past Appointments</h4>
+  <div class="dashSection" *ngIf="bookFlag===true">
     <div *ngFor="let pastAppointment of pastAppointments; let j = index">
-     <ion-item *ngIf="j < 3">
+     <ion-item class="appointmentItem" *ngIf="j < 3">
       <ion-row>
         <div class="appt" >{{pastAppointment.date}}</div>
         <div class="appt">{{pastAppointment.start}} </div>  
@@ -55,13 +55,12 @@
      </ion-item>
     </div>
   </div>
-
+  <h4 *ngIf="earningsFlag===true">Review Past Appointments</h4>
   <div class="dashSection" *ngIf="earningsFlag===true">
-  	<h4>Monthly Earnings</h4>
     <chart [type]="type" [data]="dataChart2" [options]="options" *ngIf="chartFlag===true"></chart>
   </div>
+  <h4 *ngIf="earningsFlag===true">Rating Analytics</h4>
   <div class="dashSection" *ngIf="ratingsFlag===true">
-  	<h4>Rating Analytics</h4>
     <chart [type]="type" [data]="dataChart" [options]="options" *ngIf="rateChartFlag===true"></chart>
   </div>
   <ion-row>
