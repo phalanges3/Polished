@@ -101,7 +101,7 @@ export class SelectservicePage {
         console.log("in post ", address.json())
         let addressRes = address.json()
         console.log("address", addressRes.results)
-        if(addressRes.results[0].address_components[0]===undefined){
+        if(addressRes.results[0].address_components[0] === undefined){
           console.log("geolocation unavailable")
         }
         this.geoResult.houseNumber = addressRes.results[0].address_components[0].long_name

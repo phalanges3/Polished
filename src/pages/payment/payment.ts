@@ -44,10 +44,7 @@ if (!braintreeHasBeenSetup) {
         }
       })
     }
-     
-
-    
-  }
+}
   
   openAlert() {
     let confirm = this.alertCtrl.create({
@@ -60,7 +57,7 @@ if (!braintreeHasBeenSetup) {
             this.navCtrl.push(NailtechdashboardPage, {data: this.userInfo})
         }
       }]
-})
-confirm.present()
-}
+    })
+    confirm.present()
+  }
 }

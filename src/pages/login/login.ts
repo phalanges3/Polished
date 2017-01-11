@@ -6,9 +6,7 @@ import 'rxjs/add/operator/map'
 import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
 import { PaymentPage } from '../payment/payment'
 import { LoadingController } from 'ionic-angular'
-// import { LocalNotifications } from 'ionic-native';
 import { SignUpPage } from '../signup/signup'
-
 
 @Component({
   selector: 'page-login',
@@ -61,29 +59,23 @@ export class LoginPage {
         })
   }
 
-  // logout() {
-  //    localStorage.clear()
-  // }
-
-  presentLoading() {
- 
-    this.loader = this.loadingCtrl.create({
+ presentLoading() {
+  this.loader = this.loadingCtrl.create({
       content: "Logging into your account..."
       
-    });
-    this.loader.present();
+  })
+    this.loader.present()
     setTimeout(() => {
-    this.loader.dismiss()
+      this.loader.dismiss()
     }, 1300)
-
-  }
+}
 
 ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-  }
+}
 
-  goToSignUp() {
+goToSignUp() {
     this.navCtrl.push(SignUpPage)
-  }
+}
  
 }
