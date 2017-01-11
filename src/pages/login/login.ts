@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { NavController, NavParams, AlertController } from 'ionic-angular'
-import { UsernameValidator } from  '../../validators/username'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
@@ -16,23 +15,22 @@ import { SignUpPage } from '../signup/signup'
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  private loginURL = 'http://localhost:3000/api/user/login'
- loader: any
-loginForm: FormGroup;
-submitAttempt: boolean = false;
- constructor(
-      public navCtrl: NavController, 
-      public navParams: NavParams, 
-      public formBuilder: FormBuilder, 
-      public http: Http,
-      public alertCtrl: AlertController,
-      public loadingCtrl: LoadingController
-      ) {
-       this.loginForm = formBuilder.group({
-        userName: [''],
-        password: ['']
-      })
-    }
+  loader: any
+  loginForm: FormGroup;
+  submitAttempt: boolean = false;
+  constructor(
+        public navCtrl: NavController, 
+        public navParams: NavParams, 
+        public formBuilder: FormBuilder, 
+        public http: Http,
+        public alertCtrl: AlertController,
+        public loadingCtrl: LoadingController
+        ) {
+        this.loginForm = formBuilder.group({
+          userName: [''],
+          password: ['']
+        })
+      }
 
   addLogin() {
       this.submitAttempt = true;
@@ -51,16 +49,6 @@ submitAttempt: boolean = false;
           alert.present();
           }
           else  {
-            // localStorage.setItem('UserLoggedIn', 'true')
-            // localStorage.setItem('userName', response.userName)
-            // localStorage.setItem('isVendor', response.isVendor)
-            // localStorage.setItem('profile_image_url', response.profile_image_url)
-            // localStorage.setItem('firstName', response.firstName)
-            // localStorage.setItem('lastName', response.lastName)
-            // localStorage.setItem('email', response.email)
-            // localStorage.setItem('general_rating', response.general_rating)
-            // localStorage.setItem('zipCode', response.zipCode)
-            // localStorage.setItem('id', response.id)
              console.log("is response", response)
             this.navCtrl.push(NailtechdashboardPage, {
                 data: response

@@ -12,7 +12,6 @@ import { AvailabilityPage} from '../pages/availability/availability'
 import { ProfilePage} from '../pages/profile/profile'
 import { Ionic2RatingModule } from 'ionic2-rating'
 import { Bookartist } from '../providers/bookartist'
-import { ModalContentPage  } from '../profile/modal'
 import { PaymentPage  } from '../pages/payment/payment'
 import { NailartistpagePage } from '../pages/nailartistpage/nailartistpage';
 import { ProfilePicsRevs } from '../providers/profile-pics-revs';
