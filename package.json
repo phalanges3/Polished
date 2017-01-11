@@ -11,6 +11,9 @@
     "ionic:serve": "ionic-app-scripts serve",
     "test": "standard --fix"
   },
+  "engines": {
+    "node": "6.9.2"
+  },
   "dependencies": {
     "@angular/common": "2.2.1",
     "@angular/compiler": "2.2.1",
