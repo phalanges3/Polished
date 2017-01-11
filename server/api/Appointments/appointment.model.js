@@ -1,7 +1,6 @@
 const Appointment = require('./appointment.schema')
-const User = require('../users/user.schema')
-const Schedule = require('../schedule/schedule.schema')
-const Review = require('../reviews/review.schema')
+const User = require('../Users/user.schema')
+const Schedule = require('../Schedule/schedule.schema')
 
 module.exports = {
   findAvailableArtists: (req, res) => {
@@ -29,7 +28,6 @@ module.exports = {
         results[i].general_rating = (results[i].general_rating / 100)
         console.log('general rating / 100 ', results[i].general_rating)
         if (results[i].appointments.length === 0) {
-
           filtered.push(results[i])
         } else {
           for (var j = 0; j < results[i].appointments.length; j++) {

@@ -9,7 +9,7 @@ const Service = db.define('service', {
   }
 })
 
-// relationships
+// Relationships
 Service.belongsToMany(User, {through: 'UsersServices', foreignKey: 'userId'})
 User.belongsToMany(Service, {through: 'UsersServices', foreignKey: 'serviceId'})
 
