@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-
-/*
-  Generated class for the Availability page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-availability',
   templateUrl: 'availability.html'
@@ -19,9 +12,14 @@ export class AvailabilityPage {
   data: any
   hours: FormGroup
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public http: Http) {
-    this.data = this.navParams.get("data")
-    this.hours = formBuilder.group({
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private formBuilder: FormBuilder, 
+    public http: Http
+    ) {
+      this.data = this.navParams.get("data")
+      this.hours = formBuilder.group({
       // startSun: '',
       // endSun: '',
       // startMon: '',
@@ -46,7 +44,7 @@ export class AvailabilityPage {
       // fri: false,
       // sat: false,
       // sun: false
-    });
+    })
     
   }
 
