@@ -35,7 +35,7 @@ export class LoginPage {
       console.log("loginformvalue!", this.loginForm.value)
       console.log(this.http.post, "HTTP")
         var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Content-Type', 'application/json');
         headers.append('Access-Control-Allow-Origin', '*')
       return this.http
         .post('api/user/login', this.loginForm.value, {headers})
