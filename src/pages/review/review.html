@@ -65,19 +65,19 @@
 
 
       <ion-item>
-        <video *ngIf="vidFlag" #video width="320" height="240" autoplay></video>
+        <video *ngIf="vidFlag" #video width="100%" height="100%" autoplay></video>
         <img [src]="imageUrl" *ngIf="imageUrl">
         <canvas id="canvas" *ngIf="vidFlag"></canvas>
       </ion-item>
       <ion-item>
         <!--<img [src]="imageUrl" *ngIf="imageUrl">-->
-      <button *ngIf="buttonFlag" ion-button small id="startbutton" (click)="takepicture()">Take photo</button>
-      <button *ngIf="buttonFlag" ion-button small (click)="saveImage(imageUrl)">Use Photo</button>
-      <button *ngIf="buttonFlag" ion-button small (click)="clearImage()">Clear Photo</button>
-      <ion-row *ngIf="readyMark" class="locationCaptured" icon-right> 
-        Your photo is ready!
-      <ion-icon name="checkmark"></ion-icon>
-      </ion-row>
+      <button *ngIf="buttonFlag && usedTakePicButton" ion-button small id="startbutton" (click)="takepicture()" item-left>Take photo</button>
+      <button *ngIf="buttonFlag && tookPhoto" ion-button small (click)="saveImage(imageUrl)" item-right>Use Photo</button>
+      <button *ngIf="buttonFlag && tookPhoto" ion-button small (click)="clearImage()" item-right>Clear Photo</button>
+        <ion-row *ngIf="readyMark" class="locationCaptured" icon-right> 
+          Your photo is ready!
+        <ion-icon name="checkmark"></ion-icon>
+        </ion-row>
       </ion-item>
 
   </ion-card>
