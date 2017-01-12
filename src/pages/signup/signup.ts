@@ -38,9 +38,7 @@ signupForm: FormGroup
  
     addSignup(){
       this.submitAttempt = true
-      
-
-      if (this.signupForm.value.isVendor === 'true') {
+        if (this.signupForm.value.isVendor === 'true') {
           this.signupForm.value.isVendor = 1
       }
         else {
