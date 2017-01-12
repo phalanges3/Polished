@@ -46,7 +46,7 @@ signupForm: FormGroup
         }
       console.log("success!", this.signupForm.value.isVendor)
       this.http
-        .post('api/user/signup', this.signupForm.value)
+        .post('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/signup', this.signupForm.value)
         .map((res) => {
           let response = res.json()
           console.log('response.nail: ', response)

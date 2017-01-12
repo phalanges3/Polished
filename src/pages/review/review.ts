@@ -6,12 +6,6 @@ import { Platform } from 'ionic-angular';
 import {ViewChild, ViewChildren, QueryList, ElementRef} from '@angular/core'
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-/*
-  Generated class for the Review page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-review',
   templateUrl: 'review.html'
