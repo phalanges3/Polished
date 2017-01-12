@@ -24,7 +24,7 @@ export class ReviewPage {
   
   data: any;
   imageUrl: any = null;
-  vidFlag: any = true;
+  vidFlag: any = false;
   cloudinaryUrl: any;
   buttonFlag: any = false;
   readyMark: any = false;
@@ -111,7 +111,8 @@ export class ReviewPage {
     // console.log(this.platform.platforms());
     // console.log('heres the check photo ', this.platform.is("core"))
     if (this.platform.is("core")) {
-      this.buttonFlag = true
+      this.vidFlag = true;
+      this.buttonFlag = true;
       this.usedTakePicButton = true;
       //console.log('opening laptop camera ')
       console.log('heres video!! ', this.video)
