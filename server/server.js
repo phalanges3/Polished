@@ -4,7 +4,7 @@ const app = express()
 const http = require('http')
 const https = require('https')
 const HTTP_PORT = process.env.PORT || 3000
-const HTTPS_PORT = 443
+const HTTPS_PORT = 1443
 const routes = require('./api/routes.main')
 const fs = require('fs')
 
