@@ -4,13 +4,6 @@ import 'rxjs/add/operator/map';
 import { LocalNotifications } from 'ionic-native';
 import * as moment from 'moment/moment';
 
-
-/*
-  Generated class for the Bookartist provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class Bookartist {
 
@@ -64,7 +57,7 @@ export class Bookartist {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json')
 
-    return this.http.post('api/appointment/addappointment', body, {
+    return this.http.post('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/appointment/addappointment', body, {
       headers: headers
     })
       .map((data: Response) => data.json())
