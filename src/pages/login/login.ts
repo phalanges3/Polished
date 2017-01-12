@@ -36,9 +36,9 @@ export class LoginPage {
       console.log(this.http.post, "HTTP")
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        headers.append('Access-Control-Allow-Origin', '*')
+        // headers.append('Access-Control-Allow-Origin', '*')
       return this.http
-        .post('api/user/login', this.loginForm.value, {headers})
+        .post('api/user/login', JSON.stringify(this.loginForm.value), {headers})
         .map((res) => {
           let response = res.json()
           if ( response === null) {
