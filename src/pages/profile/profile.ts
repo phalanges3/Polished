@@ -179,7 +179,7 @@ export class ProfilePage {
             handler: data => {
               console.log('Saved clicked', data);
               this.updateFlag1 = true;
-              this.http.put('http://localhost:3000/api/user/update', ({"userName": this.data.userName, "phoneNumber": data.phoneNumber}))
+              this.http.put('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/update', ({"userName": this.data.userName, "phoneNumber": data.phoneNumber}))
               .subscribe(result => {
                 console.log('result', result)
                 this.data.phoneNumber = data.phoneNumber
