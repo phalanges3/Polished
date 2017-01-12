@@ -56,7 +56,7 @@ export class ProfilePage {
             handler: data => {
               console.log('Saved clicked', data);
               this.updateFlag1 = true;
-              this.http.put('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/update', ({"userName": this.data.userName, "firstName": data.firstName, "lastName": data.lastName, "email": data.email}))
+              this.http.put('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/user/update', ({"userName": this.data.userName, "firstName": data.firstName, "lastName": data.lastName, "email": data.email}))
               .subscribe(result => {
                 console.log('result', result)
                 this.data.firstName = data.firstName
@@ -108,7 +108,7 @@ export class ProfilePage {
             handler: data => {
               console.log('Saved clicked', data);
               this.updateFlag1 = true;
-              this.http.put('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/update', ({"userName": this.data.userName, "houseNumber": data.houseNumber, "streetName": data.street, "city": data.city, "state": data.state, "zipCode": data.zipCode}))
+              this.http.put('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/user/update', ({"userName": this.data.userName, "houseNumber": data.houseNumber, "streetName": data.street, "city": data.city, "state": data.state, "zipCode": data.zipCode}))
               .subscribe(result => {
                 console.log('result', result)
                 this.data.houseNumber = data.houseNumber
@@ -146,7 +146,7 @@ export class ProfilePage {
             handler: data => {
               console.log('Saved clicked', data);
               this.updateFlag1 = true;
-              this.http.put('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/update', ({"userName": this.data.userName, "nailCertification": data.license}))
+              this.http.put('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/user/update', ({"userName": this.data.userName, "nailCertification": data.license}))
               .subscribe(result => {
                 console.log('result', result)
                 this.data.nailCertification = data.license
@@ -179,7 +179,7 @@ export class ProfilePage {
             handler: data => {
               console.log('Saved clicked', data);
               this.updateFlag1 = true;
-              this.http.put('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/update', ({"userName": this.data.userName, "phoneNumber": data.phoneNumber}))
+              this.http.put('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/user/update', ({"userName": this.data.userName, "phoneNumber": data.phoneNumber}))
               .subscribe(result => {
                 console.log('result', result)
                 this.data.phoneNumber = data.phoneNumber

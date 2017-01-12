@@ -57,7 +57,7 @@ export class Bookartist {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json')
 
-    return this.http.post('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/appointment/addappointment', body, {
+    return this.http.post('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/appointment/addappointment', body, {
       headers: headers
     })
       .map((data: Response) => data.json())
