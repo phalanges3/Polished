@@ -34,6 +34,7 @@ router.post('/checkouts', function (req, res) {
     } else {
       transactionErrors = result.errors.deepErrors()
     }
+    console.log('RESULT: ', result)
     res.send("payment")
   })
 })
