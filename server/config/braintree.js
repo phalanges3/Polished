@@ -18,7 +18,7 @@ router.get('/client_token', function (req, res) {
 })
 
 router.post('/checkouts', function (req, res) {
-  var transactionErrors
+  let transactionErrors
   var amount = req.body.amount // In production you should not take amounts directly from clients
   var nonce = req.body.payment_method_nonce
 
