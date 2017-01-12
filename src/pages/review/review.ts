@@ -28,7 +28,10 @@ export class ReviewPage {
   cloudinaryUrl: any;
   buttonFlag: any = false;
   readyMark: any = false;
-  nativeElement : any;
+  nativeElement: any;
+  usedTakePicButton: any = false;
+  tookPhoto: any = false;
+  gallery: any = false;
   // markers: any = {
   //   firstName: 'George',
   //   lastName: 'Cantstanya',
@@ -79,6 +82,8 @@ export class ReviewPage {
       context.drawImage(this.video, 0, 0, this.width, this.height);
       this.vidFlag = false;
       this.imageUrl = this.canvas.toDataURL('image/png');
+      this.usedTakePicButton = false;
+      this.tookPhoto = true;
     }
   }
 
@@ -87,12 +92,18 @@ export class ReviewPage {
     // context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.imageUrl = null
     this.vidFlag = true
+    this.usedTakePicButton = true;
+    this.tookPhoto = false;
     // this.imageUrl = this.canvas.toDataURL('image/png');
     this.video = document.getElementById('video');
     // this.takePhoto();
     // console.log('finished clear ', this.video)
     // console.log('finished clear ', this.video.elementRef)
     // console.log('finished clear ', this.video)
+    setTimeout(() => {
+      this.takePhoto();
+    }, 1)
+    
   }
 
   takePhoto() {
@@ -101,6 +112,7 @@ export class ReviewPage {
     // console.log('heres the check photo ', this.platform.is("core"))
     if (this.platform.is("core")) {
       this.buttonFlag = true
+      this.usedTakePicButton = true;
       //console.log('opening laptop camera ')
       console.log('heres video!! ', this.video)
       this.video = this.video.nativeElement;
@@ -126,14 +138,22 @@ export class ReviewPage {
   }
 
    accessGallery(){
-   Camera.getPicture({
-     sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-     destinationType: Camera.DestinationType.DATA_URL
-    }).then((imageData) => {
-      this.imageUrl = 'data:image/jpeg;base64,'+imageData;
-     }, (err) => {
-      console.log(err);
-    });
+     if (this.platform.is("core")) {
+       this.gallery = true;
+       console.log('entering browser ')
+
+     }
+     else {
+        Camera.getPicture({
+        sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+        destinationType: Camera.DestinationType.DATA_URL
+        }).then((imageData) => {
+          this.imageUrl = 'data:image/jpeg;base64,'+imageData;
+        }, (err) => {
+          console.log(err);
+        });
+      }
+
   }
 
   saveImage(image) {
