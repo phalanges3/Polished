@@ -35,7 +35,7 @@ export class LoginPage {
       console.log("loginformvalue!", this.loginForm.value)
       console.log(this.http.post, "HTTP")
       return this.http
-        .post('api/user/login', this.loginForm.value)
+        .post('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/login', this.loginForm.value)
         .map((res) => {
           let response = res.json()
           if ( response === null) {
