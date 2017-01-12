@@ -1,42 +1,24 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @JackieCabinet
- Watch 1
-  Star 0
- Fork 3 jcpace/indulge
-forked from phalanges3/indulge
- Code  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
-Branch: dev Find file Copy pathindulge/src/pages/selectservice/selectservice.html
-26be5ef  4 hours ago
-@jcpace jcpace [progress] styling
-3 contributors @JackieCabinet @jcpace @jacuchilla
-RawBlameHistory     
-202 lines (196 sloc)  7.47 KB
-
 <ion-header>
   <ion-navbar>
     <ion-title>Booking</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content class="page" padding>
-   <form [formGroup]="bookInfo">
-   <h4>Manicure, Pedicure, or Both?</h4>
-   <ion-row>
-     <ion-item>
-       <ion-label floating></ion-label>
-        <ion-select placeholder="Select Services" formControlName="service">
+   <form class="bookForm" [formGroup]="bookInfo">
+   <h4 class='bookHead'>Manicure, Pedicure, or Both?</h4>
+   <ion-row class="selectBook">
+    <ion-col>
+    <ion-item class="selectBook">
+        <ion-select placeholder="Services" formControlName="service">
           <ion-option value="Manicure">Manicure $18</ion-option>
           <ion-option value="Pedicure">Pedicure $25</ion-option>
           <ion-option value="Mani-Pedi">Mani-Pedi $35 </ion-option>
         </ion-select>
-     </ion-item>
-     <ion-item class="service-check">
-       <ion-label floating></ion-label>
-        <ion-select placeholder="Add Ons" formControlName="addOns" multiple="true">
+    </ion-item>
+    </ion-col>
+    <ion-col>
+    <ion-item class="selectBook">
+        <ion-select  placeholder="Add Ons" formControlName="addOns" multiple="true">
           <ion-option name="addon" value="scrub"> Sea Salt Scrub $5</ion-option>
           <ion-option name="addon" value="nailart"> Nail Art $5</ion-option>
           <ion-option name="addon" value="reflexology"> Reflexology Massage $10</ion-option>
@@ -44,12 +26,13 @@ RawBlameHistory
           <ion-option name="addon" value="acrylic"> Acrylics $10</ion-option>
           <ion-option name="addon" value="parrafin"> Lavender Parrafin $10</ion-option>
         </ion-select>
-     </ion-item>
+    </ion-item>
+    </ion-col>
    </ion-row>
    <!-- <h4>Where is most convenient for you?</h4> -->
    <ion-row> 
-    <ion-col class="addressButs"><button ion-button full (click) = "enterAddress()">Enter Address</button></ion-col>
-    <ion-col class="addressButs"><button ion-button full (click) = "geoLocate()">Use My Location</button></ion-col>
+    <ion-col ><button class="addressButs"  ion-button full (click) = "enterAddress()">Enter Address</button></ion-col>
+    <ion-col ><button class="addressButs" ion-button full (click) = "geoLocate()">Use My Location</button></ion-col>
    </ion-row>
    <ion-row *ngIf="geolocationFlag === true" class="locationCaptured" icon-right> 
      Your location has been captured
@@ -62,44 +45,51 @@ RawBlameHistory
    <ion-row  *ngIf="addressFlag === true">
      <ion-col>
        <ion-item>
-         <ion-label floating></ion-label>
         <ion-input placeholder="###" formControlName="houseNumber"></ion-input>
        </ion-item>
      </ion-col>
      <ion-col>
        <ion-item>
-         <ion-label floating></ion-label>
          <ion-input placeholder="Unit" formControlName="unitNumber"></ion-input>
        </ion-item>
      </ion-col>
      <ion-col>
        <ion-item>
-         <ion-label floating></ion-label>
          <ion-input  placeholder="Street"  formControlName="street"></ion-input>
        </ion-item>
      </ion-col>
   </ion-row>
   <ion-row *ngIf="addressFlag === true">
+    <ion-col>
     <ion-item>
       <ion-input placeholder= "City" formControlName="city"></ion-input>
     </ion-item>
+    </ion-col>
+    <ion-col>
     <ion-item>
       <ion-input placeholder= "State" formControlName="state"></ion-input>
     </ion-item>
+    </ion-col>
+    <ion-col>
     <ion-item>
       <ion-input placeholder= "Zip" formControlName="zipCode"></ion-input>
     </ion-item>
+    </ion-col>
   </ion-row>
-  <h4>When would you like your nails done?</h4>
+  <h4 class='bookHead'>When would you like your nails done?</h4>
   <ion-row>
+     <ion-col>
      <ion-item>
         <ion-label> <ion-icon name="calendar"></ion-icon>  Date</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
      </ion-item>
+     </ion-col>
+     <ion-col>
      <ion-item>
         <ion-label><ion-icon name="time"></ion-icon>  Time</ion-label>
         <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="time"></ion-datetime>
      </ion-item>
+     </ion-col>
    </ion-row>
 
    
@@ -211,12 +201,13 @@ RawBlameHistory
         <option>pm</option>
       </select>
    </form> -->
+    <button class="findAvailable" ion-button full (click) = "navigate()">Find Next Available</button>
    </form>
    <ion-row *ngIf="noArtist" icon-right class="wrongAddress">
      No nail technicians in this area, try searching a different day, time, or address.
      <ion-icon name="close-circle"></ion-icon>
    </ion-row>
-   <button ion-button full (click) = "navigate()">Find Next Available</button>
+  
 </ion-content>
 Contact GitHub API Training Shop Blog About
 © 2017 GitHub, Inc. Terms Privacy Security Status Help

@@ -124,63 +124,112 @@ export class NailtechdashboardPage {
           console.log(this.pastAppointments[h][0].date.slice(5,7), "sliced month in for loop")
           if(this.pastAppointments[h][0].date.slice(5,7) === "01"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[0]+= parseInt(this.pastAppointments[h][0].total)
+              if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[0]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[0]+= parseInt(this.pastAppointments[h][0].total)
+              }
+              
             } 
             console.log('new Jan total', this.earningAvgs[0])
           }  else if(this.pastAppointments[h][0].date.slice(5,7) === "02"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[1]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[1]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[1]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
             console.log('new Feb total', this.earningAvgs[0])
           }
            if(this.pastAppointments[h][0].date.slice(5,7) === "03"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[2]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[2]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[2]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "04"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[3]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[3]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[3]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "05"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[4]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[4]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[4]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "06"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[5]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[5]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[5]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "07"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[6]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[6]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[6]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "08"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[7]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[7]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[7]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "09"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[8]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[8]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[8]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "10"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[9]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[9]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[9]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "11"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[10]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[10]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[10]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           if(this.pastAppointments[h][0].date.slice(5,7) === "12"){
             if(this.pastAppointments[h][0].total){
-              this.earningAvgs[11]+= parseInt(this.pastAppointments[h][0].total)
+               if(this.pastAppointments[h][0].total[0]==="$"){
+                this.earningAvgs[11]+= parseInt(this.pastAppointments[h][0].total.slice(1))
+              } else {
+                this.earningAvgs[11]+= parseInt(this.pastAppointments[h][0].total)
+              }
             } 
           }
           
