@@ -14,12 +14,12 @@
 
 
 <ion-content class="page" padding>
-  <h4>Upcoming Appointments</h4>
+  <h4 class="apptHead">Upcoming Appointments</h4>
   <div class="apptSection" >
     <div *ngFor="let item of appointments; let i = index">
      <ion-item class="appointmentItem" *ngIf="i < 3">
       <ion-row>
-        <div class="appt">{{item.date}} </div>
+        <div class="appt">{{item.date}}  </div>
         <div class="appt">{{item.start}} </div>  
       </ion-row>
       <ion-row>
@@ -27,7 +27,7 @@
         <div class="appt"> {{item.services_selected}} </div> 
         <div class="appt"> Total: {{item.total}}</div>
       </ion-row>
-      <button ion-button very-small outline item-right icon-right *ngIf="earningsFlag===true" (click)="goToDirections(item)">
+      <button class="directBut" ion-button very-small outline item-right icon-right *ngIf="earningsFlag===true" (click)="goToDirections(item)">
           Directions
            <ion-icon name="compass"></ion-icon>
       </button>
@@ -35,8 +35,8 @@
     </div>
   </div>
   <br>
-  <h4 *ngIf="bookFlag===true">Review Past Appointments</h4>
-  <div class="dashSection" *ngIf="bookFlag===true">
+  <h4 class="apptHead" *ngIf="bookFlag===true">Review Past Appointments</h4>
+  <div class="apptSection" *ngIf="bookFlag===true">
     <div *ngFor="let pastAppointment of pastAppointments; let j = index">
      <ion-item class="appointmentItem" *ngIf="j < 3">
       <ion-row>
@@ -48,30 +48,30 @@
         <div class="appt"> {{pastAppointment.services_selected}} </div> 
         <div class="appt"> Total: {{pastAppointment.total}}</div>
       </ion-row>
-        <button ion-button very-small outline item-right icon-right (click)="reviewModal(pastAppointment)">
+        <button class="directBut" ion-button very-small outline item-right icon-right (click)="reviewModal(pastAppointment)">
           Review
           <ion-icon name="text"></ion-icon>
         </button>
      </ion-item>
     </div>
   </div>
-  <h4 *ngIf="earningsFlag===true">Review Past Appointments</h4>
+  <h4 class="chartHead" *ngIf="earningsFlag===true">Monthly Earnings </h4>
   <div class="dashSection" *ngIf="earningsFlag===true">
     <chart [type]="type" [data]="dataChart2" [options]="options" *ngIf="chartFlag===true"></chart>
   </div>
-  <h4 *ngIf="earningsFlag===true">Rating Analytics</h4>
+  <h4 class="chartHead" *ngIf="earningsFlag===true">Rating Analytics</h4>
   <div class="dashSection" *ngIf="ratingsFlag===true">
     <chart [type]="type" [data]="dataChart" [options]="options" *ngIf="rateChartFlag===true"></chart>
   </div>
   <ion-row>
     <ion-col width-40  *ngIf="updateHoursFlag===true">
-    <button ion-button full  (click) = "goToAvailability()">Adjust Hours</button>
+    <button class="dashBut" ion-button full  (click) = "goToAvailability()">Adjust Hours</button>
     </ion-col>
     <ion-col width-40 *ngIf="bookFlag===true">
-    <button ion-button full (click) = "goToBook()">Book Now</button>
+    <button class="dashBut" ion-button full (click) = "goToBook()">Book Now</button>
     </ion-col>
     <ion-col width-40>
-    <button ion-button full (click)="goToProfile()">Update Account</button>
+    <button class="dashBut" ion-button full (click)="goToProfile()">Update Account</button>
     </ion-col>
   </ion-row>
 </ion-content>

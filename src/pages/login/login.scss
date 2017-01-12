@@ -25,7 +25,7 @@
         }
  
         ion-input, ion-select, ion-textarea {
-            background-color: #6E0BBA;
+            background-color: rgba(255, 248, 168, 1);
             padding: 5px 10px;
             margin-left: -5px;
             color: black;
@@ -55,16 +55,24 @@ ion-input{
 }
 
 .loginBut{
-  background-color: #3C94CF
+  background-color: #3C94CF;
 }
 
 .sign{
    background-color: rgba(0, 0, 0, .7);
+   color: rgba(255, 248, 168, 1);
+   padding-right: 20px;
+}
+#firstTime{
+  color: rgba(255, 248, 168, 1);
+  text-align: right;
+  
 }
 
 .polished{
   margin-top: 50px;
-  color: white;
+  color: rgba(253,11,5,1);
   background-color: rgba(0, 0, 0, .7);
   font-size: 24pt;
+  padding-left: 20px;
 }

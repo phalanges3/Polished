@@ -1,31 +1,35 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title></ion-title>
+  <ion-navbar >
+    <ion-title class="accountHead">Update Account</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="page" padding>
-  <ion-card>
+  <div class="screen">
+  <ion-card class="updateCard">
   <ion-row>
-  <ion-col width-35><ion-img width="80" height="80" src={{this.data.profile_image_url}}></ion-img></ion-col>
-  <ion-col width-60><ion-card-content>
+  <ion-col width-35><ion-img width="80" height="65" src={{this.data.profile_image_url}}>
+  </ion-img></ion-col>
+  <ion-col width-60><ion-card-content>     
     <p>{{this.data.firstName}} {{this.data.lastName}}</p>
     <p>{{this.data.email}}</p>
-    <p>{{this.data.phone}}</p><ion-icon (click)="showPrompt()" name="create"></ion-icon>
+    <p>{{this.data.phone}}</p>
+    <ion-icon class="pencil" (click)="showPrompt()" name="create"></ion-icon>
   </ion-card-content></ion-col>
   </ion-row>
 </ion-card>
-<ion-card>
+<ion-card class="upCard">
   <ion-card-header>
     Address:
+  <ion-icon class = pencil (click)="showPrompt2()" name="create"></ion-icon>
   </ion-card-header>
   <ion-card-content>
     <p>{{this.data.houseNumber}} {{this.data.streetName}}</p>
     <p>{{this.data.unitType}} {{this.data.unitNumber}}</p>
-    <p>{{this.data.city}}, {{this.data.state}} {{this.data.zipCode}}</p><ion-icon (click)="showPrompt2()" name="create"></ion-icon>  
+    <p>{{this.data.city}}, {{this.data.state}} {{this.data.zipCode}}</p>
   </ion-card-content>
 </ion-card>
 <!-- <ion-card>
@@ -36,13 +40,23 @@
      <p>@jaqueline</p><ion-icon (click)="showUpdateModal()" name="create"></ion-icon> 
   </ion-card-content>
 </ion-card> -->
-<ion-card *ngIf="licenseFlag===true">
+<ion-card class="upCard" *ngIf="licenseFlag===true">
   <ion-card-header>
     License:
+    <ion-icon class="pencil" (click)="showPrompt3()" name="create"></ion-icon>
   </ion-card-header>
   <ion-card-content> 
-    <p>{{this.data.nailCertification}}</p><ion-icon (click)="showPrompt3()" name="create"></ion-icon>
+    <p>{{this.data.nailCertification}}</p>
   </ion-card-content>
 </ion-card>
-
+<ion-card class="upCard" *ngIf="licenseFlag===false">
+  <ion-card-header>
+    Cellphone #:
+    <ion-icon class="pencil" (click)="showPrompt4()" name="create"></ion-icon>
+  </ion-card-header>
+  <ion-card-content> 
+    <p>{{this.data.phoneNumber}}</p>
+  </ion-card-content>
+</ion-card>
+</div>
 </ion-content>
