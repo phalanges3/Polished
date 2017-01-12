@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { NavController, NavParams, AlertController } from 'ionic-angular'
-import { Http } from '@angular/http'
+import { Http, Headers } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { NailtechdashboardPage} from '../nailtechdashboard/nailtechdashboard'
 import { PaymentPage } from '../payment/payment'
@@ -34,8 +34,11 @@ export class LoginPage {
       this.submitAttempt = true;
       console.log("loginformvalue!", this.loginForm.value)
       console.log(this.http.post, "HTTP")
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Access-Control-Allow-Origin', '*')
       return this.http
-        .post('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/login', this.loginForm.value)
+        .post('api/user/login', this.loginForm.value, {headers})
         .map((res) => {
           let response = res.json()
           if ( response === null) {
