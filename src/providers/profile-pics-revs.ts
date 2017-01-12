@@ -21,7 +21,7 @@ export class ProfilePicsRevs {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json')
 
-    return this.http.post('api/review/getreviews', body, {
+    return this.http.post('http://192.168.1.53:3000/api/review/getreviews', body, {
       headers: headers
     })
       .map((data: Response) => data.json())

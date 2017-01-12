@@ -34,11 +34,11 @@ export class LoginPage {
       this.submitAttempt = true;
       console.log("loginformvalue!", this.loginForm.value)
       console.log(this.http.post, "HTTP")
-        // var headers = new Headers();
-        // headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        // headers.append('Access-Control-Allow-Origin', '*')
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Access-Control-Allow-Origin', '*')
       return this.http
-        .post('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/user/login', this.loginForm.value)
+        .post('http://192.168.1.53:3000/api/user/login', this.loginForm.value, headers)
         .map((res) => {
           let response = res.json()
           if ( response === null) {

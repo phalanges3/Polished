@@ -59,7 +59,7 @@ export class AvailabilityPage {
     	}
     }
     for(var  i = 0; i < this.hours.value.day.length; i++){
-       this.http.put('http://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:3000/api/schedule/updatehours', ({"userId": this.data.id, "day": this.hours.value.day[i], "start": this.hours.value.start, "end": this.hours.value.end}), this.headers)
+       this.http.put('http://192.168.1.53:3000/api/schedule/updatehours', ({"userId": this.data.id, "day": this.hours.value.day[i], "start": this.hours.value.start, "end": this.hours.value.end}), this.headers)
        .subscribe(data => {
           console.log('DATA in availability PUT: ', data)
        })

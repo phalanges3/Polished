@@ -7,7 +7,7 @@
    <form class="bookForm" [formGroup]="bookInfo">
    <h4 class='bookHead'>Manicure, Pedicure, or Both?</h4>
    <ion-row class="selectBook">
-    <ion-col>
+    <ion-col width-49>
     <ion-item class="selectBook">
         <ion-select placeholder="Services" formControlName="service">
           <ion-option value="Manicure">Manicure $18</ion-option>
@@ -16,7 +16,7 @@
         </ion-select>
     </ion-item>
     </ion-col>
-    <ion-col>
+    <ion-col width-49>
     <ion-item class="selectBook">
         <ion-select  placeholder="Add Ons" formControlName="addOns" multiple="true">
           <ion-option name="addon" value="scrub"> Sea Salt Scrub $5</ion-option>

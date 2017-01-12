@@ -3,9 +3,8 @@
   "author": "J3",
   "homepage": "http://ionicframework.com/",
   "private": true,
-  "scripts": {
-    "start": "nodemon server/server.js",
-    "ionic": "ionic serve --proxy-config ionic.config.json",
+   "scripts": {
+    "start": "ionic serve --lab --proxy-config proxy.config.json | nodemon server/server.js",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",

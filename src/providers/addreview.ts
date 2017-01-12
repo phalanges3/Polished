@@ -36,7 +36,7 @@ export class Addreview {
             genRating = review.rating * 100
           }
 
-          return this.http.put('api/user/update', {userName: review.nail_artist_username, general_rating: genRating})
+          return this.http.put('http://192.168.1.53/api/user/update', {userName: review.nail_artist_username, general_rating: genRating})
             .map((data: Response) => data.json())
             .subscribe(
               (data: any) => {
@@ -75,7 +75,7 @@ export class Addreview {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json')
 
-    return this.http.post('api/review/addreview', body, {
+    return this.http.post('http://192.168.1.53/api/review/addreview', body, {
       headers: headers
     })
       .map((data: Response) => data.json())

@@ -10,3 +10,32 @@ page-nailartistpage {
             font-family: 'Lato', sans-serif;
         }
 }
+
+.profilePic{
+    height: 120px;
+    width: 110px;
+    border-radius: 10pt;
+}
+
+.profBasic{
+    margin-left: 30px;
+}
+
+.slideItem{
+}
+
+.profSect{
+    border-radius: 10pt;
+    background-color: rgba(255,255,255,.9);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.basicSect{
+    border-radius: 10pt;
+    background-color: rgba(255,255,255,.9);
+    margin-bottom: 20px;
+}
+
+.profBasicHead{
+    padding-top: 10px;
+}
