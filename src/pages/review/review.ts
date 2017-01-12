@@ -114,7 +114,7 @@ export class ReviewPage {
       this.vidFlag = true;
       this.buttonFlag = true;
       this.usedTakePicButton = true;
-      //console.log('opening laptop camera ')
+      console.log('opening laptop camera ', this.vidFlag)
       console.log('heres video!! ', this.video)
       this.video = this.video.nativeElement;
       console.log('heres video!! ', this.video)
@@ -130,8 +130,9 @@ export class ReviewPage {
     }
     else {
       Camera.getPicture().then((imageData) => {
-      this.imageUrl = imageData
+      this.imageUrl = imageData;
       console.log('heres the image from photo shot ', imageData)
+      this.saveImage(this.imageUrl);
       }, (err) => {
         console.log('Error on review takePhoto function ', err)
       })
@@ -150,6 +151,7 @@ export class ReviewPage {
         destinationType: Camera.DestinationType.DATA_URL
         }).then((imageData) => {
           this.imageUrl = 'data:image/jpeg;base64,'+imageData;
+          this.saveImage(this.imageUrl);
         }, (err) => {
           console.log(err);
         });
