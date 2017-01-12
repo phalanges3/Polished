@@ -160,6 +160,39 @@ export class ProfilePage {
       prompt3.present();
     }
 
+    showPrompt4(){
+      let prompt4 = this.alertCtrl.create({
+        title: 'Update Account Information',
+        inputs: [
+          {
+            name: 'phoneNumber',
+            placeholder: 'Phone Number'
+          }
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Save',
+            handler: data => {
+              console.log('Saved clicked', data);
+              this.updateFlag1 = true;
+              this.http.put('http://localhost:3000/api/user/update', ({"userName": this.data.userName, "phoneNumber": data.phoneNumber}))
+              .subscribe(result => {
+                console.log('result', result)
+                this.data.phoneNumber = data.phoneNumber
+              })
+            }
+          }
+        ]
+      });
+      prompt4.present();
+    }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage')
     //get request here

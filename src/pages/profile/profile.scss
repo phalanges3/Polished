@@ -3,3 +3,31 @@ page-profile {
             font-family: 'Lato', sans-serif;
         }
 }
+
+.updateCard{
+	margin-top: 70px;
+	border-radius: 10pt;
+	background-color: rgba(255,255,255,.8);
+}
+.upCard{
+	border-radius: 10pt;
+	padding-left: 20px;
+	background-color: rgba(255,255,255,.8);
+}
+ion-img{
+	margin-left: 30px;
+	margin-top: 15px;
+}
+.pencil{
+	color: rgb(1,93,140);
+	margin-left: 180px;
+}
+.screen{
+	background-color: rgba(1,93,140,.6);
+	padding: 10px;
+	margin: -20px;
+	padding-bottom: 200px;
+}
+.toolbar-background {
+  background-color: rgba(255, 248, 168, .8); 
+}
