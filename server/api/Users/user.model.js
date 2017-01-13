@@ -359,6 +359,15 @@ module.exports = {
       .catch((err) => {
         console.log('Error in seedUsers: ', err)
       })
-  }
+  },
+  deleteProfile: (req, res) => {
+    User
+      .findOne({where: {userName: req.body.userName}})
+      .then((user) => {
+        console.log('user: ', user)
+        if (user) {
+          user
+            .destroy()
+
 }
 
