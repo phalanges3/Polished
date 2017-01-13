@@ -103,5 +103,17 @@ module.exports = {
             .updateAttributes({}) // fill this in
         }
       })
+  },
+  deleteAppointment: (req, res) => {
+    Appointment
+      .findAll({where: {id: null}})
+      .then((appointment) => {
+        console.log('user: ', appointment)
+        if (appointment) {
+          appointment
+            .destroy()
+        }
+        res.send(appointment)
+      })
   }
 }
