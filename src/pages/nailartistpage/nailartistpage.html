@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>nailartistpage</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,42 +15,39 @@
 
 <ion-content class="page" padding>
   
-  <ion-card id="card">
-    <img src="{{ nailArtistInfo.profile_image_url }}">
-  </ion-card>
-
-  <ion-card id="card">
-    <ion-item>
-      <ion-card-title>
-      <h2> <b>{{ nailArtistInfo.firstName }} {{ nailArtistInfo.lastName }}</b> </h2>
-      </ion-card-title>
-      <h3> @{{ nailArtistInfo.userName }} </h3>
+  <div class="basicSect">
+    <ion-row class="basicSect">
+    <img class="profilePic" src="{{ nailArtistInfo.profile_image_url }}">
+    <div class="profBasic">
+      <h2 class="profBasicHead"> {{ nailArtistInfo.firstName }} {{ nailArtistInfo.lastName }} </h2>
       <rating [(ngModel)]="nailArtistInfo.general_rating" id="rating" readOnly="true"></rating>
-      <button ion-button small item-bottom icon-left full (click)="confirmBooking(nailArtistInfo)">
+      <button ion-button small item-bottom icon-left  (click)="confirmBooking(nailArtistInfo)">
         <ion-icon name="book"></ion-icon>
         Book
       </button>
-    </ion-item>
-  </ion-card>
+    </div>
+    </ion-row>
+  </div>
 
-  <ion-card id="card">
-    <ion-card-title>
-      <h1> <b>Pictures</b> </h1>
-    </ion-card-title>
-    <ion-item>
-      <ion-slides #mySlider [options]="mySlideOptions">
+
+  <div class="profSect">
+      <h1><b> Pictures</b></h1>
+    <div *ngIf="reviewFlag===true" class="profSect">
+      <ion-slides  #mySlider [options]="mySlideOptions">
         <ion-slide *ngFor="let photo of nailArtistReviews">
           <img src="{{ photo.image1 }}">
         </ion-slide>
       </ion-slides>
-    </ion-item>
-  </ion-card>
+    </div>
+    <div  *ngIf="reviewFlag===false">
+      <h2> No images submitted </h2>
+    </div>
+  </div>
 
-  <ion-card id="card">
-    <ion-card-title>
-      <h1> <b>Reviews</b> </h1>
-    </ion-card-title>
-    <ion-item *ngFor="let reviewer of nailArtistReviews" text-wrap>
+  <div class="profSect">
+    <h1> <b>Reviews</b> </h1>
+    <div  *ngIf="reviewFlag===true">
+    <ion-item  class="profSect" *ngFor="let reviewer of nailArtistReviews" text-wrap>
       <ion-thumbnail item-left>
         <img src="{{ reviewer.reviewer_profile_pic }}" id="itemPic">
         <h3> <b>{{ reviewer.reviewer_first }}</b> </h3>
@@ -60,7 +57,9 @@
         {{ reviewer.review_content }}
       </p>
     </ion-item>
-  </ion-card>
-
-
+    </div>
+     <div  *ngIf="reviewFlag===false">
+      <h2> Be the first to review </h2>
+    </div>
+  </div>
 </ion-content>

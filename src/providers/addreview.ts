@@ -35,7 +35,6 @@ export class Addreview {
           else {
             genRating = review.rating * 100
           }
-
           return this.http.put('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/user/update', {userName: review.nail_artist_username, general_rating: genRating})
             .map((data: Response) => data.json())
             .subscribe(

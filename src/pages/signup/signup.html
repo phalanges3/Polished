@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
       <ion-title>
-    
+        Signup
       </ion-title>
      
     </ion-navbar>
@@ -9,62 +9,65 @@
  
 <ion-content class="page">
 
-    <ion-list no-lines>
+    <ion-list no-lines class="signForm">
  
-        <form [formGroup]="signupForm">
- 
-            <ion-item>
+        <form class="signItem" [formGroup]="signupForm">
+            <ion-row>   
+            <ion-item class="signItem">
                 <ion-label floating>First Name</ion-label>
                 <ion-input formControlName="firstName" type="text" [class.invalid]="!signupForm.controls.firstName.valid && (signupForm.controls.firstName.dirty || submitAttempt)"></ion-input>
             </ion-item>
- 
-            <ion-item *ngIf="!signupForm.controls.firstName.valid  && (signupForm.controls.firstName.dirty || submitAttempt)">
-                <p>Please enter a valid name.</p>
-            </ion-item>
- 
-            <ion-item>
+            <ion-item  class="signItem">
                 <ion-label floating>Last Name</ion-label>
                 <ion-input formControlName="lastName" type="text" [class.invalid]="!signupForm.controls.lastName.valid && (signupForm.controls.email.dirty || submitAttempt)"></ion-input>
             </ion-item>
- 
-            <ion-item *ngIf="!signupForm.controls.lastName.valid  && (signupForm.controls.lastName.dirty || submitAttempt)">
+            </ion-row>
+            <ion-item *ngIf="!signupForm.controls.firstName.valid  && (signupForm.controls.firstName.dirty || submitAttempt)">
                 <p>Please enter a valid name.</p>
             </ion-item>
-            <ion-item>
-              <ion-label floating>Email</ion-label>
-              <ion-input formControlName="email" type="email"></ion-input>
+            <ion-item class="signItem" *ngIf="!signupForm.controls.lastName.valid  && (signupForm.controls.lastName.dirty || submitAttempt)">
+                <p>Please enter a valid name.</p>
             </ion-item>
-            <ion-item>
+          
+            <ion-row>
+            <ion-item class="signItem">
                 <ion-label floating>Username</ion-label>
                 <ion-input [class.invalid]="!signupForm.controls.userName.valid && (signupForm.controls.userName.dirty || submitAttempt)" formControlName="userName" type="text"></ion-input>
             </ion-item>
- 
-            <ion-item *ngIf="signupForm.controls.userName.pending">
-                <p>Checking username...</p>
-            </ion-item>
- 
-            <ion-item *ngIf="!signupForm.controls.userName.valid && !signupForm.controls.userName.pending && (signupForm.controls.userName.dirty || submitAttempt)">
-                <p>Sorry, that username can not be used!</p>
-            </ion-item>
- 
-            <ion-item>
+             <ion-item class="signItem">
               <ion-label floating>Password</ion-label>
               <ion-input formControlName="password" type="password"></ion-input>
             </ion-item>
-        
-            <ion-item>
-                <ion-label>Sign up as a Nail Artist?</ion-label>
-                <ion-toggle formControlName="isVendor" color="energized" checked="true"></ion-toggle>
+            </ion-row>
+            <ion-item class="signItem" *ngIf="signupForm.controls.userName.pending">
+                <p>Checking username...</p>
             </ion-item>
-
-            <ion-item>
+ 
+            <ion-item class="signItem" *ngIf="!signupForm.controls.userName.valid && !signupForm.controls.userName.pending && (signupForm.controls.userName.dirty || submitAttempt)">
+                <p>Sorry, that username can not be used!</p>
+            </ion-item>
+            <ion-row>
+            <ion-item class="signItem">
+              <ion-label floating>Email</ion-label>
+              <ion-input formControlName="email" type="email"></ion-input>
+            </ion-item>
+            <ion-item class="signItem">
               <ion-label floating>License Number</ion-label>
               <ion-input formControlName="nailCertification" type="text"></ion-input>
             </ion-item>
- 
+            </ion-row> 
+            <ion-row>
+                <ion-col width-20>
+                    <div class="toggleLab">Sign up as a Nail Artist?</div>
+                </ion-col>
+                <ion-col width-20>
+                    <ion-toggle class="tog" formControlName="isVendor" color="energized" checked="true"></ion-toggle>
+                </ion-col>
+               
+            </ion-row>
         </form>
- 
+
     </ion-list>
- <button ion-button outline color="primary" (click)="addSignup()">Create Account!</button>
+     <button class="signBut" ion-button color="primary" align="right" (click)="addSignup()">Create Account!</button>
 
 </ion-content>

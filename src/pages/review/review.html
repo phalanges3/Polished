@@ -8,7 +8,7 @@
 
   <ion-toolbar>
     <ion-title>
-
+    Review {{ data.nail_artist_first }} {{ data.nail_artist_second }}
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -22,13 +22,26 @@
 
 
 <ion-content class="page" padding>
-  <ion-card id="card">
-    <img src="{{ data.nail_artist_image }}" onresize="">
-    <h2> <b>{{ data.nail_artist_first }} {{ data.nail_artist_second }}</b> </h2>
-    <h3> @{{ data.nail_artist_username }} </h3>
-  </ion-card>
+  <div class="basicSect">
+    <ion-row class="basicSect">
+    <img class="profilePic" src="{{ data.nail_artist_image }}" onresize="">
+   <!--  <h2> <b>{{ data.nail_artist_first }} {{ data.nail_artist_second }}</b> </h2> -->
+    <!--  <ion-title>
+      Your Rating: {{ rating }}
+    </ion-title> -->
+    <ion-col>
+      <ion-card-content text-wrap>
+        <b>Overall, how would you rate your experience with {{ data.nail_artist_first }}?</b>
+      </ion-card-content>
+      <ion-item>
+        <rating [(ngModel)]="rating" id="rating"></rating>
+      </ion-item>
+    </ion-col>
+    </ion-row>
+    
+  </div>
 
-  <ion-card id="card">
+<!--   <div class="profSect">
     <ion-title>
       Your Rating: {{ rating }}
     </ion-title>
@@ -38,9 +51,9 @@
     <ion-item>
       <rating [(ngModel)]="rating" id="rating"></rating>
     </ion-item>
-  </ion-card>
+  </div> -->
 
-  <ion-card id="card">
+  <div class="profSect">
     <ion-title>
       Picture
     </ion-title>
@@ -54,7 +67,6 @@
             <ion-icon name="camera"></ion-icon>
           </button>
         </ion-col>
-
         <ion-col width-35>
           <button ion-button block (click)="accessGallery()" icon-right small>
             Open Gallery
@@ -64,12 +76,13 @@
       </ion-row>
 
 
-      <ion-item>
+      <ion-item *ngIf="vidFlag">
         <video *ngIf="vidFlag" #video width="100%" height="100%" autoplay></video>
         <img [src]="imageUrl" *ngIf="imageUrl">
         <canvas id="canvas" *ngIf="vidFlag"></canvas>
       </ion-item>
-      <ion-item>
+
+      <ion-item *ngIf="buttonFlag && usedTakePicButton">
         <!--<img [src]="imageUrl" *ngIf="imageUrl">-->
       <button *ngIf="buttonFlag && usedTakePicButton" ion-button small id="startbutton" (click)="takepicture()" item-left>Take photo</button>
       <button *ngIf="buttonFlag && tookPhoto" ion-button small (click)="saveImage(imageUrl)" item-right>Use Photo</button>
@@ -80,9 +93,9 @@
         </ion-row>
       </ion-item>
 
-  </ion-card>
+  </div>
 
-  <ion-card id="card">
+  <div class="profSect">
     <ion-title>
       Review Comment
     </ion-title>
@@ -93,6 +106,6 @@
       <ion-textarea rows="8" placeholder="Fill description of experience." [(ngModel)]="review_content">
       </ion-textarea>
     </ion-item>
-  </ion-card>
+  </div>
   <button ion-button medium (click)="submitReview({rating: rating, image1: cloudinaryUrl, review_content: review_content})">Submit Review</button>
 </ion-content>
