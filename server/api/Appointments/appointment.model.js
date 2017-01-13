@@ -106,7 +106,7 @@ module.exports = {
   },
   deleteAppointment: (req, res) => {
     Appointment
-      .findAll({where: {id: null}})
+      .findAll({where: {total: null}})
       .then((appointment) => {
         console.log('user: ', appointment)
         if (appointment) {
