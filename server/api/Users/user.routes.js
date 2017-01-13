@@ -14,6 +14,10 @@ router.put('/update', (req, res) => {
   console.log('within USER PUT update')
   userModel.updateProfile(req, res)
 })
+router.post('/seedusers', (req, res) => {
+  console.log('within USER PUT update')
+  userModel.seedUsers(req, res)
+})
 
 module.exports = router
 

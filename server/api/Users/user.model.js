@@ -178,6 +178,119 @@ module.exports = {
           console.log('Error in PUT: ', err)
         }
       })
+  },
+  seedUsers: (req, res) => {
+    User
+      .create({
+        isVendor: 1,
+        profile_image_url: 'http://media.breitbart.com/media/2015/04/Neil-deGrasse-Tyson-AP-Photo.jpg',
+        firstName: 'Neil',
+        lastName: 'deGrasse Tyson',
+        email: 'Neil',
+        password: 'password',
+        phoneNumber: '4443563',
+        userName: 'Neil',
+        general_rating: '450',
+        nailCertification: '99999',
+        houseNumber: '666',
+        streetName: 'space',
+        unitType: '',
+        city: 'Los Angeles',
+        state: 'CA',
+        zipCode: '90010',
+        latitude: '34.05422389',
+        longitude: '-118.28739166'
+      })
+    User
+  .create({
+    isVendor: 1,
+    profile_image_url: 'https://s-media-cache-ak0.pinimg.com/originals/e3/e2/e2/e3e2e2caceb323f979b41607bdbbb979.jpg',
+    firstName: 'Barry',
+    lastName: 'White',
+    email: '',
+    password: 'password',
+    phoneNumber: '44444',
+    userName: 'barry',
+    general_rating: '499',
+    nailCertification: '777',
+    houseNumber: '555',
+    streetName: 'tttt',
+    unitType: '',
+    city: 'Los Angeles',
+    state: 'CA',
+    zipCode: '90010',
+    latitude: '34.05422389',
+    longitude: '-118.28739166'
+  })
+    User
+      .create({
+        isVendor: 1,
+        profile_image_url: 'https://imgflip.com/s/meme/Scumbag-Steve.jpg',
+        firstName: 'Steve',
+        lastName: 'Scumbag',
+        email: '',
+        password: 'password',
+        phoneNumber: '',
+        userName: 'scumbag',
+        general_rating: '111',
+        nailCertification: '66',
+        houseNumber: '666',
+        streetName: 'terrace',
+        unitType: '',
+        city: 'Los Angeles',
+        state: 'CA',
+        zipCode: '90045',
+        latitude: '33.97653467',
+        longitude: '-118.39073181'
+      })
+    User
+      .create({
+        isVendor: 1,
+        profile_image_url: 'https://www.surf.co/images/y-tho.jpg?image=cdn',
+        firstName: 'y',
+        lastName: 'tho',
+        email: 'ytho@gmail.com',
+        password: 'password',
+        phoneNumber: '9097838473',
+        userName: 'mrCostanza',
+        general_rating: '333',
+        nailCertification: '555',
+        houseNumber: '6060',
+        streetName: 'Center Dr',
+        unitType: '',
+        city: 'Los Angeles',
+        state: 'CA',
+        zipCode: '90045',
+        latitude: '33.97653467',
+        longitude: '-118.39073181'
+      })
+    User
+      .create({
+        isVendor: 1,
+        profile_image_url: 'https://imgflip.com/s/meme/Oprah-You-Get-A.jpg',
+        firstName: 'Oprah',
+        lastName: 'Winfrey',
+        email: '',
+        password: 'password',
+        phoneNumber: '',
+        userName: 'oprah',
+        general_rating: '',
+        nailCertification: '',
+        houseNumber: '',
+        streetName: '',
+        unitType: '',
+        city: 'los Angeles',
+        state: 'ca',
+        zipCode: '90045',
+        latitude: '33.97653467',
+        longitude: '-118.39073181'
+      })
+      .then((user) => {
+        res.send(user)
+      })
+      .catch((err) => {
+        console.log('Error in seedUsers: ', err)
+      })
   }
 }
 
