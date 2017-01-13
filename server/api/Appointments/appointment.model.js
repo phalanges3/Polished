@@ -103,5 +103,17 @@ module.exports = {
             .updateAttributes({}) // fill this in
         }
       })
+  },
+  deleteAppointment: (req, res) => {
+    Appointment
+      .findOne({where: {id: req.body.id}})
+      .then((appointment) => {
+        console.log('user: ', appointment)
+        if (appointment) {
+          appointment
+            .destroy()
+        }
+        res.send(appointment)
+      })
   }
 }
