@@ -76,13 +76,13 @@
       </ion-row>
 
 
-      <ion-item *ngIf="vidFlag">
+      <ion-item>
         <video *ngIf="vidFlag" #video width="100%" height="100%" autoplay></video>
         <img [src]="imageUrl" *ngIf="imageUrl">
         <canvas id="canvas" *ngIf="vidFlag"></canvas>
       </ion-item>
 
-      <ion-item *ngIf="buttonFlag && usedTakePicButton">
+      <ion-item>
         <!--<img [src]="imageUrl" *ngIf="imageUrl">-->
       <button *ngIf="buttonFlag && usedTakePicButton" ion-button small id="startbutton" (click)="takepicture()" item-left>Take photo</button>
       <button *ngIf="buttonFlag && tookPhoto" ion-button small (click)="saveImage(imageUrl)" item-right>Use Photo</button>
