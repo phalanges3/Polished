@@ -369,6 +369,7 @@ module.exports = {
           user
             .destroy()
         }
+        res.send(user)
       })
   }
 }
