@@ -6,6 +6,7 @@ import { Platform } from 'ionic-angular';
 import {ViewChild, ViewChildren, QueryList, ElementRef} from '@angular/core'
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
+
 @Component({
   selector: 'page-review',
   templateUrl: 'review.html'
@@ -82,6 +83,7 @@ export class ReviewPage {
       context.drawImage(this.video, 0, 0, this.width, this.height);
       this.vidFlag = false;
       this.imageUrl = this.canvas.toDataURL('image/png');
+      console.log('heres the image from take pic function ', this.imageUrl)
       this.usedTakePicButton = false;
       this.tookPhoto = true;
     }
@@ -129,9 +131,12 @@ export class ReviewPage {
           }
     }
     else {
-      Camera.getPicture().then((imageData) => {
-      this.imageUrl = imageData;
+      Camera.getPicture({
+        destinationType: Camera.DestinationType.DATA_URL
+    }).then((imageData) => {
+      this.imageUrl = "data:image/png;base64," + imageData;
       console.log('heres the image from photo shot ', imageData)
+      console.log('changes made!', this.imageUrl)
       this.saveImage(this.imageUrl);
       }, (err) => {
         console.log('Error on review takePhoto function ', err)
@@ -160,12 +165,12 @@ export class ReviewPage {
   }
 
   saveImage(image) {
-    //console.log('heres the image ', image)
-    //console.log('heres the imageUrl ', this.imageUrl)
+    console.log('heres the image ', image)
       let body = {
         "file": image,
         "upload_preset": "yi4d6zwf"
       }
+      console.log('body parameters ', body)
       return this.http.post("https://api.cloudinary.com/v1_1/ddy7oiu4u/image/upload", body)
         .map((data: Response) => {
           console.log('heres the data page ', data)
