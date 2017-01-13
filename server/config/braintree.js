@@ -36,6 +36,7 @@ router.post('/checkouts', function (req, res) {
     }
     console.log('RESULT: ', result)
   })
+  res.sendStatus(200)
 })
 
 module.exports = router
