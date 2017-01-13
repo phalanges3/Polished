@@ -96,7 +96,7 @@ export class BestmatchPage {
     let latLng = new google.maps.LatLng(this.bookInfo.lat, this.bookInfo.lon);
     let mapOptions = {
       center: latLng,
-      zoom: 8,
+      zoom: 11,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
