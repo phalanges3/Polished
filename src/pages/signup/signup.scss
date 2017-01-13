@@ -19,7 +19,7 @@
         }
  
         ion-input, ion-select, ion-textarea {
-            background-color: #f2f2f2;
+            background-color: rgba(255, 248, 168, 1);
             padding: 5px 10px;
         }
  
@@ -29,4 +29,34 @@
  
     }
  
+}
+.signForm{
+    background-color: rgba(0,0,0,.6);
+    margin: 10px;
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10pt;
+
+}
+
+.signItem{
+  background-color: rgba(0,0,0,0);
+  margin-top: -5px;
+}
+
+.toggleLab{
+    color: white;
+    font-style: bold;
+    border-radius: 10pt;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.signBut{
+    background-color: #3C94CF;
+    border-radius: 10pt;
+    
 }

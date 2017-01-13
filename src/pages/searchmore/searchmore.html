@@ -1,36 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-
+    All Nearby
     </ion-title> 
   </ion-navbar>
 </ion-header>
 
 <ion-content class="page" padding>
 
-  <ion-card #map id="map">
+  <div #map id="map">
     <!--<div #map id="map"></div> -->
-  </ion-card>
+  </div>
   
   <br>
-  <ion-card *ngFor="let item of data" id="card">
-    <ion-item>
+  <div  *ngFor="let item of data">
+    <ion-item  class="bestCard">
       <ion-thumbnail item-left>
         <img src="{{ item.profile_image_url }}" id="itemPic">
       </ion-thumbnail>
       <h2> <b>{{ item.firstName }} {{ item.lastName }}</b> </h2>
       <!--<h3> {{ item.insta }} </h3>-->
       <rating [(ngModel)]="item.general_rating" id="rating" readOnly="true"></rating>
-      <button ion-button very-small outline item-bottom icon-left (click)="seeProfile(item)">
+      <button class="bestButton" ion-button very-small outline item-bottom icon-left (click)="seeProfile(item)">
         <ion-icon name="person"></ion-icon>
         Profile
       </button>
-      <button ion-button very-small outline item-bottom icon-left (click)="confirmBooking(item)">
+      <button class="bestButton" ion-button very-small outline item-bottom icon-left (click)="confirmBooking(item)">
         <ion-icon name="book"></ion-icon>
         Book
       </button>
       
     </ion-item>
-  </ion-card>
+  </div>
   
 </ion-content>

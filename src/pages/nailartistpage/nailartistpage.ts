@@ -87,13 +87,16 @@ export class NailartistpagePage {
   nailArtistInfo: any;
   nailArtistReviews: any;
   bookInfo: any;
+  reviewFlag= true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fetchData:ProfilePicsRevs, private bookArtist: Bookartist, public alertCtrl: AlertController) {
     this.nailArtistInfo = this.navParams.get("nailArtistInfo");
     this.nailArtistReviews = this.navParams.get("nailArtistReviews");
+    if(this.nailArtistReviews.length===0){
+      this.reviewFlag=false;
+    }
     this.bookInfo = this.navParams.get("bookInfo");
-    
-
+    console.log(this.nailArtistReviews, "nailArtistReviews")
   }
 
   
