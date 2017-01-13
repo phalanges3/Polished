@@ -118,17 +118,21 @@ export class ReviewPage {
       this.usedTakePicButton = true;
       console.log('opening laptop camera ', this.vidFlag)
       console.log('heres video!! ', this.video)
-      this.video = this.video.nativeElement;
-      console.log('heres video!! ', this.video)
       
-      if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices
-          .getUserMedia({ video: true, audio: false })
-          .then(stream => {
-              this.video.src = window.URL.createObjectURL(stream);
-              this.video.play();
-            })
-          }
+      setTimeout(() => {
+        this.video = this.video.nativeElement;
+        console.log('heres video!! ', this.video)
+        
+        if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices
+            .getUserMedia({ video: true, audio: false })
+            .then(stream => {
+                this.video.src = window.URL.createObjectURL(stream);
+                this.video.play();
+              })
+            }
+      }, 100)
+
     }
     else {
       Camera.getPicture({
