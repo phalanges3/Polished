@@ -131,7 +131,7 @@ export class ReviewPage {
                 this.video.play();
               })
             }
-      }, 100)
+      }, 1)
 
     }
     else {
