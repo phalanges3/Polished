@@ -282,7 +282,79 @@ module.exports = {
         longitude: '-118.39073181'
       })
       .then((user) => {
-        res.send(user)
+        if (user.isVendor === 1) {
+          console.log('inside is vendor create schedule')
+          Schedule.create({
+              userId: user.id,
+              day: 'Sunday',
+              start: '09:00:00',
+              end: '17:00:00'
+            })
+          .then(schedule => {
+            Schedule.create({
+              userId: user.id,
+              day: 'Monday',
+              start: '09:00:00',
+              end: '17:00:00'
+            })
+            .then(schedule => {
+              Schedule.create({
+                userId: user.id,
+                day: 'Sunday',
+                start: '09:00:00',
+                end: '17:00:00'
+              })
+              .then(schedule => {
+                Schedule.create({
+                  userId: user.id,
+                  day: 'Tuesday',
+                  start: '09:00:00',
+                  end: '17:00:00'
+                })
+                .then(schedule => {
+                  Schedule.create({
+                    userId: user.id,
+                    day: 'Wednesday',
+                    start: '09:00:00',
+                    end: '17:00:00'
+                  })
+                  .then(schedule => {
+                    Schedule.create({
+                      userId: user.id,
+                      day: 'Thursday',
+                      start: '09:00:00',
+                      end: '17:00:00'
+                    })
+                    .then(schedule => {
+                      Schedule.create({
+                        userId: user.id,
+                        day: 'Friday',
+                        start: '09:00:00',
+                        end: '17:00:00'
+                      })
+                      .then(schedule => {
+                        Schedule.create({
+                          userId: user.id,
+                          day: 'Saturday',
+                          start: '09:00:00',
+                          end: '17:00:00'
+                        })
+                        .then(schedule => {
+                          console.log('user after: ', user)
+                          res.send(user)
+                        })
+                      })
+                    })
+                  })
+                })
+              })
+            })
+          })
+        } else {
+          res.send(user)
+        }
+
+        console.log('USER: ', user)
       })
       .catch((err) => {
         console.log('Error in seedUsers: ', err)
