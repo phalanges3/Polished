@@ -25,7 +25,7 @@
       <ion-row>
      <!--  <div> {{item.houseNumber}} {{item.streetName}} {{item.city}}, {{item.state}} {{item.zipCode}} </div> -->
         <div class="appt"> {{item.services_selected}} </div> 
-        <div class="appt"> Total: {{item.total}}</div>
+        <div class="appt"> Total: ${{item.total}}</div>
       </ion-row>
       <button class="directBut" ion-button very-small outline item-right icon-right *ngIf="earningsFlag===true" (click)="goToDirections(item)">
           Directions
@@ -45,8 +45,8 @@
       </ion-row>
       <ion-row>
      <!--  <div> {{pastAppointment.houseNumber}} {{pastAppointment.streetName}} {{pastAppointment.city}}, {{pastAppointment.state}} {{pastAppointment.zipCode}} </div> -->
-        <div class="appt"> {{pastAppointment.services_selected}} </div> 
-        <div class="appt"> Total: {{pastAppointment.total}}</div>
+        <!--<div class="appt"> {{pastAppointment.services_selected}} </div> -->
+        <!--<div class="appt"> Total: ${{pastAppointment.total}}</div>-->
       </ion-row>
         <button class="directBut" ion-button very-small outline item-right icon-right (click)="reviewModal(pastAppointment)">
           Review

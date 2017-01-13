@@ -102,7 +102,7 @@ export class NailtechdashboardPage {
           }]
         }
         this.appointments = result
-        console.log("appts  line 103",  this.appointments)
+        console.log("appts  line 103", this.appointments)
         this.pastAppts = result
         for(let i = 0; i <this.appointments.length; i++){
           this.newDate = new Date(this.appointments[i].date)
