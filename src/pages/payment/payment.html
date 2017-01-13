@@ -8,11 +8,12 @@
 
 
 <ion-content class="page" padding>
-
-<form id="checkout" method="post" action="https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/payment/checkouts">
-  <div id="payment-form"></div>
-  <button ion-button outline color="primary" type="submit" (click)="openAlert()">$ {{this.price}}</button>
- 
-</form>
+<div id="checkout" method="post" action="https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/payment/checkouts">
+	<form>
+	  <div id="payment-form">
+	  </div>
+	</form>
+	<button class="addressButs" ion-button type="submit" full (click)="openAlert()">Pay ${{this.price}}</button>
+</div>
 </ion-content>
 
