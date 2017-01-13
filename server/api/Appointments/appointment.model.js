@@ -110,7 +110,7 @@ module.exports = {
       .then((appointment) => {
         console.log('user: ', appointment)
         if (appointment) {
-          appointment
+          Appointment
             .destroy()
         }
         res.send(appointment)
