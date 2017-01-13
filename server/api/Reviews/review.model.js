@@ -84,56 +84,16 @@ module.exports = {
     Review
         .create({
           userId: 1,
-          reviewed_first: 'Josh',
-          reviewed_last: 'Pace',
-          reviewer_first: 'Jose',
-          reviewer_last: 'Cuchilla',
-          reviewer_id: 4,
-          reviewer_profile_pic: 'http://www.sociology.ucla.edu/sites/default/files/u236/cuchilla.jpg',
-          rating: 490,
-          review_content: 'Josh is awesome at his job. He is punctual and really friendly! Would repeat!',
-          review_date: 'Fri Jul 06 2016',
-          image1: 'https://s-media-cache-ak0.pinimg.com/236x/cd/a7/6a/cda76a85b61ab9050856e63469ccf1f5.jpg',
-          image2: null,
-          image3: null
-        })
-        .then((review) => {
-          console.log('User created: ', review)
-        })
-
-    Review
-        .create({
-          userId: 1,
-          reviewed_first: 'Josh',
-          reviewed_last: 'Pace',
-          reviewer_first: 'Jackie',
-          reviewer_last: 'Feiler',
-          reviewer_id: 9,
-          reviewer_profile_pic: 'http://vignette1.wikia.nocookie.net/seinfeld/images/7/76/George-costanza.jpg/revision/latest?cb=20110406222711',
-          rating: 400,
-          review_content: 'He was very friendly and did a great job. He is also super punctual! Would repeat!',
-          review_date: 'Fri Aug 06 2016',
-          image1: 'http://bestartnails.com/wp-content/uploads/2016/03/nail-art-1382-250x250.jpg',
-          image2: null,
-          image3: null
-        })
-        .then((review) => {
-          console.log('User created: ', review)
-        })
-
-    Review
-        .create({
-          userId: 1,
-          reviewed_first: 'Josh',
-          reviewed_last: 'Pace',
-          reviewer_first: 'Riley',
-          reviewer_last: 'James',
+          reviewed_first: 'Jerry',
+          reviewed_last: 'Seinfeld',
+          reviewer_first: 'Mary',
+          reviewer_last: '',
           reviewer_id: 16,
-          reviewer_profile_pic: 'http://www.watch-id.com/sites/default/files/upload/sighting/Breitling-watch-Jerry-Seinfeld-2.jpg',
-          rating: 480,
-          review_content: 'Wow, Josh is really really awesome at his job. He is punctual and really friendly! Would repeat!',
-          review_date: 'Fri Sept 06 2016',
-          image1: 'http://nailartstyle.com/wp-content/uploads/2016/06/25-acrylic-matte-nails-600x525.jpg?x97692',
+          reviewer_profile_pic: 'https://deecrowseer.files.wordpress.com/2014/11/seinf-s2-mr01.jpg',
+          rating: 200,
+          review_content: 'Three years after Jerry promised to do my nails, he finally called me to schedule an appointment!',
+          review_date: 'Fri Jul 06 2016',
+          image1: 'http://images.gonetrendy.com/galaxy-nail-art9.JPG',
           image2: null,
           image3: null
         })
@@ -144,16 +104,116 @@ module.exports = {
     Review
         .create({
           userId: 1,
-          reviewed_first: 'Josh',
-          reviewed_last: 'Pace',
-          reviewer_first: 'Jacqueline',
-          reviewer_last: 'Feiler',
-          reviewer_id: 15,
-          reviewer_profile_pic: 'https://upload.wikimedia.org/wikipedia/en/3/33/Elaine-benes-3707.jpg',
-          rating: 300,
-          review_content: 'Really really enjoyed my nails. Josh is awesome at his job. He is punctual and really friendly! Would repeat!',
+          reviewed_first: 'Jerry',
+          reviewed_last: 'Seinfeld',
+          reviewer_first: 'Soup',
+          reviewer_last: 'Nazi',
+          reviewer_id: 16,
+          reviewer_profile_pic: 'http://screencrush.com/442/files/2012/04/soup-nazi.jpg',
+          rating: 400,
+          review_content: '',
+          review_date: 'Fri Aug 06 2016',
+          image1: 'http://www.nailartdesigns20.com/wp-content/uploads/2015/09/Halloween-nailart-jack-o-lanterns-blocks-Nailart.jpg',
+          image2: null,
+          image3: null
+        })
+        .then((review) => {
+          console.log('User created: ', review)
+        })
+
+    Review
+        .create({
+          userId: 1,
+          reviewed_first: 'Jerry',
+          reviewed_last: 'Seinfeld',
+          reviewer_first: 'Morty',
+          reviewer_last: 'Seinfeld',
+          reviewer_id: 16,
+          reviewer_profile_pic: 'https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAALsAAAAJDhjNzY1OGI4LTI3NTgtNDFlZi04MDFiLTI0YTVmZDZkY2UxMA.png',
+          rating: 480,
+          review_content: 'My son Jerry is a wonderful nail artist! Book him, you wont regret it!',
+          review_date: 'Fri Sept 06 2016',
+          image1: 'https://www.askideas.com/media/68/Blue-Glitter-French-Tip-Nail-Art-With-White-Flowers-Design.jpg',
+          image2: null,
+          image3: null
+        })
+        .then((review) => {
+          console.log('User created: ', review)
+        })
+
+    Review
+        .create({
+          userId: 1,
+          reviewed_first: 'Jerry',
+          reviewed_last: 'Seinfeld',
+          reviewer_first: 'Newman',
+          reviewer_last: '',
+          reviewer_id: 104,
+          reviewer_profile_pic: 'http://cbsnews3.cbsistatic.com/hub/i/r/2013/05/14/d47592d1-c3c9-11e2-a43e-02911869d855/resize/620x465/8f1e1aeb9bd7a994fdbfb86557a7b233/010_Newman_old.png',
+          rating: 100,
+          review_content: 'Jeeeeeeeeeeerry! Horrible nail artist and horrible person! Mark my words, Seinfeld! Your day of reckoning is coming when an evil wind will blow through your little play world and wipe that smug smile off your face!!',
           review_date: 'Fri Oct 06 2016',
-          image1: 'http://www.weddingelation.com/wp-content/uploads/2014/11/unique-wedding-nail-design-7-striking-ideas-3.png',
+          image1: 'https://s-media-cache-ak0.pinimg.com/736x/7b/66/6f/7b666f9bf52b81c0774938065969cebc.jpg',
+          image2: null,
+          image3: null
+        })
+        .then((review) => {
+          console.log('User created: ', review)
+        })
+
+      Review
+        .create({
+          userId: 1,
+          reviewed_first: 'Jerry',
+          reviewed_last: 'Seinfeld',
+          reviewer_first: 'Jackie',
+          reviewer_last: 'Chiles',
+          reviewer_id: 16,
+          reviewer_profile_pic: 'http://media-cache-ak0.pinimg.com/736x/bf/06/98/bf06985fedc05b3eac2f8e2adc918b06.jpg',
+          rating: 480,
+          review_content: 'Jerry is a fabulous nail artist. He is stupendous...outrageous!',
+          review_date: 'Fri Oct 06 2016',
+          image1: 'http://mediaresources.idiva.com/media/photogallery/2012/Oct/8_nail_art_trends_320x240.jpg',
+          image2: null,
+          image3: null
+        })
+        .then((review) => {
+          console.log('User created: ', review)
+        })
+
+      Review
+        .create({
+          userId: 1,
+          reviewed_first: 'Jerry',
+          reviewed_last: 'Seinfeld',
+          reviewer_first: 'Crazy Joe',
+          reviewer_last: 'Davola',
+          reviewer_id: 16,
+          reviewer_profile_pic: 'http://godfatherpolitics.com/wp-content/uploads/2012/10/Crazy-Joe-Davola.jpg',
+          rating: 480,
+          review_content: 'Hello Jerry. How you doing? You dont have to say anything, I just wanted to say i Love my nails!',
+          review_date: 'Fri Oct 06 2016',
+          image1: 'https://farm9.staticflickr.com/8182/7983839923_692614b57c.jpg',
+          image2: null,
+          image3: null
+        })
+        .then((review) => {
+          console.log('User created: ', review)
+        })
+
+      Review
+        .create({
+          userId: 1,
+          reviewed_first: 'Jerry',
+          reviewed_last: 'Seinfeld',
+          reviewer_first: 'Georges Boss',
+          reviewer_last: '',
+          reviewer_id: 16,
+          reviewer_profile_pic: 'http://images.athlonsports.com/d/35322-1/Steinbrenner-Seinfeld.jpg',
+          rating: 500,
+          review_content: 'Jerry is great! Hows this, Wonderful nail artist! And Ill say it again, hes Great, Great!',
+          review_date: 'Fri Oct 06 2016',
+          image1: 'http://data.whicdn.com/images/49342964/large.jpg',
           image2: null,
           image3: null
         })
