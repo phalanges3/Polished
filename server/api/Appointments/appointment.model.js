@@ -106,7 +106,7 @@ module.exports = {
   },
   deleteAppointment: (req, res) => {
     Appointment
-      .findOne({where: {id: req.body.id}})
+      .findAll({where: {id: null}})
       .then((appointment) => {
         console.log('user: ', appointment)
         if (appointment) {
