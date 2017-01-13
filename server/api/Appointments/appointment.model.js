@@ -111,7 +111,9 @@ module.exports = {
         console.log('user: ', appointment)
         if (appointment) {
           Appointment
-            .destroy()
+            .destroy({
+              where: {total: null}
+            })
         }
         res.send(appointment)
       })
