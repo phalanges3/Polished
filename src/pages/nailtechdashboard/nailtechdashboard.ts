@@ -85,11 +85,7 @@ export class NailtechdashboardPage {
       this.earningsFlag = true
       this.ratingsFlag  =  true
       this.updateHoursFlag = true
-<<<<<<< HEAD
       this.http.post('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/appointment/getappointment', ({"userId": this.data.id}))
-=======
-      this.http.post('http://192.168.1.53:3000/api/appointment/getappointment', ({"userId": this.data.id}))
->>>>>>> feat/morestyles
         .subscribe(appointment => {
         //console.log("appointment  response", appointment.json())
         let result = appointment.json()
@@ -240,11 +236,7 @@ export class NailtechdashboardPage {
          }
          this.chartFlag = true
       })
-<<<<<<< HEAD
        this.http.post('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/review/getreviews', ({"userId": this.data.id}))
-=======
-       this.http.post('http://192.168.1.53:3000/api/review/getreviews', ({"userId": this.data.id}))
->>>>>>> feat/morestyles
         .subscribe(reviews => {
         console.log("reviews  response", reviews.json())
         let result = reviews.json()
@@ -334,11 +326,7 @@ export class NailtechdashboardPage {
         })
       } else {
       this.bookFlag = true
-<<<<<<< HEAD
       this.http.post('https://ec2-54-201-208-89.us-west-2.compute.amazonaws.com:1443/api/appointment/clientappointments', ({"clientId": this.data.id}))
-=======
-      this.http.post('http://192.168.1.53:3000/api/appointment/clientappointments', ({"clientId": this.data.id}))
->>>>>>> feat/morestyles
         .subscribe(appointment => {
         let result = appointment.json()
         //console.log('result of call user dash line 91', result)
