@@ -31,7 +31,8 @@ export class Bookartist {
           "nail_artist_second": nailArtist.lastName,
           "nail_artist_username": nailArtist.userName,
           "nail_artist_image": nailArtist.profile_image_url,
-          "services_selected": bookInfo.service
+          "services_selected": bookInfo.service,
+          "total": bookInfo.price
     }
     //console.log('heres app data ', appointmentData)
     let convert =function (input) {
