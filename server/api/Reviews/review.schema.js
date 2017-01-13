@@ -43,7 +43,7 @@ const Review = db.define('review', {
   }
 })
 
-Review.sync().then(() => {
+Review.sync({force:true}).then(() => {
   console.log('Review table successfully created.')
 })
 
