@@ -83,12 +83,12 @@ module.exports = {
     // Seeding Reviews for nail artist: Josh Pace
     Review
         .create({
-          userId: 1,
+          userId: 5,
           reviewed_first: 'Jerry',
           reviewed_last: 'Seinfeld',
           reviewer_first: 'Mary',
           reviewer_last: '',
-          reviewer_id: 16,
+          reviewer_id: 56,
           reviewer_profile_pic: 'https://deecrowseer.files.wordpress.com/2014/11/seinf-s2-mr01.jpg',
           rating: 200,
           review_content: 'Three years after Jerry promised to do my nails, he finally called me to schedule an appointment!',
@@ -103,7 +103,7 @@ module.exports = {
 
     Review
         .create({
-          userId: 1,
+          userId: 5,
           reviewed_first: 'Jerry',
           reviewed_last: 'Seinfeld',
           reviewer_first: 'Soup',
@@ -123,7 +123,7 @@ module.exports = {
 
     Review
         .create({
-          userId: 1,
+          userId: 5,
           reviewed_first: 'Jerry',
           reviewed_last: 'Seinfeld',
           reviewer_first: 'Morty',
@@ -143,7 +143,7 @@ module.exports = {
 
     Review
         .create({
-          userId: 1,
+          userId: 5,
           reviewed_first: 'Jerry',
           reviewed_last: 'Seinfeld',
           reviewer_first: 'Newman',
@@ -163,7 +163,7 @@ module.exports = {
 
       Review
         .create({
-          userId: 1,
+          userId: 5,
           reviewed_first: 'Jerry',
           reviewed_last: 'Seinfeld',
           reviewer_first: 'Jackie',
@@ -183,7 +183,7 @@ module.exports = {
 
       Review
         .create({
-          userId: 1,
+          userId: 5,
           reviewed_first: 'Jerry',
           reviewed_last: 'Seinfeld',
           reviewer_first: 'Crazy Joe',
@@ -203,7 +203,7 @@ module.exports = {
 
       Review
         .create({
-          userId: 1,
+          userId: 5,
           reviewed_first: 'Jerry',
           reviewed_last: 'Seinfeld',
           reviewer_first: 'Georges Boss',
