@@ -1,9 +1,9 @@
-# Mani / Pedi App #
-***slogan***
+# Polished #
+Treat your hands and feet.
 
 
 ## Overview ##
-
+Schedule on-demand manicure appointments with local independent nail artists
 ## Problem ##
 
 ## Solution ##
