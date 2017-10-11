@@ -35,6 +35,7 @@ module.exports = {
       if (err) {
         console.log(err)
       }
+      // Cheerio module for web scraping 
       let $ = cheerio.load(resp.body)
       let response = resp.body
       let dataView = $('.dataView')
