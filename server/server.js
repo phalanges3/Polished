@@ -17,8 +17,8 @@ app.use('/api', routes)
 
 // HTTPS
 let secureServer = https.createServer({
-  key: fs.readFileSync('./server/config/private.key'),
-  cert: fs.readFileSync('./server/config/certificate.pem')
+  key: fs.readFileSync('./config/private.key'),
+  cert: fs.readFileSync('./config/certificate.pem')
 }, app)
   .listen(HTTPS_PORT, () => {
     console.log('Secure Server listening on port: ' + HTTPS_PORT)
